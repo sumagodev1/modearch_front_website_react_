@@ -9,6 +9,7 @@ import precision from './images/careers/precision.png'
 import globle from './images/careers/globle.png'
 import work from './images/careers/work.png'
 import careers from './images/careers/careers.png'
+import './Careers.css'
 
 const Careers = () => {
   const [formData, setFormData] = useState({

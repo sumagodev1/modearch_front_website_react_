@@ -1,0 +1,87 @@
+.who-we-are-para{
+    border: 1px solid #fff;
+    padding: 1.5rem 2rem 0rem 3rem;
+    border-radius: 1rem;
+    text-align: justify;
+}
+
+
+ .vision-mission-section {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    /* background: url('./images/about/Frame\ 29.png') no-repeat center center/cover; */
+  }
+  
+  .shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .mission-above-img{
+    margin-left: 10rem;
+    position: sticky;
+    z-index: 1111;
+  }
+  .vision-mission-row{
+    margin-top: -1rem;
+  }
+  .bottom-img{
+    margin-top: -2.5rem;
+  }
+  .vision-mission-rounded{
+    border-radius: 1.25rem !important;
+  }
+
+  /* .about-precision-steel-btn{
+    top: 85%;
+    left: 49%;
+    font-weight: 700;
+  } */
+
+  .about-precision-steel-btn {
+    top: 85%;
+    left: 50%;
+    font-weight: 700;
+    transform: translate(-58%, -50%) !important;
+    white-space: nowrap; 
+    padding: 10px 20px; 
+}
+
+/* Adjustments for smaller screens */
+@media (min-width: 769px) and (max-width: 824px) {
+  .about-precision-steel-btn {
+      transform: translate(-40%, -50%) !important;
+  }
+}
+
+@media (min-width: 825px) and (max-width: 1020px) {
+  .about-precision-steel-btn {
+      transform: translate(-44%, -50%) !important;
+  }
+}
+
+@media (min-width: 1021px) and (max-width: 1198px) {
+  .about-precision-steel-btn {
+      transform: translate(-48%, -50%) !important;
+  }
+}
+
+@media (max-width: 768px) {
+    .about-precision-steel-btn {
+        top: 90%; 
+        font-size: 14px; 
+        padding: 8px 16px;
+        transform: translate(-40%, -50%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-precision-steel-btn {
+        top: 92%;
+        font-size: 12px;
+        padding: 6px 12px;
+        transform: translate(-28%, -50%) !important;
+    }
+}
+
+
+.cust-feedback-img{
+  left: 83% !important;
+}
