@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.36d7fb8a.css",
+    "main.js": "/static/js/main.b850043a.js",
+    "static/media/img.png": "/static/media/img.d1efc7d281b190593b96.png",
+    "static/media/about-banner-img.png": "/static/media/about-banner-img.c8642c1a21176a16945f.png",
+    "static/media/careers_banner_img.png": "/static/media/careers_banner_img.499a1752a9611dc1a6b3.png",
+    "static/media/contact-banner-img.jpg": "/static/media/contact-banner-img.b8fb526e9c84c3d1b23a.jpg",
+    "static/media/careers-bg-img.png": "/static/media/careers-bg-img.3ada64c8399c03d7cebb.png",
+    "static/media/image.png": "/static/media/image.9503d6fb162180a3d70f.png",
+    "static/media/faq.png": "/static/media/faq.0aee6f14020ff7ca1b56.png",
+    "static/media/about-precision-steel-img.png": "/static/media/about-precision-steel-img.45576bbb72399b7ad790.png",
+    "static/media/reachus.png": "/static/media/reachus.f16c78272e4548a3da41.png",
+    "static/media/about-us-imgg.png": "/static/media/about-us-imgg.3e98192e574ff0b24020.png",
+    "static/media/reachus-bg.png": "/static/media/reachus-bg.2b678e4cb1ae21ef1d79.png",
+    "static/media/careers-form-bg-img.png": "/static/media/careers-form-bg-img.955b0dcbb269d1d8dcb7.png",
+    "static/media/website-logo.png": "/static/media/website-logo.fd37c5997f855567b752.png",
+    "static/media/team2.png": "/static/media/team2.98539e8aaa47e5d75601.png",
+    "static/media/footer-img.png": "/static/media/footer-img.67b3b87fe0296c672ad7.png",
+    "static/media/team4.png": "/static/media/team4.1558b616fa026b5cc54b.png",
+    "static/media/team1.png": "/static/media/team1.27fc2efb89330230b4d8.png",
+    "static/media/team3.png": "/static/media/team3.39149459b60626574a42.png",
+    "static/media/footernew.png": "/static/media/footernew.acd30f23e4ad0b61caf3.png",
+    "static/media/feedback3.png": "/static/media/feedback3.dddc23de3e073646f8d2.png",
+    "static/media/feedback2.png": "/static/media/feedback2.adabf2def9d58d38ca5d.png",
+    "static/media/feedback1.png": "/static/media/feedback1.f6cd8e13059ab89d4d8d.png",
+    "static/media/mission.png": "/static/media/mission.22886f30c1b2fb5887e4.png",
+    "static/media/vision-mission-bottom.png": "/static/media/vision-mission-bottom.e44c6662133b0ab0b519.png",
+    "index.html": "/index.html",
+    "main.36d7fb8a.css.map": "/static/css/main.36d7fb8a.css.map",
+    "main.b850043a.js.map": "/static/js/main.b850043a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36d7fb8a.css",
+    "static/js/main.b850043a.js"
+  ]
+}
