@@ -8,6 +8,7 @@ import Careers from "./pagesComponent/Careers"
 import WebsiteContact from './Website_contact';
 import ContactUs from './pagesComponent/ContactUs';
 import About from './pagesComponent/About';
+import Service from "./pagesComponent/Service";
 import './index.css'
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
             <Route path="/" element={<Careers />} />
             <Route path="/websiteContact" element={<WebsiteContact />} />
             <Route path="/contactUs" element={<ContactUs />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/about" element={<About />} />
+            <Route path="/service" element={<Service />} />
           </Routes>
         </Router>
       </HelmetProvider>
