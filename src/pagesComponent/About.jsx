@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../layoutComponent/Navbar';
 import Footer from '../layoutComponent/Footer'
+import { Helmet } from 'react-helmet-async';
 import about_banner_img from './images/about/about-banner-img.png'
 import about_us_img from './images/about/about-us-imgg.png'
 import mission_img from './images/about/mission.png'
@@ -8,6 +9,7 @@ import visionmissionbottomimg from './images/about/vision-mission-bottom.png'
 import mission from './images/about/mission-in.png'
 import vision from './images/about/vision.png'
 import './About.css'
+import Growth from './Growth';
 import MeetExpert from './MeetExpert';
 import ClientFeedback from './ClientFeedback';
 import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png'
@@ -15,6 +17,12 @@ import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png
 const About = () => {
   return (
     <>
+
+        <Helmet>
+            <title>About Us - About Modearch Steel company</title>
+            <meta name="description" content="About for a Modearch Steel company" />
+            <meta name="keywords" content="about, about us, about modearch steel" />
+        </Helmet>
 
         <Navbar />
 
@@ -102,6 +110,8 @@ const About = () => {
         </div>
       </section>
 
+      <Growth/>
+
       <MeetExpert/>
 
       <section className='g-0'>
@@ -109,13 +119,15 @@ const About = () => {
           <div className="about-precision-steel-img position-relative">
             <img src={aboutprecisionsteelimg} alt="about-precision-steel-img" className='img-fluid w-100' />
             <a href="#" className="btn position-absolute about-precision-steel-btn translate-middle">
-              Get In Touch <span className="ms-2">↗</span>
+              Get In Touch <span className="">↗</span>
             </a>
           </div>
         </div>
       </section>
 
       <ClientFeedback/>
+
+      <Footer/>
       
     </>
   )

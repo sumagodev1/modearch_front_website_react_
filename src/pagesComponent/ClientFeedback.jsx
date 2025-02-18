@@ -34,13 +34,24 @@ const feedbacks = [
 
 const ClientFeedback = () => {
   return (
-    <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
+    <>
+      {/* style={{ backgroundColor: "#f8f9fa" }} */}
+      <section className="py-5 mt-5" style={{ backgroundColor: "#777777" }}>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 mt-4 mb-5">
+              <h2 className="text-center fw-bold mb-4">Insights From Our Valued Clients</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section className="customer-feedback-section mb-5">
       <div className="container">
-        <h2 className="text-center fw-bold mb-4">Insights From Our Valued Clients</h2>
         <div className="row justify-content-center">
           {feedbacks.map((feedback, index) => (
             <div key={index} className="col-md-6 col-lg-4 mb-5">
-              <div className="card border-0 shadow-sm p-3 position-relative">
+              <div className="card border-0 p-3 position-relative customer-feedback-card-border-radius">
                 <h5 className="fw-bold mb-2">{feedback.title}</h5>
                 <p className="text-muted mb-3">{feedback.description}</p>
                 <div className="d-flex align-items-center justify-content-between">
@@ -75,6 +86,7 @@ const ClientFeedback = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

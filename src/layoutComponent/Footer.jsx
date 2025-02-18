@@ -47,8 +47,8 @@ const Footer = () => {
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="#" className="text-white text-decoration-none">Home</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="#" className="text-white text-decoration-none">About Us</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="#" className="text-white text-decoration-none">Services</a></li>
-                      <li className="d-flex align-items-center text-nowrap"><i className="bi bi-chevron-right me-2"></i><a href="#" className="text-white text-decoration-none">Completed Project</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="#" className="text-white text-decoration-none">Gallery</a></li>
+                      <li className="d-flex align-items-center text-nowrap"><i className="bi bi-chevron-right me-2"></i><a href="#" className="text-white text-decoration-none">Completed Project</a></li>
                     </ul>
                   </div>
 
@@ -68,7 +68,7 @@ const Footer = () => {
                   <div className='website-logo d-flex justify-content-center'>
                     <img src={logo} alt="Company Logo" className="mb-3 img-fluid" style={{ maxWidth: "120px" }} />
                   </div>
-                  <p>A dynamic and innovative steel detailing company committed to delivering high-quality structural detailing services to the construction and engineering industries.</p>
+                  <p className='text-center'>A dynamic and innovative steel detailing company committed to delivering high-quality structural detailing services to the construction and engineering industries.</p>
                   
                   {/* Social Media Links */}
                   <h6 className="fw-bold mt-3 text-center">Follow Moderach</h6>

@@ -42,7 +42,11 @@
     transform: translate(-58%, -50%) !important;
     white-space: nowrap; 
     padding: 10px 20px; 
-}
+  }
+
+  .about-precision-steel-btn:focus {
+    box-shadow: none;
+  }
 
 /* Adjustments for smaller screens */
 @media (min-width: 769px) and (max-width: 824px) {
@@ -84,4 +88,12 @@
 
 .cust-feedback-img{
   left: 83% !important;
+}
+
+.customer-feedback-section{
+  margin-top: -4rem;
+}
+.customer-feedback-card-border-radius{
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 12px 7px;
 }

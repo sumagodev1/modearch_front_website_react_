@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import './App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -11,7 +12,9 @@ import './index.css'
 
 function App() {
 
-  axios.defaults.baseURL = `http://localhost:8000/`;
+  // axios.defaults.baseURL = `http://localhost:8000/`;
+  axios.defaults.baseURL = `https://staging-api.modearchsteel.com/`;
+  
 
   return (
     <>
