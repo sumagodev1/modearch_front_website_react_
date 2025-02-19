@@ -1,0 +1,21 @@
+.gallery_card{
+    border-radius: 1rem;
+}
+.gallery_img{
+    border-radius: 1rem;
+}
+.gallery_btn{
+    color: #000;
+}
+.gallery_btn:hover{
+    color: #000;
+}
+
+.gallery_last_bg_color_sec{
+    background-color: #D9D9D9;
+    margin-top: -1.2rem;
+}
+
+.gallery_social_logo_shadow{
+    box-shadow: 0 0.5rem 1.1rem rgb(0 0 0 / 24%) ;
+}

@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import "./Growth.css"; 
+import "./Growth.css";
 
-const originalData = [
+const data = [
   {
     year: 2023,
     details: [
@@ -114,111 +114,157 @@ const originalData = [
   },
 ];
 
-
 const Growth = () => {
-    const containerRef = useRef(null);
-    const timelineRef = useRef(null);
-    const yearRefs = useRef([]);
-  
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [data, setData] = useState(originalData);
+  const containerRef = useRef(null);
+  const sectionRefs = useRef([]);
+  const timelineRef = useRef(null);
+  const yearRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    // Scroll to the active year
-    useEffect(() => {
-        if (timelineRef.current && yearRefs.current[0]) {
-            const timeline = timelineRef.current;
-            const firstYear = yearRefs.current[0];
-            timeline.scrollTo({
-                left: firstYear.offsetLeft - 100,
-                behavior: "smooth",
-            });
-        }
-    }, [data]);
+  useEffect(() => {
+    if (containerRef.current && sectionRefs.current[activeIndex]) {
+      const container = containerRef.current;
+      const targetSection = sectionRefs.current[activeIndex];
+      container.scrollTo({
+        left: targetSection.offsetLeft,
+        behavior: "smooth",
+      });
+    }
 
-    // useEffect(() => {
-    //     if (timelineRef.current && yearRefs.current[activeIndex]) {
-    //         const timeline = timelineRef.current;
-    //         const activeYear = yearRefs.current[activeIndex];
-    //         timeline.scrollTo({
-    //             left: activeYear.offsetLeft - timeline.offsetWidth / 2 + activeYear.offsetWidth / 2,
-    //             behavior: "smooth",
-    //         });
-    //     }
-    // }, [activeIndex]);
-    
+    if (timelineRef.current && yearRefs.current[activeIndex]) {
+      const timeline = timelineRef.current;
+      const targetYear = yearRefs.current[activeIndex];
+      timeline.scrollTo({
+        left: targetYear.offsetLeft - 120,
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex]);
 
-    // Function to reorder years in a loop
-    const handleYearClick = (index) => {
-        const clickedYear = data[index].year;
+  const handleYearClick = (index) => {
+    if (index >= data.length) {
+      setActiveIndex(0);
+    } else if (index < 0) {
+      setActiveIndex(data.length - 1);
+    } else {
+      setActiveIndex(index);
+    }
+  };
 
-        // Rearrange the years so that the clicked year comes first
-        const newOrder = [
-            ...data.slice(index), // From clicked year to the end
-            ...data.slice(0, index), // From start to clicked year
-        ];
+  const handleDrag = (event) => {
+    const timeline = timelineRef.current;
+    if (timeline) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
 
-        setData(newOrder);
-        setActiveIndex(0); // Reset active index to first position
-    };
-    
+      timeline.addEventListener("mousedown", (e) => {
+        isDown = true;
+        startX = e.pageX - timeline.offsetLeft;
+        scrollLeft = timeline.scrollLeft;
+      });
 
-    return (
-      <>
-        <section className="growth-section">
-          <div className="container growth-section-container">
-            <h1 className="heading">Growth Chronicles</h1>
+      timeline.addEventListener("mouseleave", () => {
+        isDown = false;
+      });
 
-            <div ref={containerRef} className="timeline-container">
+      timeline.addEventListener("mouseup", () => {
+        isDown = false;
+      });
+
+      timeline.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - timeline.offsetLeft;
+        const walk = (x - startX) * 2;
+        timeline.scrollLeft = scrollLeft - walk;
+      });
+
+      timeline.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX - timeline.offsetLeft;
+        scrollLeft = timeline.scrollLeft;
+      });
+
+      timeline.addEventListener("touchmove", (e) => {
+        const x = e.touches[0].pageX - timeline.offsetLeft;
+        const walk = (x - startX) * 2;
+        timeline.scrollLeft = scrollLeft - walk;
+      });
+    }
+  };
+
+  useEffect(() => {
+    handleDrag();
+  }, []);
+
+  return (
+    <>
+    <section className="growth-section">
+    <div className="container growth-container">
+      <div className="title">Growth Chronicles</div>
+
+      <div ref={containerRef} className="content-container">
+        <motion.div className="content-wrapper">
+          {data.map((item, index) => (
             <motion.div
-                key={data[0].year} // Key changes trigger re-animation
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="timeline"
+              key={index}
+              ref={(el) => (sectionRefs.current[index] = el)}
+              onClick={() => handleYearClick(index % data.length)}
+              className="section"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-                {data.map((item, index) => (
-                    <motion.div key={index} className="timeline-item">
-                        <h2 className="year" onClick={() => handleYearClick(index)}>{item.year}</h2>
-                        <ul className="details">
-                            {item.details.map((detail, i) => (
-                                <motion.li
-                                    key={i}
-                                    className="detail-item mb-2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.2 }}
-                                >
-                                    <span>•</span> {detail}
-                                </motion.li>
-                            ))}
-                        </ul>
-                    </motion.div>
+              <h2>{item.year}</h2>
+              <ul>
+                {item.details.map((detail, i) => (
+                  <li key={i}>
+                    <span>•</span> {detail}
+                  </li>
                 ))}
+              </ul>
             </motion.div>
-            </div>
+          ))}
+        </motion.div>
+      </div>
 
-            <div ref={timelineRef} className="timeline-nav custom-scrollbar" drag="x" dragConstraints={{ left: -200, right: 0 }}>
-              {data.map((item, index) => (
-                <div key={index} className={`timeline-nav-item ${index === 0 ? "active" : ""}`}>
-                  <div className="timeline-nav-line"></div>
-                  <div
-                    ref={(el) => (yearRefs.current[index] = el)}
-                    className={`timeline-nav-circle ${index === 0 ? "active" : ""}`}
-                    onClick={() => handleYearClick(index)}
-                  ></div>
-                  <div className="timeline-nav-line"></div>
-                  <button className={`timeline-nav-text ${index === 0 ? "active" : ""}`}
-                    onClick={() => handleYearClick(index)}>
-                    {item.year}
-                  </button>
-                </div>
-              ))}
+      <div ref={timelineRef} className="timeline">
+        {[...data, ...data].map((item, index) => (
+          <div key={index} className="timeline-item">
+            <div className="line-section">
+              <div
+                className={`timeline-line ${
+                  activeIndex === index % data.length ? "active" : ""
+                }`}
+              ></div>
+              <div
+                ref={(el) => (yearRefs.current[index] = el)}
+                onClick={() => handleYearClick(index % data.length)}
+                className={`timeline-dot ${
+                  activeIndex === index % data.length ? "active" : ""
+                }`}
+              ></div>
+              <div
+                className={`timeline-line ${
+                  activeIndex === index % data.length ? "active" : ""
+                }`}
+              ></div>
             </div>
+            <button
+              onClick={() => handleYearClick(index % data.length)}
+              className={`timeline-year ${
+                activeIndex === index % data.length ? "active" : ""
+              }`}
+            >
+              {item.year}
+            </button>
           </div>
-        </section>
-      </>
-    );
+        ))}
+      </div>
+    </div>
+    </section>
+    </>
+  );
 };
 
 export default Growth;

@@ -9,6 +9,7 @@ import precision from './images/careers/precision.png'
 import globle from './images/careers/globle.png'
 import work from './images/careers/work.png'
 import careers from './images/careers/careers.png'
+import up_arrow from './images/up-arrow.png'
 import './Careers.css'
 
 const Careers = () => {
@@ -163,7 +164,7 @@ const Careers = () => {
         <Navbar />
 
         <section className='g-0'>
-            <div className="container-fluid">
+            <div className="container-fluid px-0">
                 <div className="careers_banner_img">
                     <img src={careers_banner_img} alt="Logo" className='img-fluid' />
                 </div>
@@ -177,7 +178,7 @@ const Careers = () => {
               <div className="col-md-6 d-flex align-items-start pe-5">
                 <img src={precision} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
-                  <h2 className="fw-bold mb-3">PRECISION WITH AGILITY</h2>
+                  <h3 className="fw-bold mb-3 career-title">PRECISION WITH AGILITY</h3>
                   <p className='core-values-section-para'>
                     We may be a compact team, but our expertise and technology enable
                     us to deliver big results. Our focus on efficiency, creativity,
@@ -190,7 +191,7 @@ const Careers = () => {
               <div className="col-md-6 d-flex align-items-start pe-5">
                 <img src={globle} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
-                  <h2 className="fw-bold mb-3">A GLOBAL PERSPECTIVE</h2>
+                  <h3 className="fw-bold mb-3 career-title">A GLOBAL PERSPECTIVE</h3>
                   <p className='core-values-section-para'>
                     With a diverse team and international collaborations, we bring
                     together expertise from around the world to deliver top-tier steel
@@ -203,7 +204,7 @@ const Careers = () => {
               <div className="col-md-6 d-flex align-items-start pe-5">
                 <img src={work} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
-                  <h2 className="fw-bold mb-3">WORK THAT MATTERS</h2>
+                  <h3 className="fw-bold mb-3 career-title">WORK THAT MATTERS</h3>
                   <p className='core-values-section-para'>
                     At Moderach Steel, every detail counts. We take pride in crafting
                     solutions that optimize fabrication, enhance efficiency, and bring
@@ -216,7 +217,7 @@ const Careers = () => {
               <div className="col-md-6 d-flex align-items-start pe-5">
                 <img src={careers} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
-                  <h2 className="fw-bold mb-3">CAREER GROWTH & LEARNING</h2>
+                  <h3 className="fw-bold mb-3 career-title">CAREER GROWTH & LEARNING</h3>
                   <p className='core-values-section-para'>
                     We empower our team to grow—whether it's mastering new skills,
                     taking on new challenges, or exploring innovative projects that
@@ -301,7 +302,8 @@ const Careers = () => {
 
                     <div className="text-center">
                       <button type="submit" className="submit-button">
-                          Submit <span className="arrow">↗</span>
+                          Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
+                          {/* <span className="arrow">↗</span> */}
                       </button>
                     </div>
                   </div>

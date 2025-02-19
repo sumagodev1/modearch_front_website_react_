@@ -2,7 +2,7 @@
     background: url('./images/careers/careers-bg-img.png') no-repeat center center/cover;
 }  
 .core-values-section-img{
-    max-width: 40px;
+    max-width: 40px !important;
 }
 .core-values-section-para{
 color: #000;
@@ -11,6 +11,9 @@ text-align: justify;
 }
 h2{
 color: #000;
+}
+.career-title{
+    color: #000;
 }
 
 .careers-form-section{

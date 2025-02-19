@@ -20,7 +20,7 @@
     z-index: 1111;
   }
   .vision-mission-row{
-    margin-top: -1rem;
+    margin-top: -1rem !important;
   }
   .bottom-img{
     margin-top: -2.5rem;
@@ -38,10 +38,10 @@
   .about-precision-steel-btn {
     top: 85%;
     left: 50%;
-    font-weight: 700;
+    font-weight: 700 !important;
     transform: translate(-58%, -50%) !important;
-    white-space: nowrap; 
-    padding: 10px 20px; 
+    white-space: nowrap !important; 
+    padding: 10px 20px !important; 
   }
 
   .about-precision-steel-btn:focus {

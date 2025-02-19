@@ -1,0 +1,49 @@
+.project-img-effect{
+    border-radius: 8px;
+    box-shadow: 0 0.5rem 1.1rem rgba(0, 0, 0, .15);
+}
+
+
+.expertise-section {
+    background-color: black;
+    padding: 20px 0;
+  }
+  
+  .expertise-logo {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  .expertise-h5 {
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
+
+
+  .category-btn{
+    box-shadow:none !important;
+  }
+
+  .project_name{
+    color: #000;
+    font-weight: 700;
+  }
+  .see_more_btn{
+    color: #000;
+    font-weight: 700;
+  }
+  .see_more_btn:hover{
+    color: #000;
+  }
+
+  .location_logo{
+    max-width: 1.4rem;
+  }
+
+  @media (max-width: 555px) {
+    .category_container .d-flex {
+      flex-direction: column !important; /* Stack buttons in a column */
+      gap: 8px !important; /* Add space between buttons */
+    }
+  }
+  

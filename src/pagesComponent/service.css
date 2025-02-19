@@ -1,0 +1,58 @@
+.service-line-circle{
+    border: 2px solid #D5D5D5 !important;
+    border-radius: 50%;
+    position: relative;
+    background-color: #585858 !important;
+    width: 20px;
+    height: 20px;
+}
+
+.service-years-bg-color{
+    background-color: #585858 !important;
+    color: #fff;
+}
+
+.first-circle{
+    background-color: #fff !important;
+    border: 2px solid #fff !important;
+}
+
+@media (max-width: 767px){
+    .mobile-total-year{
+        text-align: end;
+    }
+    .mobile-subheading{
+        text-align: end;
+    }
+    .mobile-para{
+        text-align: left;
+    }
+
+    .service-right-side{
+        margin-left: 0rem !important;
+        border-radius: 1rem !important;
+    }
+    
+    .service-left-side{
+        margin-right: 0rem !important;
+        border-radius: 1rem !important;
+    }
+    
+}
+
+.service-right-side{
+    margin-left: -0.5rem;
+    border-radius: 1rem;
+}
+
+.service-left-side{
+    margin-right: -0.5rem;
+    border-radius: 1rem;
+}
+
+
+.sevices-bg-img{
+    /* background: url('./images/service/sevices-bg-img.png') no-repeat center center/cover; */
+}
+
+

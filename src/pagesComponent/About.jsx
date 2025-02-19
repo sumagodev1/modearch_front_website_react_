@@ -13,6 +13,7 @@ import Growth from './Growth';
 import MeetExpert from './MeetExpert';
 import ClientFeedback from './ClientFeedback';
 import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png'
+import up_arrow from './images/up-arrow.png'
 
 const About = () => {
   return (
@@ -27,7 +28,7 @@ const About = () => {
         <Navbar />
 
         <section className='g-0'>
-            <div className="container-fluid">
+            <div className="container-fluid px-0">
                 <div className="about_banner_img">
                     <img src={about_banner_img} alt="Logo" className='img-fluid' />
                 </div>
@@ -115,11 +116,11 @@ const About = () => {
       <MeetExpert/>
 
       <section className='g-0'>
-        <div className="container-fluid">
+        <div className="container-fluid px-0">
           <div className="about-precision-steel-img position-relative">
             <img src={aboutprecisionsteelimg} alt="about-precision-steel-img" className='img-fluid w-100' />
-            <a href="#" className="btn position-absolute about-precision-steel-btn translate-middle">
-              Get In Touch <span className="">↗</span>
+            <a href="#" className="btn position-absolute about-precision-steel-btn">
+              Get In Touch <img src={up_arrow} alt="up_arrow" className='img-fluid' />
             </a>
           </div>
         </div>

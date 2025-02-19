@@ -1,0 +1,24 @@
+.core-values-section {
+    background: url('./images/careers/careers-bg-img.png') no-repeat center center/cover;
+}  
+.core-values-section-img{
+    max-width: 40px;
+}
+.core-values-section-para{
+color: #000;
+line-height: 1.6;
+text-align: justify;
+}
+h2{
+color: #000;
+}
+
+.careers-form-section{
+    background: url('./images/careers/careers-form-bg-img.png') no-repeat center center/cover;
+}
+.career-form-shadow{
+    box-shadow: -1rem 1rem 3rem rgb(0 0 0 / 11%), 1rem 1rem 1rem rgb(0 0 0 / 16%), 0 0rem 0rem rgba(0, 0, 0, 0.175);
+}
+.join-our-team-title{
+    margin-bottom: 3.5rem;
+}
