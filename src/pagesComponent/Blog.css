@@ -11,3 +11,12 @@
 .blog_read_more_btn:active{
     border-color: transparent !important;
 }
+
+@media (min-width: 768px) {
+    .blogcrd {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+  

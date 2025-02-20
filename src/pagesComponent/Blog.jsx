@@ -49,30 +49,30 @@ const Blog = () => {
                 style={{ background: index % 4 === 1 ? "#000" : "#EFEFEF" , color: index % 4 === 0 ? "#000" : "#fff" }}
               >
                 <Card.Body
-                  className="pt-4 pb-3 d-flex flex-column justify-content-between"
-                  style={{ background: index % 4 === 1 ? "#000" : "#EFEFEF" , color: index % 4 === 0 ? "#000" : "#fff" }}
+                className="pt-4 pb-3 d-flex flex-column justify-content-between h-100"
+                style={{
+                    background: index % 4 === 0 ? "#EFEFEF" : "#000",
+                    color: index % 4 === 0 ? "#000" : "#fff",
+                }}
                 >
-                  <div>
-                    <Card.Title
-                      className="blogCardTitle fw-bolder pt-lg-3"
-                      style={{ fontWeight: "600", fontSize: "0.95rem", letterSpacing: "1.2px" }}
-                    >
-                      {blog.title.length > 23 ? blog.title.substring(0, 23) + "..." : blog.title}
-                    </Card.Title>
-                    <Card.Text
-                      className="blogCardDesc pt-3"
-                      dangerouslySetInnerHTML={{ __html: blog.shortDesc }}
-                    />
-                  </div>
-                  <div className="d-flex justify-content-start ">
-                    <Button
-                      variant="transparent"
+                    <div className="flex-grow-1">
+                        <Card.Title
+                        className="blogCardTitle fw-bolder pt-lg-3"
+                        style={{ fontWeight: "600", fontSize: "0.95rem", letterSpacing: "1.2px" }}
+                        >
+                        {blog.title.length > 23 ? blog.title.substring(0, 23) + "..." : blog.title}
+                        </Card.Title>
+                        <Card.Text className="blogCardDesc pt-3" dangerouslySetInnerHTML={{ __html: blog.shortDesc }} />
+                    </div>
+                    <div className="mt-auto">
+                        <Button
+                        variant="transparent"
                         className={`py-2 mt-xl-3 align-self-end fw-bolder ${index % 4 === 0 ? "text-dark" : "text-white"}`}
-                      onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
-                    >
-                      Read More <i class="bi bi-arrow-up-right"></i>
-                    </Button>
-                  </div>
+                        onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
+                        >
+                        Read More <i className="bi bi-arrow-up-right"></i>
+                        </Button>
+                    </div>
                 </Card.Body>
               </Col>
               <Col md={6} className="pe-0 ps-0 bg-light blogcrd">
@@ -98,31 +98,30 @@ const Blog = () => {
                 style={{ background: index % 4 === 0 ? "#EFEFEF" : "#000" , color: index % 4 === 0 ? "#000" : "#fff"}}
               >
                 <Card.Body
-                  className="pt-4 pb-3 d-flex flex-column justify-content-between"
-                  style={{ background: index % 4 === 0 ? "#EFEFEF" : "#000" , color: index % 4 === 0 ? "#000" : "#fff" }}
+                className="pt-4 pb-3 d-flex flex-column justify-content-between h-100"
+                style={{
+                    background: index % 4 === 0 ? "#EFEFEF" : "#000",
+                    color: index % 4 === 0 ? "#000" : "#fff",
+                }}
                 >
-                  <div>
-                    <Card.Title
-                      className="blogCardTitle fw-bolder pt-3"
-                      style={{ fontWeight: "600", fontSize: "0.95rem", letterSpacing: "1.2px" }}
-                    >
-                      {blog.title.length > 23 ? blog.title.substring(0, 23) + "..." : blog.title}
-                    </Card.Title>
-                    <Card.Text
-                      className="blogCardDesc pt-3"
-                      dangerouslySetInnerHTML={{ __html: blog.shortDesc }}
-                    />
-                  </div>
-                  <div className="d-flex justify-content-start">
-                    <Button
-                      variant="transparent"
-                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark" : "text-white"}`}
-                      onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
-                    >
-                      Read More <i class="bi bi-arrow-up-right"></i>
-                    </Button>
-                    
-                  </div>
+                    <div className="flex-grow-1">
+                        <Card.Title
+                        className="blogCardTitle fw-bolder pt-lg-3"
+                        style={{ fontWeight: "600", fontSize: "0.95rem", letterSpacing: "1.2px" }}
+                        >
+                        {blog.title.length > 23 ? blog.title.substring(0, 23) + "..." : blog.title}
+                        </Card.Title>
+                        <Card.Text className="blogCardDesc pt-3" dangerouslySetInnerHTML={{ __html: blog.shortDesc }} />
+                    </div>
+                    <div className="mt-auto">
+                        <Button
+                        variant="transparent"
+                        className={`py-2 mt-xl-3 align-self-end fw-bolder ${index % 4 === 0 ? "text-dark" : "text-white"}`}
+                        onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
+                        >
+                        Read More <i className="bi bi-arrow-up-right"></i>
+                        </Button>
+                    </div>
                 </Card.Body>
               </Col>
             </>

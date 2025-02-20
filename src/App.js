@@ -16,9 +16,9 @@ import Blogdetails from "./pagesComponent/Blogdetails";
 import './index.css';
 
 function App() {
-  axios.defaults.baseURL = `http://localhost:8000/`;
+  // axios.defaults.baseURL = `http://localhost:8000/`;
 
-  // axios.defaults.baseURL = `https://staging-api.modearchsteel.com/`;
+  axios.defaults.baseURL = `https://staging-api.modearchsteel.com/`;
 
   return (
     <HelmetProvider>
