@@ -17,21 +17,14 @@ const projectsData = {
     { 
       id: 1, 
       name: "Hospital Project 1", 
-      para:"ChennaiLorem Ipsum is simply dummy text ChennaiLorem Ipsum is simply dummy text  Chennai  Lorem Ipsum is simply dummy text Chenna iLorem Ipsum is simply dummy text Chennai  Lorem Ipsum is simply dummy text Chennai Lorem Ipsum is simply dummy text  ChennaiLorem Ipsum is simply dummy text Chenna iLorem Ipsum is simply dummy text  Chenna",
       location: "Nashik", 
-      Total_Tonnage : 276728,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project, Project, Project] 
+      images: Project,
     },
     { 
       id: 2, 
       name: "Hospital Project 2", 
       location: "Nashik", 
-      Total_Tonnage : 292798,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project] 
+      images: Project, 
     },
   ],
   Warehouse: [
@@ -39,19 +32,13 @@ const projectsData = {
       id: 3, 
       name: "Warehouse Project 1", 
       location: "Mumbai", 
-      Total_Tonnage : 892798,
-      year:2025,
-      status:"Complete",
-      images: [Project, Project, Project] 
+      images: Project, 
     },
     { 
       id: 4, 
       name: "Warehouse Project 2", 
       location: "Mumbai", 
-      Total_Tonnage : 874598,
-      year:2025,
-      status:"Pending",
-      images: [Project] 
+      images: Project,
     },
   ],
   Industrial: [
@@ -59,19 +46,13 @@ const projectsData = {
       id: 5, 
       name: "Industrial Project 1", 
       location: "Pune", 
-      Total_Tonnage : 298978,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project, Project] 
+      images: Project, 
     },
     { 
       id: 6, 
       name: "Industrial Project 2", 
       location: "Pune", 
-      Total_Tonnage : 292798,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project] 
+      images: Project, 
     },
   ],
   Commercial: [
@@ -79,19 +60,13 @@ const projectsData = {
       id: 7, 
       name: "Commercial Project 1", 
       location: "Pune", 
-      Total_Tonnage : 292798,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project, Project] 
+      images: Project, 
     },
     { 
       id: 8, 
       name: "Commercial Project 2", 
       location: "Pune", 
-      Total_Tonnage : 292798,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project] 
+      images: Project, 
     },
   ],
   School: [
@@ -99,19 +74,13 @@ const projectsData = {
       id: 9, 
       name: "School Project 1", 
       location: "Pune", 
-      Total_Tonnage : 292798,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project, Project] 
+      images: Project,
     },
     { 
       id: 10, 
       name: "School Project 2", 
       location: "Pune", 
-      Total_Tonnage : 292798,
-      year:2025,
-      status:"Inprogrss",
-      images: [Project, Project] 
+      images: Project,
     },
   ],
   
@@ -170,14 +139,16 @@ const Completed_Project = () => {
         {/* {!isProjectDetailsPage && ( */}
         <div className="container my-4">
             <div className="row">
+              {/* ? */}
             {projectsData[activeCategory].map((project) => (
                 <div key={project.id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div className="project-card p-3">
-                    <img src={project.images[0]} className="card-img-top img-fluid project-img-effect" alt={project.name} />
+                    <img src={project.images} className="card-img-top img-fluid project-img-effect" alt={project.name} />
+                    {/* <img src={project.images[0]} className="card-img-top img-fluid project-img-effect" alt={project.name} /> */}
                     <div className="card-body p-2">
                     <div className="d-flex justify-content-between align-items-center">
                         <h5 className="card-title mb-0 project_name">{project.name}</h5>
-                        <Link to={`/completed_project/${project.id}`} state={{ project, category: activeCategory }} className="text-decoration-none see_more_btn">
+                        <Link to={`/completed_project/${project.id}`} className="text-decoration-none see_more_btn">
                         See More <i className="bi bi-arrow-up-right"></i>
                         </Link>
                     </div>

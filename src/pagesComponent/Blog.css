@@ -1,0 +1,13 @@
+.blog_page_title{
+    font-size: 1.2rem;
+}
+.blog_description{
+    color: #3c4043;
+}
+
+.blog_read_more_btn:focus{
+    box-shadow:none;
+}
+.blog_read_more_btn:active{
+    border-color: transparent !important;
+}

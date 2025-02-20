@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import gallery_banner_img from './images/gallery/gallery_banner_img.png';
@@ -9,7 +10,33 @@ import up_arrow from './images/up-arrow.png'
 import './Gallery.css'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
+const staticGalleryData = [
+    {
+      id: 1,
+      category: "Steel Structures",
+      image: gallery,
+    },
+    {
+      id: 2,
+      category: "Modern Buildings",
+      image: gallery,
+    },
+    {
+      id: 3,
+      category: "Industrial Projects",
+      image: gallery,
+    },
+  ];
+  
+
 const Gallery = () => {
+
+    const navigate = useNavigate();
+
+    const handleSeeMore = (categoryId) => {
+      navigate(`/gallery/${categoryId}`);
+    };
+
   return (
     <>
       <Navbar />
@@ -61,7 +88,33 @@ const Gallery = () => {
         </div>
       </section>
 
-        <section>
+      <section>
+        <div className='container py-5'>
+          <h2 className='text-center mb-4'>Gallery</h2>
+          <div className='row row-cols-1 row-cols-md-3 g-4'>
+            {staticGalleryData.map((item) => (
+              <div key={item.id} className='col'>
+                <div className='card shadow-sm gallery_card'>
+                  <img src={item.image} className='card-img-top gallery_img' alt={item.category} />
+                  <div className='card-body'>
+                    <h5 className='card-title'>{item.category}</h5>
+                    <div className='d-flex justify-content-end'>
+                        <button
+                        className='btn btn-link text-decoration-none gallery_btn'
+                        onClick={() => handleSeeMore(item.id)}
+                        >
+                        See More <img src={up_arrow} alt="up_arrow" className='img-fluid' />
+                        </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+        {/* <section>
             <div className='container py-5'>
                 <div className='row row-cols-1 row-cols-md-3 g-4'>
                     <div className='col-md-4 col-sm-6 col-lg-4'>
@@ -93,7 +146,7 @@ const Gallery = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> */}
 
         <section className='social-media-section text-center'>
             <h4 className='mb-3'>Follow Us On</h4>

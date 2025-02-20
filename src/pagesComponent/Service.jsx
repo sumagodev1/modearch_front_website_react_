@@ -24,7 +24,7 @@ const Service = () => {
             <Navbar/>
 
             <section className='g-0'>
-                <div className="container-fluid">
+                <div className="container-fluid px-0">
                     <div className="about_banner_img">
                         <img src={service_banner_img} alt="Logo" className='img-fluid' />
                     </div>
@@ -32,7 +32,7 @@ const Service = () => {
             </section>  
 
             <section className='g-0 mt-5'>
-                <div className="container-fluid">
+                <div className="container-fluid px-0">
                     <div className="about_banner_img">
                         <img src={servicenexttobanner} alt="Logo" className='img-fluid' />
                     </div>
@@ -62,7 +62,7 @@ const Service = () => {
                 </div>
                 
                 <section className="g-0">
-                    <div className="container-fluid">
+                    <div className="container-fluid px-0">
                         <div className="design-section text-center my-5 service-years-bg-color py-4">
                         <div className="container">
                             {/* First Row - Stats */}
@@ -143,17 +143,18 @@ const Service = () => {
                     <div className='row'>
                         {services.slice(3).map((service, index) => (
                             <div key={index} className='col-md-12 mb-4'>
-                                <div className={`service-box d-flex flex-column flex-md-row ${index % 2 === 0 ? 'flex-md-row-reverse' : ''}`}>
-                                    <img src={service.img} alt={service.title} className='img-fluid col-md-6' />
-                                    <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'>
-                                        <div className='w-100'>
-                                            <h1>{service.title}</h1>
-                                            <h5>{service.subtitle}</h5>
-                                            <p>{service.desc}</p>
-                                        </div>
+                            <div className={`service-box d-flex flex-column flex-md-row ${index % 2 !== 0 ? 'flex-md-row-reverse' : ''} gap-0`}>
+                                <img src={service.img} alt={service.title} className='img-fluid col-md-6' />
+                                <div className={`service-text col-md-6 d-flex align-items-center bg-dark text-white p-4 service-right-side ${index % 2 !== 0 ? 'text-md-start text-md-end service-left-side' : ''}`}>
+                                {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
+                                    <div className='w-100'>
+                                        <h1>{service.title}</h1>
+                                        <h5>{service.subtitle}</h5>
+                                        <p>{service.desc}</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         ))}
                     </div>
                 </div>
