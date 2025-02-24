@@ -5,6 +5,14 @@
       top: -13px !important;
     }
 }
+
+@media (min-width: 343px) and (max-width: 345px) {
+    .navbar-brand img {
+        height: 91px !important;
+        top: -8px !important;
+    }
+}
+  
   
 
 

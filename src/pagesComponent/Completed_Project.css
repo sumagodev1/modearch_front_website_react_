@@ -47,3 +47,31 @@
     }
   }
   
+
+  .expertise_lies_section{
+    align-content: center;
+  }
+  .sds2NewLogo{
+    border-right: 1px solid #000;
+    /* margin-right: 2rem; */
+  }
+  .expertise_section{
+    border: 1px solid #ADADAD;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 574px) {
+    .expertise_tekla_logo_sm{
+      justify-content: center !important;
+    }
+
+    .sds2NewLogo {
+      border-right: none;
+    }
+  }
+
+  .our_expertise_border_projectdetails{
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }

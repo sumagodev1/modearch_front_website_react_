@@ -51,8 +51,71 @@
 }
 
 
+.service-section-container{
+    position: relative;
+    top: 10rem;
+}
 .sevices-bg-img{
-    /* background: url('./images/service/sevices-bg-img.png') no-repeat center center/cover; */
+    background: url('./images/service/services-bg-img.png');
+    background-size: contain;
+    position: relative;
+    bottom: 11rem;
 }
 
+.service-faq{
+    background: url('./images/service/services-faq.png');
+    background-size: cover;
+}
+
+@media (min-width: 774px) and (max-width: 1152px){
+    .service-section-container{
+        position: relative;
+        top: 8rem;
+    }
+    .sevices-bg-img{
+        background: url('./images/service/services-bg-img.png');
+        background-size: contain;
+        position: relative;
+        bottom: 8rem;
+    }
+}
+
+@media (min-width: 586px) and (max-width: 775px){
+    .service-section-container{
+        position: relative;
+        top: 6rem;
+    }
+    .sevices-bg-img{
+        background: url('./images/service/services-bg-img.png');
+        background-size: contain;
+        position: relative;
+        bottom: 7rem;
+    }
+}
+
+/* @media (min-width: 304px) and (max-width: 587px){
+    .service-section-container{
+        position: relative;
+        top: 2rem;
+    }
+    .sevices-bg-img{
+        background: url('./images/service/services-bg-img.png');
+        background-size: contain;
+        position: relative;
+        bottom: 0rem;
+    }
+} */
+
+@media (max-width: 587px){
+    .service-section-container{
+        position: static;
+        top: 0rem;
+    }
+    .sevices-bg-img{
+        background: none;
+        /* background-size: contain; */
+        position: static;
+        bottom: 0rem;
+    }
+}
 

@@ -5,12 +5,15 @@ import Footer from '../layoutComponent/Footer'
 import ProjectDetails from './ProjectDetails';
 import complete_project_banner_img from './images/project/complete_project_banner_img.png'
 import complete_project_img from './images/project/complete_project_img.png'
-import world_map from './images/project/world_map.png'
+import map from './images/project/map.png'
 import sds2Logo from "./images/project/sds2Logo.png"; 
 import teklaLogo from "./images/project/teklaLogo.png"; 
+import sds2NewLogo from "./images/project/sds2NewLogo.png"; 
+import teklaNewLogo from "./images/project/teklaNewLogo.png"; 
 import location_logo from './images/project/location-logo.png'
 import './Completed_Project.css'
 import Project from './images/project/project.png'; 
+import up_arrow from './images/up-arrow.png'
 
 const projectsData = {
   Hospitals: [
@@ -171,12 +174,42 @@ const Completed_Project = () => {
 
     <section>
       <div className='container'>
-            <h1 className='text-center'>We work across the <strong>world</strong></h1>
-            <img src={world_map} alt="World Map" className='img-fluid p-4' />
+        <div className='row'>
+          <div className='col-md-6'>
+            <img src={map} alt="Map" className='img-fluid p-4' />
+          </div>
+          <div className='col-md-6 expertise_lies_section'>
+            <div className='expertise_section'>
+              <h2 className='text-center'>Our Expertise Lies in</h2>
+              <div className='row mt-4'>
+                <div className='col-md-12 col-sm-6 col-lg-6'>
+                  <div className='mt-4 sds2NewLogo d-flex justify-content-center'>
+                    <img src={sds2NewLogo} alt="SDS2 by Allplan" className="expertise-logo" />
+                  </div>
+                </div>
+                <div className='col-md-12 col-sm-6 col-lg-6'>
+                  <div className='d-flex justify-content-start justify-content-sm-center expertise_tekla_logo_sm'>
+                    <img src={teklaNewLogo} alt="Tekla Structures" className="expertise-logo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h1 className='mt-3'>We work across the <span className='fw-bold'>world.</span></h1>
+            <div className='mt-4'>
+              <h4>Connect with Us</h4>
+              <p className='mt-4'>Contact Modearch for professional advice on steel detailing and industry best practices.</p>
+            </div>
+            <div className='mb-4'>
+              <Link to="/contactUs" className="text-decoration-none see_more_btn">
+                Get In Touch <img src={up_arrow} alt="Tekla Structures" className="expertise-logo" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section className="expertise-section">
+    {/* <section className="expertise-section">
       <div className="container">
         <div className="row align-items-center justify-content-center text-center">
           <div className="col-12 col-md-4 text-white">
@@ -190,7 +223,7 @@ const Completed_Project = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
 
     <Footer/>
 

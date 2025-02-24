@@ -8,7 +8,7 @@ import steelStructureImage from './images/home/steelStructureImage.png';
 import homeprecisionsteelimg from './images/home/homeprecisionsteelimg.png'
 import certifiedSideImg from './images/home/certified_side_img.png'
 import certified_img from './images/home/certified_img.png'
-import { FaUserFriends, FaCog, FaProjectDiagram, FaHandshake } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import up_arrow_white from './images/up-arrow-white.png'
 import up_arrow from './images/up-arrow.png'
 import employees from './images/home/employees.png'
@@ -36,7 +36,7 @@ const Home = () => {
             <div className="container-fluid">
             <div className="row who-we-are-row">
                 <div className="col-md-6 image-column">
-                {/* <img src={craneHookImage} alt="Crane Hook" className="img-fluid" /> */}
+                <img src={craneHookImage} alt="Crane Hook" className="img-fluid" />
                 </div>
                 <div className="col-md-6 text-column">
                 <div className="text-content-wrapper">
@@ -185,10 +185,10 @@ const Home = () => {
             </div>
         </section>
 
-        <section className='p-5'>
+        <section className='p-5 mb-5'>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-md-5 col-sm-12'>
+                    <div className='col-md-6 col-sm-12'>
                         <div>
                             <h4 className='fw-bold'>Stay Up to Date</h4>
                             <div>
@@ -196,9 +196,12 @@ const Home = () => {
                                     Visit our blog for the latest news on steel detailing, industry standards, and updates related to Modearch's services.
                                 </p>
                             </div>
+                            <div>
+                                <a href='#' className='btn button_align_left fw-bold'>Read Our Blog <img src={up_arrow} alt="up_arrow" className='img-fluid' /></a>
+                            </div>
                         </div>
                     </div>
-                    <div className='col-md-7 col-sm-12'>
+                    <div className='col-md-6 col-sm-12'>
                         <div>
                             <h4 className='fw-bold'>Want to help shape the future of steel detailing?</h4>
                             <div>
@@ -206,9 +209,40 @@ const Home = () => {
                                     Modearch is looking for talented and motivated individuals to join our growing team
                                 </p>
                             </div>
+                            <div>
+                                <a href='#' className='btn button_align_left fw-bold'>Join the Modearch Team <img src={up_arrow} alt="up_arrow" className='img-fluid' /></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section className='social-media-section text-center'>
+            <h4 className='mb-3'>Follow Us On</h4>
+            <div className='d-flex justify-content-center gap-3'>
+                <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle gallery_social_logo_shadow"
+                style={{ width: '45px', height: '45px', backgroundColor: '#fff' }}>
+                <FaFacebookF style={{ height: '1rem', fill: '#444444' }} />
+                </a>
+                <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '45px', height: '45px', backgroundColor: '#fff' }}>
+                <FaInstagram style={{ height: '1rem', fill: '#444444' }} />
+                </a>
+                <a href="mailto:sales@modearchsteel.com" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '45px', height: '45px', backgroundColor: '#fff' }}>
+                <FaEnvelope style={{ height: '1rem', fill: '#444444' }} />
+                </a>
+                <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '45px', height: '45px', backgroundColor: '#fff' }}>
+                <FaWhatsapp style={{ height: '1rem', fill: '#444444' }} />
+                </a>
+            </div>
+        </section>
+
+        <section className='gallery_last_bg_color_sec p-4'>
+            <div className='container-fluid'>
+
             </div>
         </section>
 

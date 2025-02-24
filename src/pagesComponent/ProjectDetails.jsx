@@ -160,14 +160,16 @@ const ProjectDetails = () => {
             <div className="col-12 col-md-4 text-white">
               <h1 className="expertise-h5">Our Expertise Lies in</h1>
             </div>
-            <div className="col-6 col-md-4">
-              <img
-                src={sds2Logo}
-                alt="SDS2 by Allplan"
-                className="expertise-logo"
-              />
+            <div className="col-sm-6 col-md-4">
+              <div className="our_expertise_border_projectdetails">
+                <img
+                  src={sds2Logo}
+                  alt="SDS2 by Allplan"
+                  className="expertise-logo"
+                />
+              </div>
             </div>
-            <div className="col-6 col-md-4">
+            <div className="col-sm-6 col-md-4">
               <img
                 src={teklaLogo}
                 alt="Tekla Structures"

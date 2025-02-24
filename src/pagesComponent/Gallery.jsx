@@ -73,7 +73,7 @@ const Gallery = () => {
           
           <div className='row align-items-center mt-5'>
             <div className='col-md-7 order-md-2'>
-                <img src={gallery_img2} alt='img4' className='img-fluid' />
+                <img src={gallery_img2} alt='img4' className='img-fluid mb-4' />
             </div>
             <div className='col-md-5 order-md-1 mb-auto'>
               <h3>Lorem Ipsum</h3>
@@ -90,7 +90,7 @@ const Gallery = () => {
 
       <section>
         <div className='container py-5'>
-          <h2 className='text-center mb-4'>Gallery</h2>
+          {/* <h2 className='text-center mb-4'>Gallery</h2> */}
           <div className='row row-cols-1 row-cols-md-3 g-4'>
             {staticGalleryData.map((item) => (
               <div key={item.id} className='col'>

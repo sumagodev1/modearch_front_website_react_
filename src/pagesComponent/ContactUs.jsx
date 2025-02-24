@@ -310,7 +310,9 @@ const ContactUs = () => {
                             <div className="me-3">
                                 <ReCAPTCHA
                                 ref={captchaRef}
-                                sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                                // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                                sitekey="6Lc7EOEqAAAAAKU4rKmaZVNBihgNpj0wrllf-EGq"
+                                secretkey="6Lc7EOEqAAAAAEyrHgdGXHyxdd5pAedSzss0-5cl"
                                 onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
                                 />
                                 {errors.recaptcha && <small className="text-danger">{errors.recaptcha}</small>}
@@ -332,7 +334,10 @@ const ContactUs = () => {
             </div>
         </div>
 
+      <section className='faq-bg-img mb-5'>
         <Faq/>
+      </section>
+        
 
         <Footer/>
       

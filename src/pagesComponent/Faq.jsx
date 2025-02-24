@@ -5,7 +5,7 @@ const Faq = () => {
   return (
     <>
 
-        <section className='faq-bg-img mb-5'>
+        <section className=''>
             <div className='container py-3'>
                 <div className="container">
                     <div className="row">
@@ -29,7 +29,7 @@ const Faq = () => {
                                 {/* FAQ Item 1 */}
                                 <div className="accordion-item mb-3 border-0 rounded">
                                     <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed d-flex align-items-center" 
+                                        <button className="accordion-button collapsed d-flex align-items-center custom-accordion-button" 
                                             type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                                             <span> Lorem Ipsum is simply dummy text of the printing?</span>
                                         </button>
@@ -44,7 +44,7 @@ const Faq = () => {
                                 {/* FAQ Item 2 */}
                                 <div className="accordion-item mb-3 border-0 rounded">
                                     <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed d-flex align-items-center" 
+                                        <button className="accordion-button collapsed d-flex align-items-center custom-accordion-button" 
                                             type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                                             <span> Lorem Ipsum is simply dummy text of the printing?</span>
                                         </button>
@@ -59,7 +59,7 @@ const Faq = () => {
                                 {/* FAQ Item 3 */}
                                 <div className="accordion-item mb-3 border-0 rounded">
                                     <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed d-flex align-items-center" 
+                                        <button className="accordion-button collapsed d-flex align-items-center custom-accordion-button" 
                                             type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                                             <span> Lorem Ipsum is simply dummy text of the printing?</span>
                                         </button>
@@ -74,7 +74,7 @@ const Faq = () => {
                                 {/* FAQ Item 4 */}
                                 <div className="accordion-item border-0 rounded">
                                     <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed d-flex align-items-center" 
+                                        <button className="accordion-button collapsed d-flex align-items-center custom-accordion-button" 
                                             type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
                                             <span> Lorem Ipsum is simply dummy text of the printing?</span>
                                         </button>

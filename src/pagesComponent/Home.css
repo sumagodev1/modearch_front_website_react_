@@ -14,12 +14,12 @@
   }
 
   .who-we-are-row {
-    /* border-top: 4px dashed #fff;   
+    border-top: 4px dashed #fff;   
     border-left: 4px dashed #fff;  
     border-bottom: 4px dashed #fff; 
     border-right: none;            
     border-top-left-radius: 10px;  
-    border-bottom-left-radius: 10px;  */
+    border-bottom-left-radius: 10px; 
   }
   
   
@@ -85,6 +85,13 @@
   }
 
 
+  @media (max-width: 1069px) {
+    .bordered-text {
+        padding: 1rem 1rem 1rem 1rem;
+      }
+  }
+
+
   .button_align_left{
     margin-left: -0.8rem;
   }
@@ -113,7 +120,7 @@
 
 
   .who-we-are-section{
-    background: url('./images/home/test.png') no-repeat center center/cover;
+    /* background: url('./images/home/test.png') no-repeat center center/cover; */
     /* border-radius: 1.4rem; */
   }
 
