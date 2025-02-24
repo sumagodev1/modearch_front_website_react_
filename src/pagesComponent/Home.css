@@ -1,0 +1,169 @@
+.who-we-are-section {
+    background-color: #000;
+    color: #fff;
+    /* padding: 50px 0; */
+  }
+  
+  /* .who-we-are-row {
+    border: 4px dashed #fff;
+    border-radius: 10px;
+  } */
+
+  .who_we_are_outer_padding{
+    padding: 2rem 4rem 2rem 5rem;
+  }
+
+  .who-we-are-row {
+    /* border-top: 4px dashed #fff;   
+    border-left: 4px dashed #fff;  
+    border-bottom: 4px dashed #fff; 
+    border-right: none;            
+    border-top-left-radius: 10px;  
+    border-bottom-left-radius: 10px;  */
+  }
+  
+  
+  .image-column {
+    display: flex;
+    align-items: center; /* Vertically center the image */
+    justify-content: center; /* Horizontally center the image */
+  }
+  
+  .text-column {
+    display: flex;
+    align-items: center;
+  }
+  
+  .text-content-wrapper {
+    width: 100%;
+  }
+  
+  .text-content-wrapper h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .bordered-text {
+    border: 1px solid #ddd; 
+    /* padding: 20px; */
+    padding: 3rem 1rem 2rem 3rem;
+    border-radius: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .bordered-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  .learn-more-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .who-we-are-row {
+      flex-direction: column; /* Stack columns on smaller screens */
+    }
+  
+    .image-column,
+    .text-column {
+      width: 100%; /* Full width on smaller screens */
+    }
+  
+    .text-content-wrapper h2 {
+      text-align: center;
+    }
+  }
+
+
+  .button_align_left{
+    margin-left: -0.8rem;
+  }
+  .button_align_left:focus{
+    box-shadow: none;
+  }
+  .button_align_left:active{
+    border-color: transparent !important;
+  }
+
+  .about-precision-steel-btn:focus{
+    box-shadow: none;
+  }
+  .about-precision-steel-btn:active{
+    border-color: transparent !important;
+  }
+
+  /* .steel-structure-section{
+    background-color: #EFEFEF;
+  } */
+
+  .steel-detailing-section{
+    padding-top: 11rem;
+    padding-bottom: 6rem;
+  }
+
+
+  .who-we-are-section{
+    background: url('./images/home/test.png') no-repeat center center/cover;
+    /* border-radius: 1.4rem; */
+  }
+
+  .steel-structure-section{
+    background: url('./images/home/steelStru.png') no-repeat center center/cover;
+    /* border-radius: 1.4rem; */
+  }
+
+  .client-feedback-home{
+    margin-top: -3rem !important;
+  }
+
+  .detailing_crafts_section{
+    background: url('./images/home/detailingCarft.png') no-repeat center center/cover;
+  }
+
+  .detailing_crafts_check_out_btn{
+    margin-left: -0.8rem;
+  }
+
+  .certified_text_div{
+    align-content: center;
+  }
+  .certified_text_border{
+    border: 1px solid #CECECE;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    }
+
+    .stat-icon-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .stat-icon {
+        font-size: 24px;
+    }
+
+    .numbers-section{
+        background: url('./images/home/numbers.png') no-repeat center center/cover;
+    }
+    
+    .number-section-border{
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+    }
