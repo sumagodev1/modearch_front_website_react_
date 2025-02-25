@@ -152,7 +152,7 @@ const Completed_Project = () => {
                     <div className="d-flex justify-content-between align-items-center">
                         <h5 className="card-title mb-0 project_name">{project.name}</h5>
                         <Link to={`/completed_project/${project.id}`} className="text-decoration-none see_more_btn">
-                        See More <i className="bi bi-arrow-up-right"></i>
+                        See More <img src={up_arrow} alt="Tekla Structures" className="expertise-logo" />
                         </Link>
                     </div>
                     <p className="card-text mt-1">

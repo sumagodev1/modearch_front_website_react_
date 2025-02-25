@@ -68,35 +68,35 @@ const Navbar = () => {
         </div>
       </div> */}
       <div className="bg-light py-2 text-dark">
-  <div className="container">
-    <div className="row align-items-center justify-content-md-end">
-      {/* Contact Info Section */}
-      <div className="col-12 col-md-auto text-center text-md-end mb-2 mb-md-0">
-        <span className="me-3 d-block d-md-inline">+1 213-814-2277</span>
-        <span className="me-3 d-block d-md-inline">sales@modearchsteel.com</span>
+        <div className="container">
+          <div className="row align-items-center justify-content-md-end">
+            {/* Contact Info Section */}
+            <div className="col-12 col-md-auto text-center text-md-end mb-2 mb-md-0 header-mail-number">
+              <span className="me-3 d-block d-md-inline">+1 213-814-2277</span>
+              <span className="me-3 d-block d-md-inline">sales@modearchsteel.com</span>
+            </div>
+            {/* Social Icons Section */}
+            <div className="col-12 col-md-auto d-flex justify-content-center justify-content-md-end flex-wrap">
+              <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
+                <FaFacebookF style={{ height: '0.8rem' }} />
+              </a>
+              <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
+                <FaInstagram style={{ height: '0.8rem' }} />
+              </a>
+              <a href="mailto:sales@modearchsteel.com" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
+                <FaEnvelope style={{ height: '0.8rem' }} />
+              </a>
+              <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
+                <FaWhatsapp style={{ height: '0.8rem' }} />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      {/* Social Icons Section */}
-      <div className="col-12 col-md-auto d-flex justify-content-center justify-content-md-end flex-wrap">
-        <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
-           style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
-          <FaFacebookF style={{ height: '0.8rem' }} />
-        </a>
-        <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
-           style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
-          <FaInstagram style={{ height: '0.8rem' }} />
-        </a>
-        <a href="mailto:sales@modearchsteel.com" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
-           style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
-          <FaEnvelope style={{ height: '0.8rem' }} />
-        </a>
-        <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
-           style={{ width: '30px', height: '30px', backgroundColor: '#fff' }}>
-          <FaWhatsapp style={{ height: '0.8rem' }} />
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
     </>
   );

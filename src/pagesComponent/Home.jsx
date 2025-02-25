@@ -64,8 +64,9 @@ const Home = () => {
         </section>
 
         <section className="steel-detailing-section steel-structure-section">
-            <div className="container position-relative">
-                <div className="row align-items-center">
+            <div className="container-fliud steel-structure-section-outer-padding">
+            <div className="container-fluid position-relative">
+                <div className="row align-items-center steel-structure-section-row">
                 <div className="col-lg-6 text-content">
                     <h2 className="fw-bold">Structural Steel Detailing</h2>
                     <p>
@@ -79,9 +80,10 @@ const Home = () => {
                     <a href="#" className="btn fw-bold button_align_left">Check Out <img src={up_arrow} alt="up_arrow" className='img-fluid' /></a>
                 </div>
                 <div className="col-lg-6 position-relative image-content">
-                    {/* <img src={steelStructureImage} alt="Steel Structure" className="structure-image img-fluid" /> */}
+                    <img src={steelStructureImage} alt="Steel Structure" className="structure-image img-fluid" />
                 </div>
                 </div>
+            </div>
             </div>
         </section>
 
@@ -89,10 +91,10 @@ const Home = () => {
             <ClientFeedback />
         </section>
 
-        <section className='detailing_crafts_section'>
+        <section className=''>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-5'>
                         <h1 className='fw-bold'>DETAILING CRAFTSMANSHIP</h1>
                         <div>
                             <p className='text-justify'>From structural steel fabrication drawings to intricate steel connection designs, each project exemplifies our commitment to accuracy, quality, and innovation. Whether it's commercial buildings, industrial structures, or architectural marvels, our detailing work ensures strength, durability, and structural integrity. Explore our showcase to witness how we bring steel to life through meticulous detailing and craftsmanship. Trust us to elevate your projects with our unmatched expertise in steel detailing.</p>
@@ -100,6 +102,9 @@ const Home = () => {
                         <div className='detailing_crafts_check_out_btn mb-5'>
                             <a href="#" className="btn fw-bold">Check Out <img src={up_arrow} alt="up_arrow" className='img-fluid' /></a>
                         </div>
+                    </div>
+                    <div className='col-md-7 detailing_crafts_section'>
+
                     </div>
                 </div>
             </div>
@@ -110,7 +115,7 @@ const Home = () => {
             <div className="about-precision-steel-img position-relative">
                 <img src={homeprecisionsteelimg} alt="about-precision-steel-img" className='img-fluid w-100' />
                 <a href="#" className="btn position-absolute about-precision-steel-btn text-white">
-                Get In Touch <img src={up_arrow_white} alt="up_arrow" className='img-fluid' />
+                Get In Touch <img src={up_arrow_white} alt="up_arrow" className='img-fluid about-precision-steel-btn-icon' />
                 </a>
             </div>
             </div>

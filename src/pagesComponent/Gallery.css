@@ -8,7 +8,13 @@
     color: #000;
 }
 .gallery_btn:hover{
-    color: #000;
+    color: #000 !important;
+}
+.gallery_btn:focus{
+    box-shadow: none;
+}
+.gallery_btn:active{
+    color: #000 !important;
 }
 
 .gallery_last_bg_color_sec{

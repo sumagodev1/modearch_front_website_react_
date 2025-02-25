@@ -12,6 +12,13 @@
         top: -8px !important;
     }
 }
+
+@media (min-width: 485px) and (max-width: 767px) {
+    .header-mail-number{
+        display: flex;
+        justify-content: end;
+    }
+}
   
   
 
@@ -21,6 +28,7 @@
     background: url('./images/footer/footernew.png') no-repeat center center/cover;
     position: relative;
 }
+
 .quick-link-ul{
     line-height: 2.2;
 }

@@ -5,6 +5,8 @@ import axios from "axios";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import blog_banner_img from "./images/blog/blog_banner_img.png";
 import { useNavigate } from "react-router-dom";
+import up_arrow from './images/up-arrow.png'
+import up_arrow_white from './images/up-arrow-white.png'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const Blog = () => {
@@ -67,10 +69,15 @@ const Blog = () => {
                     <div className="mt-auto">
                         <Button
                         variant="transparent"
-                        className={`py-2 mt-xl-3 align-self-end fw-bolder ${index % 4 === 0 ? "text-dark" : "text-white"}`}
+                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark" : "text-white"}`}
                         onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
                         >
-                        Read More <i className="bi bi-arrow-up-right"></i>
+                        Read More 
+                        <img 
+                          src={index % 4 === 0 ? up_arrow : up_arrow_white} 
+                          alt="Tekla Structures" 
+                          className="expertise-logo" 
+                        />
                         </Button>
                     </div>
                 </Card.Body>
@@ -116,10 +123,15 @@ const Blog = () => {
                     <div className="mt-auto">
                         <Button
                         variant="transparent"
-                        className={`py-2 mt-xl-3 align-self-end fw-bolder ${index % 4 === 0 ? "text-dark" : "text-white"}`}
+                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark" : "text-white"}`}
                         onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
                         >
-                        Read More <i className="bi bi-arrow-up-right"></i>
+                        Read More 
+                        <img 
+                          src={index % 4 === 0 ? up_arrow : up_arrow_white} 
+                          alt="Tekla Structures" 
+                          className="expertise-logo" 
+                        />
                         </Button>
                     </div>
                 </Card.Body>

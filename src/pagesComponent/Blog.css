@@ -12,6 +12,7 @@
     border-color: transparent !important;
 }
 
+
 @media (min-width: 768px) {
     .blogcrd {
       display: flex;

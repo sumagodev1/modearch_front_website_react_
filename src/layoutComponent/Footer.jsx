@@ -4,6 +4,10 @@ import footerimg from './images/footer/footer-img.png'
 import '../pagesComponent/Careers.css'
 import { FaFacebookF, FaYoutube, FaLinkedin } from 'react-icons/fa';
 import './Footer.css'
+import call from './images/footer/call.png'
+import mail from './images/footer/mail.png'
+import add1 from './images/footer/add1.png'
+import add2 from './images/footer/add2.png'
 
 const Footer = () => {
   return (
@@ -18,22 +22,26 @@ const Footer = () => {
                 <h5 className="fw-bold">CONTACT US</h5>
                 {/* align-items-center */}
                 <div className="d-flex align-items-center mb-3">
-                  <i className="bi bi-telephone-fill me-2"></i> 
+                  {/* <i className="bi bi-telephone-fill me-2"></i>  */}
+                  <img src={call} alt="call" className='img-fluid me-2' />
                   <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a>
                 </div>
 
                 <div className="d-flex align-items-center mb-3">
-                  <i className="bi bi-envelope-fill me-2"></i> 
+                  {/* <i className="bi bi-envelope-fill me-2"></i>  */}
+                  <img src={mail} alt="mail" className='img-fluid me-2' />
                   <a href="mailto:sales@amstrongltd.com" className="text-white text-decoration-none">sales@amstrongltd.com</a>
                 </div>
 
                 <div className="d-flex mb-3">
-                  <i className="bi bi-geo-alt-fill me-2"></i> 
+                  {/* <i className="bi bi-geo-alt-fill me-2"></i>  */}
+                  <img src={add1} alt="add1" className='img-fluid me-2' style={{height:"1.5rem"}} />
                   <span>05, B-11, Charkul, Sector-15, Kharghar, Navi Mumbai - 410210</span>
                 </div>
 
                 <div className="d-flex">
-                  <i className="bi bi-geo-alt-fill me-2"></i> 
+                  {/* <i className="bi bi-geo-alt-fill me-2"></i>  */}
+                  <img src={add2} alt="add2" className='img-fluid me-2' style={{height:"2rem"}} />
                   <span>8, The Green Suite A, Dover, Delaware</span>
                 </div>
               </div>

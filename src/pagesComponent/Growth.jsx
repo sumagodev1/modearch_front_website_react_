@@ -135,7 +135,7 @@ const Growth = () => {
       const timeline = timelineRef.current;
       const targetYear = yearRefs.current[activeIndex];
       timeline.scrollTo({
-        left: targetYear.offsetLeft - 120,
+        left: targetYear.offsetLeft - 190,
         behavior: "smooth",
       });
     }

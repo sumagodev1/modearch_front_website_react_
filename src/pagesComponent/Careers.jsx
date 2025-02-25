@@ -288,7 +288,10 @@ const Careers = () => {
                     <div className="mb-3">
                     <ReCAPTCHA
                         ref={captchaRef}
-                        sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+
+                        sitekey="6Lc7EOEqAAAAAKU4rKmaZVNBihgNpj0wrllf-EGq"
+                        secretkey="6Lc7EOEqAAAAAEyrHgdGXHyxdd5pAedSzss0-5cl"
                         onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
 
                             // positive.ae

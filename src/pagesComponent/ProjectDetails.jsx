@@ -110,7 +110,7 @@ const ProjectDetails = () => {
 
         {/* Image Gallery */}
 
-        <div className="row">
+        <div className="row justify-content-center">
           {project.images.map((img, i) => (
             <div key={i} className="col-md-3 col-sm-6 mb-3">
               <img

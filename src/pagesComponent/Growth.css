@@ -115,8 +115,8 @@
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
   /* vivek css */
-  margin-right: 6px;
-  margin-left: 6px;
+  /* margin-right: 6px;
+  margin-left: 6px; */
 }
 
 .timeline-dot.active {
