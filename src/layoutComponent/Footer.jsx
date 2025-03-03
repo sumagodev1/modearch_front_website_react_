@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import logo from './images/website-logo.png'
 import footerimg from './images/footer/footer-img.png'
 import '../pagesComponent/Careers.css'
@@ -10,6 +11,35 @@ import add1 from './images/footer/add1.png'
 import add2 from './images/footer/add2.png'
 
 const Footer = () => {
+
+  const [contacts, setContacts] = useState([]);
+  const [socialLinks, setSocialLinks] = useState({});
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch Contact Info
+    axios
+      .get("/header-contact/getheaderContacts")
+      .then((response) => {
+        if (response.data.result) {
+          setContacts(response.data.responseData || []);
+        } else {
+          setError(response.data.message);
+        }
+      })
+      .catch(() => setError("Failed to fetch contact info"));
+
+    // Fetch Social Media Links
+    axios
+      .get("/social-contact/get-socialcontacts")
+      .then((response) => {
+        setSocialLinks(response.data.responseData[0] || {});
+      })
+      .catch((error) => {
+        console.error("Error fetching social media links:", error);
+      });
+  }, []);
+
   return (
     <>
 
@@ -24,13 +54,16 @@ const Footer = () => {
                 <div className="d-flex align-items-center mb-3">
                   {/* <i className="bi bi-telephone-fill me-2"></i>  */}
                   <img src={call} alt="call" className='img-fluid me-2' />
-                  <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a>
+                  {/* <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a> */}
+                  <a href={`tel:+91${contacts[0]?.phone1 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
+                    +91 {contacts[0]?.phone1 || "213-814-2277"}
+                  </a>
                 </div>
 
                 <div className="d-flex align-items-center mb-3">
                   {/* <i className="bi bi-envelope-fill me-2"></i>  */}
                   <img src={mail} alt="mail" className='img-fluid me-2' />
-                  <a href="mailto:sales@amstrongltd.com" className="text-white text-decoration-none">sales@amstrongltd.com</a>
+                  <a href={`mailto:${socialLinks.email || "sales@modearchsteel.com"}`} className="text-white text-decoration-none">{socialLinks.email || "sales@modearchsteel.com"}</a>
                 </div>
 
                 <div className="d-flex mb-3">
@@ -53,10 +86,10 @@ const Footer = () => {
                   <div className="col-6">
                     <ul className="list-unstyled quick-link-ul">
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/" className="text-white text-decoration-none">Home</a></li>
-                      <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/about" className="text-white text-decoration-none">About Us</a></li>
+                      <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/about" className="text-white text-decoration-none">About</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/service" className="text-white text-decoration-none">Services</a></li>
+                      <li className="d-flex align-items-center text-nowrap"><i className="bi bi-chevron-right me-2"></i><a href="/completed_project" className="text-white text-decoration-none">Project</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/gallery" className="text-white text-decoration-none">Gallery</a></li>
-                      <li className="d-flex align-items-center text-nowrap"><i className="bi bi-chevron-right me-2"></i><a href="/completed_project" className="text-white text-decoration-none">Completed Project</a></li>
                     </ul>
                   </div>
 
@@ -81,9 +114,9 @@ const Footer = () => {
                   {/* Social Media Links */}
                   <h6 className="fw-bold mt-3 text-center">Follow Moderach</h6>
                   <div className='d-flex justify-content-center'>
-                    <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaFacebookF style={{ height: '0.8rem' }} /></a>
-                    <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaYoutube style={{ height: '0.8rem' }} /></a>
-                    <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaLinkedin style={{ height: '0.8rem' }} /></a>
+                    <a href={socialLinks.facebook} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaFacebookF style={{ height: '0.8rem' }} /></a>
+                    <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaYoutube style={{ height: '0.8rem' }} /></a>
+                    <a href={socialLinks.instagram}  className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaLinkedin style={{ height: '0.8rem' }} /></a>
                   </div>
                 </div>
               </div>

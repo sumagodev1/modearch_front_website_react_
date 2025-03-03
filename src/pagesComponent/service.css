@@ -57,7 +57,8 @@
 }
 .sevices-bg-img{
     background: url('./images/service/services-bg-img.png');
-    background-size: contain;
+    /* background-size: contain; */
+    background-size: cover;
     position: relative;
     bottom: 11rem;
 }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./service.css";
 import Service1 from "./images/service/service1.png";
 import service_banner_img from "./images/service/service_banner_img.png";
@@ -7,52 +8,69 @@ import Navbar from "../layoutComponent/Navbar";
 import Faq from "./Faq";
 import Footer from "../layoutComponent/Footer";
 
-const services = [
-  {
-    title: "Structural",
-    subtitle: "Sheet Detailing",
-    img: Service1,
-    desc: "Our steel detailing services deliver highly accurate and fabrication-ready drawings using advanced 3D modeling software. We ensure compliance with industry standards while optimizing material efficiency and reducing errors, facilitating smooth fabrication and installation.",
-  },
-  {
-    title: "Connection",
-    subtitle: "Design",
-    img: Service1,
-    desc: "We provide engineered connection design solutions, ensuring structural integrity and compliance with load-bearing and safety requirements. Our team collaborates closely with engineers and fabricators to develop efficient and cost-effective connection designs.",
-  },
-  {
-    title: "BIM",
-    subtitle: "3D Modeling",
-    img: Service1,
-    desc: "Leveraging Building Information Modeling (BIM), we create intelligent 3D models that enhance project coordination, detect clashes early, and optimize workflows. Our BIM expertise allows for seamless collaboration among stakeholders, reducing project delays and rework. ",
-  },
-  {
-    title: "Miscellaneous",
-    subtitle: "Sheet Detailing",
-    img: Service1,
-    desc: "From stairs and railings to ladders and platforms, our miscellaneous steel detailing services cover a wide range of secondary steel structures. We ensure precise fabrication drawings, shop drawings, and erection plans for seamless integration with primary steel structures.",
-  },
-  {
-    title: "Material",
-    subtitle: "Take-Off & Estimation",
-    img: Service1,
-    desc: "Our material take-off (MTO) and estimation services help fabricators and contractors accurately determine project costs, minimize waste, and streamline procurement. We provide precise quantity take-offs and cost analysis, ensuring budget efficiency.",
-  },
-  {
-    title: "CNC",
-    subtitle: "&Fabrication Support",
-    img: Service1,
-    desc: "We generate CNC-compatible files and fabrication-ready drawings to enhance production efficiency. Our detailing ensures seamless integration with automated fabrication processes, reducing errors and improving turnaround times.",
-  },
-  {
-    title: "Quality Control",
-    subtitle: "&Compliance",
-    img: Service1,
-    desc: "At Modearch Steel, we prioritize accuracy, compliance, and quality assurance. Our services adhere to global standards such as AISC, NISD, CISC, and OSHA, ensuring that our deliverables meet the highest industry benchmarks.",
-  },
-];
+// const services = [
+//   {
+//     title: "Structural",
+//     subtitle: "Sheet Detailing",
+//     img: Service1,
+//     desc: "Our steel detailing services deliver highly accurate and fabrication-ready drawings using advanced 3D modeling software. We ensure compliance with industry standards while optimizing material efficiency and reducing errors, facilitating smooth fabrication and installation.",
+//   },
+//   {
+//     title: "Connection",
+//     subtitle: "Design",
+//     img: Service1,
+//     desc: "We provide engineered connection design solutions, ensuring structural integrity and compliance with load-bearing and safety requirements. Our team collaborates closely with engineers and fabricators to develop efficient and cost-effective connection designs.",
+//   },
+//   {
+//     title: "BIM",
+//     subtitle: "3D Modeling",
+//     img: Service1,
+//     desc: "Leveraging Building Information Modeling (BIM), we create intelligent 3D models that enhance project coordination, detect clashes early, and optimize workflows. Our BIM expertise allows for seamless collaboration among stakeholders, reducing project delays and rework. ",
+//   },
+//   {
+//     title: "Miscellaneous",
+//     subtitle: "Sheet Detailing",
+//     img: Service1,
+//     desc: "From stairs and railings to ladders and platforms, our miscellaneous steel detailing services cover a wide range of secondary steel structures. We ensure precise fabrication drawings, shop drawings, and erection plans for seamless integration with primary steel structures.",
+//   },
+//   {
+//     title: "Material",
+//     subtitle: "Take-Off & Estimation",
+//     img: Service1,
+//     desc: "Our material take-off (MTO) and estimation services help fabricators and contractors accurately determine project costs, minimize waste, and streamline procurement. We provide precise quantity take-offs and cost analysis, ensuring budget efficiency.",
+//   },
+//   {
+//     title: "CNC",
+//     subtitle: "&Fabrication Support",
+//     img: Service1,
+//     desc: "We generate CNC-compatible files and fabrication-ready drawings to enhance production efficiency. Our detailing ensures seamless integration with automated fabrication processes, reducing errors and improving turnaround times.",
+//   },
+//   {
+//     title: "Quality Control",
+//     subtitle: "&Compliance",
+//     img: Service1,
+//     desc: "At Modearch Steel, we prioritize accuracy, compliance, and quality assurance. Our services adhere to global standards such as AISC, NISD, CISC, and OSHA, ensuring that our deliverables meet the highest industry benchmarks.",
+//   },
+// ];
 
 const Service = () => {
+
+    const [serviceData, setServiceData] = useState([]);
+  
+    useEffect(() => {
+      const fetchServices = async () => {
+        try {
+          const response = await axios.get("/infrastructure/get-infrastructure");
+          console.log("hryy",response.data.responseData);
+          setServiceData(response.data.responseData);
+        } catch (error) {
+          console.error("Error fetching service data", error);
+        }
+      };
+      fetchServices();
+    }, []);
+
+
   return (
     <>
       <Navbar />
@@ -77,7 +95,7 @@ const Service = () => {
         <div className="container service-section-container">
           <h2 className="text-center mb-4">Services</h2>
           <div className="row">
-            {services.slice(0, 3).map((service, index) => (
+            {serviceData.slice(0, 3).map((service, index) => (
               <div key={index} className="col-md-12 mb-4">
                 <div
                   className={`service-box d-flex flex-column flex-md-row ${
@@ -238,7 +256,7 @@ const Service = () => {
         <section>
             <div className="container mb-5">
             <div className="row">
-                {services.slice(3).map((service, index) => (
+                {serviceData.slice(3).map((service, index) => (
                 <div key={index} className="col-md-12 mb-4">
                     <div
                     className={`service-box d-flex flex-column flex-md-row ${

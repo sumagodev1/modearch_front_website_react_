@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios'; 
 import Navbar from '../layoutComponent/Navbar';
@@ -14,6 +14,7 @@ import mail from './images/contact/mail.png'
 import connect from './images/contact/connect.png'
 import up_arrow from './images/up-arrow.png'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const ContactUs = () => {
 
@@ -93,6 +94,22 @@ const ContactUs = () => {
     
       const handleChange = (e) => {
         const { name, value } = e.target;
+
+        // Allow only alphabets and spaces in Name field
+        if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) return;
+
+        // Allow only numbers in Phone field
+        if (name === "phone" && !/^\d*$/.test(value)) return;
+
+        // Allow only valid email characters
+        if (name === "email" && !/^[a-zA-Z0-9@.]*$/.test(value)) return;
+
+        // Word limit for message field
+        if (name === "message") {
+          const words = value.trim().split(/\s+/);
+          if (words.length > 300) return; // Restrict input if over 300 words
+      }
+
         setFormData((prevState) => ({
           ...prevState,
           [name]: value
@@ -125,34 +142,65 @@ const ContactUs = () => {
             });
     
             console.log('Form submitted', response.data);
-            alert('Form submitted successfully!');
+            // alert('Form submitted successfully!');
+              // SweetAlert2 success message
+              Swal.fire({
+                title: 'Success!',
+                text: 'Form submitted successfully!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
             
             // Reset form after submission
             setFormData({ name: '', phone: '', email: '', message: '' });
             setErrors({});
           } catch (error) {
-            let newErrors = {};
+            // let newErrors = {};
             
             // Handle API error for existing phone number or email
-            if (
-              error.response?.data?.message === "Validation error: Phone number already exists."
-            ) {
-              newErrors.phone = "Mobile number already exists.";
-              alert("Mobile number already exists. Please enter a new one.");
-            } else if (
-              error.response?.data?.message === "Validation error: Email already exists."
-            ) {
-              newErrors.email = "Email already exists.";
-              alert("Email already exists. Please enter a new one.");
-            } else {
-              newErrors.general = "Failed to submit data. Please try again later.";
-              alert("Failed to submit data. Please try again later.");
-            }
+            // if (
+            //   error.response?.data?.message === "Validation error: Phone number already exists."
+            // ) {
+            //   newErrors.phone = "Mobile number already exists.";
+            //   alert("Mobile number already exists. Please enter a new one.");
+            // } else if (
+            //   error.response?.data?.message === "Validation error: Email already exists."
+            // ) {
+            //   newErrors.email = "Email already exists.";
+            //   alert("Email already exists. Please enter a new one.");
+            // } else {
+            //   newErrors.general = "Failed to submit data. Please try again later.";
+            //   alert("Failed to submit data. Please try again later.");
+            // }
     
-            setErrors(newErrors);
+            console.error('Failed to submit form:', error);
+            // alert("Failed to submit data. Please try again later.");
+
+              // SweetAlert2 error message
+              Swal.fire({
+                title: 'Error!',
+                text: 'Failed to submit data. Please try again later.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
           }
         }
     };    
+
+    const [socialLinks, setSocialLinks] = useState({});
+
+    useEffect(() => {
+  
+        axios
+        .get("/social-contact/get-socialcontacts")
+        .then((response) => {
+          setSocialLinks(response.data.responseData[0] || {});
+        })
+        .catch((error) => {
+          console.error("Error fetching social media links:", error);
+        });
+  
+    }, []);
 
   return (
     <>
@@ -223,10 +271,14 @@ const ContactUs = () => {
                                 <div>
                                     <h5 className="fw-bold mb-0 mt-3">CONNECT</h5>
                                     <div className="d-flex justify-content-center justify-content-md-start gap-1 mt-3">
-                                        <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaFacebookF style={{ height: '0.8rem' }} /></a>
-                                        <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaInstagram style={{ height: '0.8rem' }} /></a>
-                                        <a href="mailto:sales@modearchsteel.com" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaEnvelope style={{ height: '0.8rem' }} /></a>
-                                        <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaWhatsapp style={{ height: '0.8rem' }} /></a>
+                                        <a href={socialLinks.facebook} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaFacebookF style={{ height: '0.8rem' }} /></a>
+                                        <a href={socialLinks.instagram} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaInstagram style={{ height: '0.8rem' }} /></a>
+                                        {socialLinks.email && (
+                                        <a href={`mailto:${socialLinks.email}`} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaEnvelope style={{ height: '0.8rem' }} /></a>
+                                        )}
+                                        {socialLinks.whatsapp && (
+                                        <a href={`https://wa.me/${socialLinks.whatsapp.replace(/\D/g, "")}`} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaWhatsapp style={{ height: '0.8rem' }} /></a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -263,6 +315,9 @@ const ContactUs = () => {
                             placeholder="Full Name"
                             value={formData.name}
                             onChange={handleChange}
+                            onKeyPress={(e) => {
+                              if (!/^[a-zA-Z\s]+$/.test(e.key)) e.preventDefault();
+                          }}
                             />
                             {errors.name && <small className="text-danger">{errors.name}</small>}
                         </div>
@@ -276,6 +331,10 @@ const ContactUs = () => {
                             placeholder="Your Phone Number"
                             value={formData.phone}
                             onChange={handleChange}
+                            maxLength="10"
+                            onKeyPress={(e) => {
+                                if (!/[0-9]/.test(e.key)) e.preventDefault();
+                            }}
                             />
                             {errors.phone && <small className="text-danger">{errors.phone}</small>}
                         </div>
@@ -289,6 +348,9 @@ const ContactUs = () => {
                             placeholder="xyz.abc@example.com"
                             value={formData.email}
                             onChange={handleChange}
+                            onKeyPress={(e) => {
+                              if (!/^[a-zA-Z0-9@.]*$/.test(e.key)) e.preventDefault();
+                          }}
                             />
                             {errors.email && <small className="text-danger">{errors.email}</small>}
                         </div>
@@ -303,6 +365,9 @@ const ContactUs = () => {
                             value={formData.message}
                             onChange={handleChange}
                             />
+                            <div className="text-end">
+                              <small>{formData.message.trim().split(/\s+/).filter(Boolean).length}/300</small>
+                            </div>
                             {errors.message && <small className="text-danger">{errors.message}</small>}
                         </div>
 

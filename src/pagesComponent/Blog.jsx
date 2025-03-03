@@ -13,6 +13,7 @@ const Blog = () => {
   const navigate = useNavigate();
   const [blogData, setBlogData] = useState([]);
   const characterLimit = 200;
+  const [socialLinks, setSocialLinks] = useState({});
 
   useEffect(() => {
 
@@ -37,6 +38,16 @@ const Blog = () => {
     };
 
     fetchBlogData();
+
+    axios
+    .get("/social-contact/get-socialcontacts")
+    .then((response) => {
+      setSocialLinks(response.data.responseData[0] || {});
+    })
+    .catch((error) => {
+      console.error("Error fetching social media links:", error);
+    });
+
   }, []);
 
   const renderBlogCard = (blog, index, reverse) => (
@@ -177,7 +188,7 @@ const Blog = () => {
         ))}
       </Container>
 
-        <section className='social-media-section text-center'>
+        {/* <section className='social-media-section text-center'>
             <h4 className='mb-3'>Follow Us On</h4>
             <div className='d-flex justify-content-center gap-3'>
                 <a href="#" className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle gallery_social_logo_shadow"
@@ -197,6 +208,44 @@ const Blog = () => {
                 <FaWhatsapp style={{ height: '1rem', fill: '#444444' }} />
                 </a>
             </div>
+        </section> */}
+
+        <section className="social-media-section text-center">
+          <h4 className="mb-3">Follow Us On</h4>
+          <div className="d-flex justify-content-center gap-3">
+            <a
+              href={socialLinks.facebook}
+              className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle gallery_social_logo_shadow"
+              style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
+            >
+              <FaFacebookF style={{ height: "1rem", fill: "#444444" }} />
+            </a>
+            <a
+              href={socialLinks.instagram}
+              className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+              style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
+            >
+              <FaInstagram style={{ height: "1rem", fill: "#444444" }} />
+            </a>
+            {socialLinks.email && (
+            <a
+              href={`mailto:${socialLinks.email}`}
+              className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+              style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
+            >
+              <FaEnvelope style={{ height: "1rem", fill: "#444444" }} />
+            </a>
+            )}
+            {socialLinks.whatsapp && (
+            <a
+              href={`https://wa.me/${socialLinks.whatsapp.replace(/\D/g, "")}`}
+              className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+              style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
+            >
+              <FaWhatsapp style={{ height: "1rem", fill: "#444444" }} />
+            </a>
+            )}
+          </div>
         </section>
 
         <section className='gallery_last_bg_color_sec p-4'>

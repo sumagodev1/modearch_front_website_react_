@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Navbar from "../layoutComponent/Navbar";
@@ -10,63 +11,148 @@ import world_map from "./images/project/world_map.png";
 import sds2Logo from "./images/project/sds2Logo.png";
 import teklaLogo from "./images/project/teklaLogo.png";
 import location_logo from "./images/project/location-logo.png";
-import Project from './images/project/project.png'; 
+import Project from "./images/project/project.png";
 
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 // Import Plugins
-import { Fullscreen, Slideshow, Thumbnails, Video, Zoom } from "yet-another-react-lightbox/plugins";
+import {
+  Fullscreen,
+  Slideshow,
+  Thumbnails,
+  Video,
+  Zoom,
+} from "yet-another-react-lightbox/plugins";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-const staticProjectDetails = {
-  1: {
-    name: "City Hospital",
-    location: "New York",
-    Total_Tonnage: "500 Tons",
-    year: "2022",
-    status: "Completed",
-    images: [
-      Project,
-      Project,
-      Project,
-    ],
-  },
-  2: {
-    name: "Metro Medical Center",
-    location: "Los Angeles",
-    Total_Tonnage: "750 Tons",
-    year: "2023",
-    status: "Completed",
-    images: [
-      Project,
-      Project,
-    ],
-  },
-  3: {
-    name: "Sunrise High School",
-    location: "Chicago",
-    Total_Tonnage: "600 Tons",
-    year: "2021",
-    status: "Completed",
-    images: [
-      Project,
-      Project,
-    ],
-  },
-};
+// const staticProjectDetails = {
+//   1: {
+//     name: "Hospital Project 1",
+//     location: "New York",
+//     Total_Tonnage: "500 Tons",
+//     year: "2022",
+//     status: "Completed",
+//     images: [
+//       Project,
+//       Project,
+//       Project,
+//     ],
+//   },
+//   2: {
+//     name: "Hospital Project 2",
+//     location: "Los Angeles",
+//     Total_Tonnage: "750 Tons",
+//     year: "2023",
+//     status: "Completed",
+//     images: [
+//       Project,
+//       Project,
+//     ],
+//   },
+//   3: {
+//     name: "Warehouse Project 1",
+//     location: "Chicago",
+//     Total_Tonnage: "600 Tons",
+//     year: "2021",
+//     status: "Completed",
+//     images: [
+//       Project,
+//       Project,
+//     ],
+//   },
+// };
 
 const ProjectDetails = () => {
-  const { id } = useParams();
-  const project = staticProjectDetails[id];
-
+  const { project_name } = useParams();
+  const id = localStorage.getItem('objid');
+  const [project, setProject] = useState(null);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
-  if (!project) {
-    return <h2 className="text-center my-5">Project not found</h2>;
-  }
+  // useEffect(() => {
+  //   const fetchProjectDetails = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `/projectDetailsWithImages/projects/${id}`
+  //       );
+  //       console.log(response);
+  //       setProject(response.data);
+  //       const projectData = response.data;
+
+  //       if (typeof projectData.project_images === "string") {
+  //         projectData.project_images = JSON.parse(projectData.project_images);
+  //       }
+
+  //       if (response.data.result) {
+  //         const selectedBlog = response.data.responseData.find(
+  //           (project) =>
+  //             project.project_name.toLowerCase().replace(/\s+/g, "-") ===
+  //             project_name
+  //         );
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching blog details:", error);
+  //     }
+  //   };
+
+  //   fetchProjectDetails();
+  // }, [project_name]);
+
+  useEffect(() => {
+    const fetchProjectDetails = async () => {
+      try {
+        const response = await axios.get(`/projectDetailsWithImages/projects/${id}`);
+        console.log(response);
   
+        const projectData = response.data;
+  
+        // Ensure project_images is parsed if it's a string
+        const formattedProject = {
+          ...projectData,
+          project_images: typeof projectData.project_images === "string"
+            ? JSON.parse(projectData.project_images)
+            : projectData.project_images,
+        };
+  
+        // Only set project if isActive is true
+        if (formattedProject.isActive) {
+          setProject(formattedProject);
+        } else {
+          console.log("Project is inactive, not setting state.");
+        }
+  
+        if (response.data.result) {
+          // Filter active projects
+          const activeProjects = response.data.responseData?.filter(
+            (project) => project.isActive === true
+          );
+  
+          // Find the selected project
+          const selectedBlog = activeProjects?.find(
+            (project) =>
+              project.project_name.toLowerCase().replace(/\s+/g, "-") === project_name
+          );
+  
+          if (selectedBlog) {
+            console.log("Selected Blog:", selectedBlog);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching project details:", error);
+      }
+    };
+  
+    if (id) {
+      fetchProjectDetails();
+    }
+  }, [project_name, id]);
+  
+  
+
+  // if (!project) {
+  //   return <h2 className="text-center my-5">Project not found</h2>;
+  // }
 
   return (
     <>
@@ -96,63 +182,93 @@ const ProjectDetails = () => {
         </div>
       </section>
 
-      {/* Category Section */}
-      {/* <div className="container-fluid bg-dark py-3">
+      {project?.isActive ? (
+      <>
+      <div className="container-fluid bg-dark py-3">
         <div className="container category_container flex-wrap d-flex justify-content-center align-items-center gap-3 text-center">
           <button className="btn text-white border-0 p-0 category-btn fw-bold">
-            {project.category}
+            {project.project_category}
           </button>
         </div>
-      </div> */}
+      </div>
 
       <div className="container my-5">
-        {/* <h2 className="text-center">{project.name}</h2> */}
+        {project && (
+          <div className="row justify-content-center">
+            {project.project_images?.map((img, i) => (
+              <div key={i} className="col-md-3 col-sm-6 mb-3">
+                <img
+                  src={`${axios.defaults.baseURL}${img}`}
+                  className="img-fluid rounded shadow-sm"
+                  alt={`Project Image ${i + 1}`}
+                  onClick={() => {
+                    setIndex(i);
+                    setOpen(true);
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
-        {/* Image Gallery */}
 
-        <div className="row justify-content-center">
-          {project.images.map((img, i) => (
-            <div key={i} className="col-md-3 col-sm-6 mb-3">
-              <img
-                src={img}
-                className="img-fluid rounded shadow-sm"
-                alt={`Project Image ${i + 1}`}
-                onClick={() => { setIndex(i); setOpen(true); }}
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Lightbox Component */}
         <Lightbox
           open={open}
           close={() => setOpen(false)}
           index={index}
-          slides={project.images.map((img, i) => ({
-            src: img,
-            title: project.name,
+          slides={project.project_images.map((img, i) => ({
+            src: `${axios.defaults.baseURL}${img}`,
+            title: project.project_name,
             description: `Image ${i + 1}`,
           }))}
           plugins={[Fullscreen, Slideshow, Thumbnails, Video, Zoom]}
         />
 
-        {/* Project Details */}
+
         <div className="row mt-4">
           <div className="col-md-12">
-            <h2>{project.name}</h2>
-            <p>{project.description || "This is a sample description for the project."}</p>
+            <h2>{project.project_name}</h2>
+            <p>
+              {project.project_info ||
+                "This is a sample description for the project."}
+            </p>
           </div>
           <div className="col-md-6">
-            <h5><strong>Location:</strong> {project.location}</h5>
-            <h5><strong>Total Tonnage:</strong> {project.Total_Tonnage}</h5>
+            <h5>
+              <strong>Location:</strong> {project.project_name}
+            </h5>
+            <h5>
+              <strong>Total Tonnage:</strong> {project.project_total_tonnage || "N/A"}
+            </h5>
           </div>
           <div className="col-md-6">
-            <h5><strong>Year of Completion:</strong> {project.year}</h5>
-            <h5><strong>Status:</strong> {project.status}</h5>
+            <h5>
+              <strong>Year of Completion:</strong> {project.project_year_of_completion || "N/A"}
+            </h5>
+            <h5>
+              <strong>Status:</strong> {project.project_status || "N/A"}
+            </h5>
           </div>
         </div>
       </div>
+      </>
+      ) : (
+        <div className="container text-center py-5">
+          <h2 className="text-danger fw-bold">Project Not Found</h2>
+          <p className="text-muted mb-1">
+            The project you are looking for is either inactive or does not exist.
+          </p>
+          {/* <img
+            src="https://via.placeholder.com/600x300?text=No+Project+Available"
+            alt="Project Not Found"
+            className="img-fluid rounded shadow-sm my-3"
+          /> */}
+          <p className="text-muted">
+            Browse our other exciting projects and explore our expertise.
+          </p>
+        </div>
+      )}
 
       <section className="expertise-section">
         <div className="container">

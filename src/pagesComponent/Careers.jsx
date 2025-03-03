@@ -11,6 +11,7 @@ import work from './images/careers/work.png'
 import careers from './images/careers/careers.png'
 import up_arrow from './images/up-arrow.png'
 import './Careers.css'
+import Swal from 'sweetalert2';
 
 const Careers = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +30,21 @@ const Careers = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
+
+        // Allow only alphabets and spaces in Name field
+        if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) return;
+
+        // Allow only numbers in mobile field
+        if (name === "mobile" && !/^\d*$/.test(value)) return;
+    
+        // Allow only valid email characters
+        if (name === "email" && !/^[a-zA-Z0-9@.]*$/.test(value)) return;
+
+        // Word limit for message field
+        if (name === "message") {
+          const words = value.trim().split(/\s+/);
+          if (words.length > 300) return; // Restrict input if over 300 words
+        }
 
     if (type === 'file') {
         const file = files[0];
@@ -121,30 +137,47 @@ const Careers = () => {
         });
   
         console.log('Form submitted', response.data);
-        alert('Form submitted successfully!');
+        // alert('Form submitted successfully!');
+          // SweetAlert2 success message
+          Swal.fire({
+            title: 'Success!',
+            text: 'Form submitted successfully!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+
         setFormData({ name: '', email: '', mobile: '', subject: '', cv: null, message: '' });
         setErrors({});
       } catch (error) {
-        let newErrors = {};
+        // let newErrors = {};
   
-        if (
-          error.response?.data?.message ===
-          "Validation error: Phone number already exists."
-        ) {
-          newErrors.mobile = "Mobile number already exists.";
-          alert("Mobile number already exists.");
-        } else if (
-          error.response?.data?.message ===
-          "Validation error: Email already exists."
-        ) {
-          newErrors.email = "Email already exists.";
-          alert("Email already exists.");
-        } else {
-          newErrors.general = "Failed to submit data. Please try again later.";
-          alert("Failed to submit data. Please try again later.");
-        }
+        // if (
+        //   error.response?.data?.message ===
+        //   "Validation error: Phone number already exists."
+        // ) {
+        //   newErrors.mobile = "Mobile number already exists.";
+        //   alert("Mobile number already exists.");
+        // } else if (
+        //   error.response?.data?.message ===
+        //   "Validation error: Email already exists."
+        // ) {
+        //   newErrors.email = "Email already exists.";
+        //   alert("Email already exists.");
+        // } else {
+        //   newErrors.general = "Failed to submit data. Please try again later.";
+        //   alert("Failed to submit data. Please try again later.");
+        // }
   
-        setErrors(newErrors);
+          console.error('Failed to submit form:', error);
+          // alert("Failed to submit data. Please try again later.");
+
+            // SweetAlert2 error message
+            Swal.fire({
+              title: 'Error!',
+              text: 'Failed to submit data. Please try again later.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+          });
       }
     }
   };
@@ -243,12 +276,12 @@ const Careers = () => {
                   <div className="row mb-3">
                   <div className="col-md-6">
                   <label class="form-label">Name</label>
-                      <input type="text" name="name" className="form-control" placeholder="Enter your name" value={formData.name} onChange={handleChange} />
+                      <input type="text" name="name" className="form-control" placeholder="Enter your name" value={formData.name} onChange={handleChange} onKeyPress={(e) => {if (!/^[a-zA-Z\s]+$/.test(e.key)) e.preventDefault(); }}/>
                       {errors.name && <small className="text-danger">{errors.name}</small>}
                   </div>
                   <div className="col-md-6">
                       <label class="form-label">Email Id</label>
-                      <input type="email" name="email" className="form-control" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
+                      <input type="email" name="email" className="form-control" placeholder="Enter your email" value={formData.email} onChange={handleChange} onKeyPress={(e) => {if (!/^[a-zA-Z0-9@.]*$/.test(e.key)) e.preventDefault();}} />
                       {errors.email && <small className="text-danger">{errors.email}</small>}
                   </div>
                   </div>
@@ -256,7 +289,7 @@ const Careers = () => {
                   <div className="row mb-3">
                   <div className="col-md-6">
                       <label class="form-label">Mobile No.</label>
-                      <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="10" maxLength="10" />
+                      <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="10" maxLength="10" onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} />
                       {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
                   </div>
                   <div className="col-md-6">
@@ -280,6 +313,9 @@ const Careers = () => {
                   <div className="mb-3">
                       <label class="form-label">Message</label>
                   <textarea name="message" className="form-control" rows="4" placeholder="Enter your message" value={formData.message} onChange={handleChange}></textarea>
+                  <div className="text-end">
+                    <small>{formData.message.trim().split(/\s+/).filter(Boolean).length}/300</small>
+                  </div>
                   {errors.message && <small className="text-danger">{errors.message}</small>}
                   </div>
 

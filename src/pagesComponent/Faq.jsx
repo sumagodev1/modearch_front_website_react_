@@ -29,8 +29,8 @@ const Faq = () => {
                                 {/* FAQ Item 1 */}
                                 <div className="accordion-item mb-3 border-0 rounded">
                                     <h2 className="accordion-header">
-                                        <button className="accordion-button collapsed d-flex align-items-center custom-accordion-button" 
-                                            type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        <button className="accordion-button d-flex align-items-center custom-accordion-button" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
                                             <span> Lorem Ipsum is simply dummy text of the printing?</span>
                                         </button>
                                     </h2>
