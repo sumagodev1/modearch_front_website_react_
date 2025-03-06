@@ -376,8 +376,8 @@ const Careers = () => {
                         ref={captchaRef}
                         // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
 
-                        sitekey="6Lc7EOEqAAAAAKU4rKmaZVNBihgNpj0wrllf-EGq"
-                        secretkey="6Lc7EOEqAAAAAEyrHgdGXHyxdd5pAedSzss0-5cl"
+                        sitekey="6LcvPesqAAAAADOOYwjQlAP7YuXckifnTPJ9rvVS"
+                        secretkey="6LcvPesqAAAAAEasHj8-Rc9jAH8znHjyfD_6dgAO"
                         onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
 
                             // positive.ae
