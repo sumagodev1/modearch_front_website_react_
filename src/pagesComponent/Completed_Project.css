@@ -53,6 +53,29 @@
     overflow-x: auto; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent items from wrapping */
     padding: 10px 0; /* Optional padding for spacing */
+    scroll-behavior: smooth; 
+    scrollbar-width: none;
+  }
+
+  .category_container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+  }
+  
+  /* Enable auto-scrolling on small screens */
+  @media (max-width: 768px) {
+    .category_container {
+      animation: autoScroll 10s linear infinite; /* Auto-scroll effect */
+    }
+  }
+  
+  /* Keyframes for auto-scrolling */
+  @keyframes autoScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Scroll half of the content width */
+    }
   }
   
   .category-btn {
@@ -71,11 +94,11 @@
     
   }
 
-  @media (min-width: 768px) { /* Adjust for smaller screens */
+  /* @media (min-width: 768px) {
     .category_container {
       justify-content: center;
     }
-  }
+  } */
 
   .project-card{
     margin-bottom: -2rem;
