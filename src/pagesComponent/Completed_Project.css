@@ -22,6 +22,7 @@
 
   .category-btn{
     box-shadow:none !important;
+    font-size: 1.2rem;
   }
 
   .project_name{
@@ -40,12 +41,46 @@
     max-width: 1.4rem;
   }
 
-  @media (max-width: 555px) {
+  /* @media (max-width: 555px) {
     .category_container .d-flex {
-      flex-direction: column !important; /* Stack buttons in a column */
-      gap: 8px !important; /* Add space between buttons */
+      flex-direction: column !important; 
+      gap: 8px !important; 
+    }
+  } */
+
+  .category_container {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent items from wrapping */
+    padding: 10px 0; /* Optional padding for spacing */
+  }
+  
+  .category-btn {
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    margin: 0 10px; /* Optional spacing between the categories */
+  }
+  
+  @media (max-width: 768px) { /* Adjust for smaller screens */
+    .category_container {
+      overflow-x: scroll; /* Ensure scrolling works on mobile */
+    }
+  
+    .category-btn {
+      min-width: 120px; /* Ensure buttons have a minimum width */
+    }
+    
+  }
+
+  @media (min-width: 768px) { /* Adjust for smaller screens */
+    .category_container {
+      justify-content: center;
     }
   }
+
+  .project-card{
+    margin-bottom: -2rem;
+  }
+  
   
 
   .expertise_lies_section{

@@ -42,12 +42,22 @@
 
 .service-right-side{
     margin-left: -0.5rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
+    border-radius: 0.4rem;
+}
+
+.service_section_padding{
+    margin-top: 0rem !important;
+    margin-bottom: 2rem !important;
 }
 
 .service-left-side{
     margin-right: -0.5rem;
     border-radius: 1rem;
+}
+
+.service-faq{
+    margin-top: -3rem;
 }
 
 

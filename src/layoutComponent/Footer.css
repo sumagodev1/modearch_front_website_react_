@@ -23,7 +23,25 @@
 .modearch_navbar .navbar-nav .nav-link.active{
     font-weight: 600;
 }
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+.nav-item{
+    margin-right: .5rem !important;
+}
   
+@media (max-width: 991px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9); 
+      z-index: 1000;
+      padding: 10px;
+    }
+  }
   
 
 
@@ -35,4 +53,19 @@
 
 .quick-link-ul{
     line-height: 2.2;
+}
+
+.footer-copyright-section{
+    margin-bottom: -1rem;
+}
+
+.footer-padding{
+    padding-top: 4rem !important;
+    padding-bottom: 3rem !important;
+}
+
+@media (max-width: 574px) {
+    .footer-padding{
+        padding-top: 0.2rem !important;
+    }
 }

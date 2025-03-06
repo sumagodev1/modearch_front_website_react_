@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./service.css";
 import Service1 from "./images/service/service1.png";
-import service_banner_img from "./images/service/service_banner_img.png";
-import servicenexttobanner from "./images/service/service-next-to-banner.png";
+// import service_banner_img from "./images/service/service_banner_img.png";
+import service_bannerimgDesktop  from "./images/service/service_banner_img.png";
+import service_bannerimgMobile from "./images/service/homeprecisionsteelimgMobile.png";
+// import servicenexttobanner from "./images/service/service-next-to-banner.png";
+import servicenexttobannerimgDesktop  from "./images/service/service-next-to-banner.png";
+import servicenexttobannerimgMobile from "./images/service/servicenexttobannerimgMobile.png";
 import Navbar from "../layoutComponent/Navbar";
-import Faq from "./Faq";
+import Service_Faq from "./Service_Faq";
 import Footer from "../layoutComponent/Footer";
 
 // const services = [
@@ -55,6 +59,41 @@ import Footer from "../layoutComponent/Footer";
 
 const Service = () => {
 
+  const [imageSrc, setImageSrc] = useState(service_bannerimgDesktop);
+  const [servicenexttobannerimageSrc, setServicenexttobannerimageSrc] = useState(servicenexttobannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(service_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(service_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
+  useEffect(() => {
+    const updateServiceImage = () => {
+      if (window.innerWidth < 768) {
+        setServicenexttobannerimageSrc(servicenexttobannerimgMobile); // Mobile image
+      } else {
+        setServicenexttobannerimageSrc(servicenexttobannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateServiceImage(); // Set initial image
+    window.addEventListener("resize", updateServiceImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateServiceImage); // Cleanup event listener
+  }, []);
+
+
     const [serviceData, setServiceData] = useState([]);
   
     useEffect(() => {
@@ -78,7 +117,7 @@ const Service = () => {
       <section className="g-0">
         <div className="container-fluid px-0">
           <div className="about_banner_img">
-            <img src={service_banner_img} alt="Logo" className="img-fluid" />
+            <img src={imageSrc} alt="Logo" className="img-fluid" />
           </div>
         </div>
       </section>
@@ -86,12 +125,12 @@ const Service = () => {
       <section className="g-0 mt-5">
         <div className="container-fluid px-0">
           <div className="about_banner_img">
-            <img src={servicenexttobanner} alt="Logo" className="img-fluid" />
+            <img src={servicenexttobannerimageSrc} alt="Logo" className="img-fluid" />
           </div>
         </div>
       </section>
 
-      <section className="service-section mt-5 sevices-bg-img">
+      <section className="service-section mt-5 sevices-bg-img" id="service">
         <div className="container service-section-container">
           <h2 className="text-center mb-4">Services</h2>
           <div className="row">
@@ -118,7 +157,7 @@ const Service = () => {
                     <div className="w-100">
                       <h1>{service.title}</h1>
                       <h5>{service.subtitle}</h5>
-                      <p>{service.desc}</p>
+                      <p className="text-justify">{service.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -130,10 +169,10 @@ const Service = () => {
 
         <section className="g-0">
           <div className="container-fluid px-0">
-            <div className="design-section text-center my-5 service-years-bg-color py-4">
-              <div className="container">
+            <div className="design-section text-center service_section_padding service-years-bg-color py-4">
+              <div className="container mt-5 mb-5">
                 {/* First Row - Stats */}
-                <div className="row text-center mb-3 d-none d-md-flex">
+                <div className="row text-center mb-4 d-none d-md-flex">
                   <div className="col-md-4">
                     <h2 className="fw-bold" style={{ color: "#fff" }}>
                       10+
@@ -166,7 +205,7 @@ const Service = () => {
                 </div>
 
                 {/* Responsive Layout for Small Screens */}
-                <div className="row text-center mb-3 d-md-none">
+                <div className="row text-center mb-4 d-md-none">
                   <div className="col-6">
                     <h2
                       className="fw-bold mobile-total-year"
@@ -237,7 +276,7 @@ const Service = () => {
                 </div>
 
                 {/* Third Row - Labels */}
-                <div className="row text-center mt-3 d-none d-md-flex">
+                <div className="row text-center d-none d-md-flex">
                   <div className="col-md-4">
                     <h5 className="fw-bold text-start">Our Track Record</h5>
                   </div>
@@ -290,7 +329,7 @@ const Service = () => {
         </section>
 
       <section className="service-faq mb-5">
-        <Faq />
+        <Service_Faq />
       </section>
 
       <Footer />

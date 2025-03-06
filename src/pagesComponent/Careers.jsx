@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../layoutComponent/Navbar';
 import Footer from '../layoutComponent/Footer';
 import ReCAPTCHA from 'react-google-recaptcha';
 import axios from 'axios';
-import careers_banner_img from './images/careers/careers_banner_img.png'
+// import careers_banner_img from './images/careers/careers_banner_img.png'
+import careers_bannerimgDesktop  from "./images/careers/careers_banner_img.png";
+import careers_bannerimgMobile from "./images/careers/careers_bannerimgMobile.png";
 import precision from './images/careers/precision.png'
 import globle from './images/careers/globle.png'
 import work from './images/careers/work.png'
@@ -14,6 +16,25 @@ import './Careers.css'
 import Swal from 'sweetalert2';
 
 const Careers = () => {
+
+  const [imageSrc, setImageSrc] = useState(careers_bannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(careers_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(careers_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -199,7 +220,7 @@ const Careers = () => {
         <section className='g-0'>
             <div className="container-fluid px-0">
                 <div className="careers_banner_img">
-                    <img src={careers_banner_img} alt="Logo" className='img-fluid' />
+                    <img src={imageSrc} alt="Logo" className='img-fluid' />
                 </div>
             </div>
         </section>
@@ -269,18 +290,18 @@ const Careers = () => {
         <section className='careers-form-section mb-4'>
           <div className="container mt-5">
               
-              <div className="card p-4 mx-auto career-form-shadow" style={{ backgroundColor: '#f8f8f8', top:'-2rem' }}>
-              <h4 className="text-center mb-4">UPLOAD YOUR CV</h4>
+              <div className="card p-4 mx-auto career-form-shadow" style={{ backgroundColor: '#C4C4C4', top:'-2rem', border:'1px solid #C4C4C4' }}>
+              <h4 className="mb-4">UPLOAD YOUR CV</h4>
 
               <form onSubmit={handleSubmit}>
                   <div className="row mb-3">
                   <div className="col-md-6">
-                  <label class="form-label">Name</label>
+                  <label class="form-label fw-bold mb-0">Name</label>
                       <input type="text" name="name" className="form-control" placeholder="Enter your name" value={formData.name} onChange={handleChange} onKeyPress={(e) => {if (!/^[a-zA-Z\s]+$/.test(e.key)) e.preventDefault(); }}/>
                       {errors.name && <small className="text-danger">{errors.name}</small>}
                   </div>
                   <div className="col-md-6">
-                      <label class="form-label">Email Id</label>
+                      <label class="form-label fw-bold mb-0">Email Id</label>
                       <input type="email" name="email" className="form-control" placeholder="Enter your email" value={formData.email} onChange={handleChange} onKeyPress={(e) => {if (!/^[a-zA-Z0-9@.]*$/.test(e.key)) e.preventDefault();}} />
                       {errors.email && <small className="text-danger">{errors.email}</small>}
                   </div>
@@ -288,30 +309,59 @@ const Careers = () => {
 
                   <div className="row mb-3">
                   <div className="col-md-6">
-                      <label class="form-label">Mobile No.</label>
+                      <label class="form-label fw-bold mb-0">Mobile No.</label>
                       <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="10" maxLength="10" onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} />
                       {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
                   </div>
                   <div className="col-md-6">
-                      <label class="form-label">Subject</label>
+                      <label class="form-label fw-bold mb-0">Subject</label>
                       <input type="text" name="subject" className="form-control" placeholder="Enter your subject" value={formData.subject} onChange={handleChange} />
                       {errors.subject && <small className="text-danger">{errors.subject}</small>}
                   </div>
                   </div>
 
                   <div className="mb-3">
-                      <label class="form-label">Upload CV <span class=" text-danger" style={{ fontSize: '13px' }}>(validation file size should be less than 1MB and PDF only)</span></label>
-                      <div className="mb-3 d-flex justify-content-between align-items-center border p-1">
-                      <span>{formData.cv ? formData.cv.name : 'No file chosen'}</span>
-                      <label className="btn btn-dark text-white ms-3" style={{ padding: '0.3rem .7rem', fontSize: '.8rem' }}>Choose File
-                          <input type="file" accept=".pdf" name="cv" className="d-none" onChange={handleChange} />
-                      </label>
-                      </div>
-                      {errors.cv && <small className="text-danger d-block">{errors.cv}</small>}
+                    <label className="form-label fw-bold mb-0">
+                        Upload CV <span className="text-danger" style={{ fontSize: '13px' }}>(validation file size should be less than 1MB and PDF only)</span>
+                    </label>
+                    <div 
+                        className="mb-3 d-flex justify-content-between align-items-center border" 
+                        style={{
+                            backgroundColor: '#fff',
+                            borderRadius: '0.4rem',
+                            overflow: 'hidden',
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
+                        <span 
+                            className='ms-2 text-truncate' 
+                            style={{
+                                display: 'block',
+                                width: '70%',  // Adjust width as per your layout
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap'
+                            }}
+                        >
+                            {formData.cv ? formData.cv.name : 'No file chosen'}
+                        </span>
+                        <label 
+                            className="btn btn-dark text-white ms-3" 
+                            style={{ 
+                                padding: '0.3rem .8rem', 
+                                fontSize: '.9rem', 
+                                flexShrink: 0
+                            }}
+                        >
+                            Choose File
+                            <input type="file" accept=".pdf" name="cv" className="d-none" onChange={handleChange} />
+                        </label>
+                    </div>
+                    {errors.cv && <small className="text-danger d-block">{errors.cv}</small>}
                   </div>
 
                   <div className="mb-3">
-                      <label class="form-label">Message</label>
+                      <label class="form-label fw-bold mb-0">Message</label>
                   <textarea name="message" className="form-control" rows="4" placeholder="Enter your message" value={formData.message} onChange={handleChange}></textarea>
                   <div className="text-end">
                     <small>{formData.message.trim().split(/\s+/).filter(Boolean).length}/300</small>
@@ -340,7 +390,7 @@ const Careers = () => {
                     </div>
 
                     <div className="text-center">
-                      <button type="submit" className="submit-button">
+                      <button type="submit" className="submit-button submit_btn_underline_animation">
                           Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
                           {/* <span className="arrow">↗</span> */}
                       </button>

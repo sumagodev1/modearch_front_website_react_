@@ -5,7 +5,9 @@ import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
-import complete_project_banner_img from "./images/project/complete_project_banner_img.png";
+// import complete_project_banner_img from "./images/project/complete_project_banner_img.png";
+import complete_project_bannerimgDesktop  from "./images/project/complete_project_banner_img.png";
+import complete_project_bannerimgMobile from "./images/project/complete_project_bannermgMobile.png";
 import complete_project_img from "./images/project/complete_project_img.png";
 import world_map from "./images/project/world_map.png";
 import sds2Logo from "./images/project/sds2Logo.png";
@@ -26,44 +28,27 @@ import {
 } from "yet-another-react-lightbox/plugins";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-// const staticProjectDetails = {
-//   1: {
-//     name: "Hospital Project 1",
-//     location: "New York",
-//     Total_Tonnage: "500 Tons",
-//     year: "2022",
-//     status: "Completed",
-//     images: [
-//       Project,
-//       Project,
-//       Project,
-//     ],
-//   },
-//   2: {
-//     name: "Hospital Project 2",
-//     location: "Los Angeles",
-//     Total_Tonnage: "750 Tons",
-//     year: "2023",
-//     status: "Completed",
-//     images: [
-//       Project,
-//       Project,
-//     ],
-//   },
-//   3: {
-//     name: "Warehouse Project 1",
-//     location: "Chicago",
-//     Total_Tonnage: "600 Tons",
-//     year: "2021",
-//     status: "Completed",
-//     images: [
-//       Project,
-//       Project,
-//     ],
-//   },
-// };
 
 const ProjectDetails = () => {
+
+  const [imageSrc, setImageSrc] = useState(complete_project_bannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(complete_project_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(complete_project_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
   const { project_name } = useParams();
   const id = localStorage.getItem('objid');
   const [project, setProject] = useState(null);
@@ -162,7 +147,7 @@ const ProjectDetails = () => {
         <div className="container-fluid px-0">
           <div className="complete_project_banner_img">
             <img
-              src={complete_project_banner_img}
+              src={imageSrc}
               alt="complete_project_banner_img"
               className="img-fluid"
             />
@@ -270,7 +255,7 @@ const ProjectDetails = () => {
         </div>
       )}
 
-      <section className="expertise-section">
+      <section className="expertise-section mb-1">
         <div className="container">
           <div className="row align-items-center justify-content-center text-center">
             <div className="col-12 col-md-4 text-white">

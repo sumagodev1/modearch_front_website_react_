@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from '../layoutComponent/Navbar';
 import Footer from '../layoutComponent/Footer'
 import { Helmet } from 'react-helmet-async';
-import about_banner_img from './images/about/about-banner-img.png'
+// import about_banner_img from './images/about/about-banner-img.png'
+import aboutbannerimgDesktop  from "./images/about/about-banner-img.png";
+import aboutbannerimgMobile from "./images/about/aboutbannerimgMobile.png";
 import about_us_img from './images/about/about-us-imgg.png'
 import mission_img from './images/about/mission.png'
 import visionmissionbottomimg from './images/about/vision-mission-bottom.png'
@@ -12,10 +15,47 @@ import './About.css'
 import Growth from './Growth';
 import MeetExpert from './MeetExpert';
 import ClientFeedback from './ClientFeedback';
-import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png'
+// import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png'
+import aboutprecisionsteelimgDesktop  from "./images/about/about-precision-steel-img.png";
+import aboutprecisionsteelimgMobile from "./images/about/about-precision-steel-imgMobile.png";
 import up_arrow from './images/up-arrow.png'
 
 const About = () => {
+
+  const [imageSrc, setImageSrc] = useState(aboutbannerimgDesktop);
+  const [aboutprecisionsteelimageSrc, setAboutprecisionsteelimageSrc] = useState(aboutprecisionsteelimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(aboutbannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(aboutbannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
+  useEffect(() => {
+    const updateSteelImage = () => {
+      if (window.innerWidth < 768) {
+        setAboutprecisionsteelimageSrc(aboutprecisionsteelimgMobile); // Mobile image
+      } else {
+        setAboutprecisionsteelimageSrc(aboutprecisionsteelimgDesktop); // Desktop image
+      }
+    };
+
+    updateSteelImage(); // Set initial image
+    window.addEventListener("resize", updateSteelImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateSteelImage); // Cleanup event listener
+  }, []);
+
   return (
     <>
 
@@ -30,13 +70,13 @@ const About = () => {
         <section className='g-0'>
             <div className="container-fluid px-0">
                 <div className="about_banner_img">
-                    <img src={about_banner_img} alt="Logo" className='img-fluid' />
+                    <img src={imageSrc} alt="Logo" className='img-fluid' />
                 </div>
             </div>
         </section>
 
         {/* Who We Are Section */}
-        <section className='bg-dark text-light'>
+        <section className='bg-dark text-light' id="about-us">
             <div className='container-fluid'>
               <div className='row align-items-center'>
                   {/* Image Column */}
@@ -80,7 +120,7 @@ const About = () => {
                     Vision <img src={vision} alt="Logo" className='img-fluid ms-2' style={{maxWidth:'71px'}} />
                   </h3>
                 </div>
-                <p className="mt-3 flex-grow-1 text-justify">
+                <p className="mt-3 flex-grow-1 text-justify vision-mission-para">
                   At Modearch Steel, we aim to deliver precise, efficient, and innovative structural steel detailing solutions that streamline fabrication and construction. Through cutting-edge technology and expert collaboration, we ensure accuracy, quality, and timely execution for our clients worldwide.
                 </p>
               </div>
@@ -99,7 +139,7 @@ const About = () => {
                     Mission <img src={mission} alt="Logo" className='img-fluid ms-2' style={{maxWidth:'51px'}} />
                   </h3>
                 </div>  
-                <p className="mt-3 flex-grow-1 text-justify">
+                <p className="mt-3 flex-grow-1 text-justify vision-mission-para">
                   We strive to be a global leader in structural steel detailing, setting new industry standards with technical excellence, reliability, and innovation. Our goal is to shape the future of steel construction with precision and sustainability.
                 </p>
               </div>
@@ -118,10 +158,22 @@ const About = () => {
       <section className='g-0'>
         <div className="container-fluid px-0">
           <div className="about-precision-steel-img position-relative">
-            <img src={aboutprecisionsteelimg} alt="about-precision-steel-img" className='img-fluid w-100' />
-            <a href="#" className="btn position-absolute about-precision-steel-btn">
+            <img src={aboutprecisionsteelimageSrc} alt="about-precision-steel-img" className='img-fluid w-100' />
+              <Link
+                to="/contactUs"
+                className="text-decoration-none btn position-absolute about-precision-steel-btn2 get_in_touch_underline_animation"
+                onClick={() => setTimeout(() => window.location.hash = "#contact-form", 100)}
+              >
+                Get In Touch{" "}
+                <img
+                  src={up_arrow}
+                  alt="Tekla Structures"
+                  className="expertise-logo img-fluid"
+                />
+              </Link>
+            {/* <a href="#" className="btn position-absolute about-precision-steel-btn">
               Get In Touch <img src={up_arrow} alt="up_arrow" className='img-fluid' />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>

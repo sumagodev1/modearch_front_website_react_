@@ -26,13 +26,13 @@ const MeetExpert = () => {
   }, []);
 
   return (
-    <section className="py-5">
+    <section className="py-5" id="modearch_team">
       <div className="container text-center">
-        <h2 className="fw-bold mb-4">Meet The Experts Behind The Success</h2>
+        <h1 className="fw-bold mb-4">Meet The Experts Behind The Success</h1>
         <div className="row g-4">
           {teamMembers.map((member, index) => (
             <div key={member.id || index} className="col-md-6">
-              <div className="d-flex shadow rounded overflow-hidden">
+              <div className="d-flex shadow overflow-hidden">
                 {/* Image Section */}
                 <div className="w-50">
                   <img
@@ -44,7 +44,7 @@ const MeetExpert = () => {
                 </div>
 
                 {/* Info Section */}
-                <div className="w-50 bg-dark text-white d-flex flex-column justify-content-center p-4 text-start">
+                <div className="w-50 team-info-section text-white d-flex flex-column justify-content-center p-4 text-start">
                   <p className="">{member.description}</p>
                   <div className="name-role mt-1">
                     <h5 className="mb-0">{member.name}</h5>

@@ -25,3 +25,7 @@
 .gallery_social_logo_shadow{
     box-shadow: 0 0.5rem 1.1rem rgb(0 0 0 / 24%) ;
 }
+
+.gallery_main_section{
+    margin-top: -3rem;
+}

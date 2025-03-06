@@ -1,5 +1,5 @@
 .who-we-are-section {
-    background-color: #000;
+    background-color: #1D1D1D;
     color: #fff;
     /* padding: 50px 0; */
   }
@@ -56,13 +56,14 @@
   .text-content-wrapper h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-align: left;
+    /* text-align: left; */
   }
   
   .bordered-text {
     border: 1px solid #ddd; 
     /* padding: 20px; */
-    padding: 3rem 1rem 2rem 3rem;
+    /* padding: 3rem 1rem 2rem 3rem; */
+    padding: 2rem 2rem 2rem 2rem;
     border-radius: 14px;
     margin-bottom: 30px;
   }
@@ -86,7 +87,9 @@
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .who-we-are-row {
-      flex-direction: column; /* Stack columns on smaller screens */
+      /* Stack columns on smaller screens */
+      /* flex-direction: column;  */
+      flex-direction: row;
     }
   
     .image-column,
@@ -177,6 +180,11 @@
   .certified_text_div{
     align-content: center;
   }
+
+  .certified_para{
+    color: #8E8E8E;
+  }
+
   .certified_text_border{
     border: 1px solid #CECECE;
     border-radius: 1rem;
@@ -204,8 +212,32 @@
     }
     
     .number-section-border{
-        border-left: 1px solid #000;
+        /* border-left: 1px solid #000; */
         border-right: 1px solid #000;
+    }
+
+    .craftsmanship-text{
+      padding-left: 4rem !important;
+    }
+
+    @media (max-width: 768px) {
+      .craftsmanship-text{
+        padding-left: 0rem !important;
+        padding: 1rem !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .certified_text_border{
+        margin-top: 1.5rem !important;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 768px) {
+      .certified_text_border{
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
     }
 
 
@@ -217,5 +249,363 @@
       }
       .slick-next {
         right: -2px !important;
+      }
+    }
+
+    @media (width: 768px) and (height: 1024px) {
+      .slick-prev {
+        left: -18px !important;
+      }
+      .slick-next {
+        right: -18px !important;
+      }
+    }
+    
+
+    /*  */
+
+    .underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 82%;
+      height: 5%;
+    
+      background-color: white;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .underline_animation:hover::before {
+      /* left: 0%; */
+      left: 10%;
+    }
+
+    .underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /*  */
+
+    .get_in_touch_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .get_in_touch_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 81%;
+      height: 5%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .get_in_touch_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 9%;
+    }
+
+    .get_in_touch_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+        /*  */
+
+        .get_in_white_underline_animation:hover{
+          cursor: pointer;
+        }
+        
+        .get_in_white_underline_animation::before {
+          content: "";
+          /* width: 100%; */
+          width: 75%;
+          height: 5%;
+        
+          background-color: white;
+          position: absolute;
+          bottom: 0%;
+          left: -100%;
+          transition: all 0.7s;
+        }
+        
+        .get_in_white_underline_animation:hover::before {
+          /* left: 0%; */
+          left: 12%;
+        }
+    
+        .get_in_white_underline_animation {
+          /* font-family: "Reddit Mono", monospace; */
+          /* font-weight: 700; */
+          position: relative;
+          overflow: hidden;
+        }
+
+    /*  */
+
+    .read_blog_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .read_blog_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 85%;
+      height: 5%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .read_blog_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 7%;
+    }
+
+    .read_blog_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+      /*  */
+
+      .join_team_underline_animation:hover{
+        cursor: pointer;
+      }
+      
+      .join_team_underline_animation::before {
+        content: "";
+        /* width: 100%; */
+        width: 90%;
+        height: 5%;
+      
+        background-color: #000;
+        position: absolute;
+        bottom: 0%;
+        left: -100%;
+        transition: all 0.7s;
+      }
+      
+      .join_team_underline_animation:hover::before {
+        /* left: 0%; */
+        left: 4%;
+      }
+  
+      .join_team_underline_animation {
+        /* font-family: "Reddit Mono", monospace; */
+        /* font-weight: 700; */
+        position: relative;
+        overflow: hidden;
+      }
+
+    /*  */
+    .contact_us_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .contact_us_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 24%;
+      height: 8%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .contact_us_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 0%;
+    }
+
+    .contact_us_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /*  */
+    .see_more_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .see_more_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 98%;
+      height: 8%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .see_more_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 0%;
+    }
+
+    .see_more_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /*  */
+
+    .see_more_gallery_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .see_more_gallery_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 80%;
+      height: 5%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .see_more_gallery_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 9%;
+    }
+
+    .see_more_gallery_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /*  */
+
+    .read_more_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .read_more_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 80%;
+      height: 4%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .read_more_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 9%;
+    }
+
+    .read_more_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /*  */
+    .read_more_white_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .read_more_white_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 80%;
+      height: 4%;
+    
+      background-color: #fff;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .read_more_white_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 9%;
+    }
+
+    .read_more_white_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /*  */
+
+    /*  */
+
+    .submit_btn_underline_animation:hover{
+      cursor: pointer;
+    }
+    
+    .submit_btn_underline_animation::before {
+      content: "";
+      /* width: 100%; */
+      width: 66%;
+      height: 5%;
+    
+      background-color: #000;
+      position: absolute;
+      bottom: 0%;
+      left: -100%;
+      transition: all 0.7s;
+    }
+    
+    .submit_btn_underline_animation:hover::before {
+      /* left: 0%; */
+      left: 16%;
+    }
+
+    .submit_btn_underline_animation {
+      /* font-family: "Reddit Mono", monospace; */
+      /* font-weight: 700; */
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /*  */
+
+    @media (max-width: 768px) {
+      .home-precision-img{
+        margin-top: -2.5rem;
       }
     }

@@ -40,10 +40,12 @@ const Footer = () => {
       });
   }, []);
 
+  const currentYear = new Date().getFullYear(); // Get current year dynamically
+
   return (
     <>
 
-        <section className="footer py-5 text-white footer-section">
+        <section className="footer footer-padding text-white footer-section">
           <div className="container">
             <div className="row text-center text-md-start">
               
@@ -109,7 +111,7 @@ const Footer = () => {
                   <div className='website-logo d-flex justify-content-center'>
                     <img src={logo} alt="Company Logo" className="mb-3 img-fluid" style={{ maxWidth: "120px" }} />
                   </div>
-                  <p className='text-center'>A dynamic and innovative steel detailing company committed to delivering high-quality structural detailing services to the construction and engineering industries.</p>
+                  <p className='text-juatify'>A dynamic and innovative steel detailing company committed to delivering high-quality structural detailing services to the construction and engineering industries.</p>
                   
                   {/* Social Media Links */}
                   <h6 className="fw-bold mt-3 text-center">Follow Moderach</h6>
@@ -125,6 +127,15 @@ const Footer = () => {
                 {/* <img src={footerimg} alt="Company Logo" className="mb-3 img-fluid" style={{ maxWidth: "120px" }} /> */}
               </div>
               
+            </div>
+
+          </div>
+          <div className="container-fluid">
+            <div className="row text-center text-md-start">
+              <div className="col-md-12 col-lg-12 col-sm-12 mt-5 text-center footer-copyright-section">
+                © {currentYear} Copyright: <a href="https://sumagoinfotech.com" className="text-white" target="_blank" rel="noopener noreferrer">Made with Passion by Sumago Infotech</a>🤍
+               {/* © {currentYear} Copyright : Made with Passion by Sumago Infotech 🤍 */}
+              </div>
             </div>
           </div>
         </section>

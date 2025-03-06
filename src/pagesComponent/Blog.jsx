@@ -3,13 +3,34 @@ import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import axios from "axios";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import blog_banner_img from "./images/blog/blog_banner_img.png";
+// import blog_banner_img from "./images/blog/blog_banner_img.png";
+import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
+import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import { useNavigate } from "react-router-dom";
 import up_arrow from './images/up-arrow.png'
 import up_arrow_white from './images/up-arrow-white.png'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const Blog = () => {
+
+  const [imageSrc, setImageSrc] = useState(blog_bannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(blog_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(blog_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
   const navigate = useNavigate();
   const [blogData, setBlogData] = useState([]);
   const characterLimit = 200;
@@ -80,7 +101,7 @@ const Blog = () => {
                     <div className="mt-auto">
                         <Button
                         variant="transparent"
-                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark" : "text-white"}`}
+                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark read_more_underline_animation" : "text-white read_more_white_underline_animation"}`}
                         onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
                         >
                         Read More 
@@ -134,7 +155,7 @@ const Blog = () => {
                     <div className="mt-auto">
                         <Button
                         variant="transparent"
-                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark" : "text-white"}`}
+                        className={`py-2 mt-xl-3 align-self-end fw-bolder blog_read_more_btn ${index % 4 === 0 ? "text-dark read_more_underline_animation" : "text-white read_more_white_underline_animation"}`}
                         onClick={() => navigate(`/blogdetails/${blog.title.toLowerCase().replace(/\s+/g, '-')}`)}
                         >
                         Read More 
@@ -160,22 +181,22 @@ const Blog = () => {
 
       <section className="g-0">
         <div className="container-fluid px-0">
-          <img src={blog_banner_img} alt="Blog Banner" className="img-fluid w-100" />
+          <img src={imageSrc} alt="Blog Banner" className="img-fluid w-100" />
         </div>
       </section>
 
       <section className='mt-4'>
         <div className='container'>
-          <h2 className='text-center'>Industry Insights & Innovations</h2>
+          <h1 className='text-center fw-bold'>Industry Insights & Innovations</h1>
           <div className='p-4 text-center'>
-            <p className='blog_page_title'>Stay ahead with expert insights, industry trends, and the latest advancements in steel detailing. Explore technical updates, project highlights, and best practices shaping the future of structural steel design and detailing.</p>
+            <p className='blog_page_title text-justify'>Stay ahead with expert insights, industry trends, and the latest advancements in steel detailing. Explore technical updates, project highlights, and best practices shaping the future of structural steel design and detailing.</p>
           </div>
         </div>
       </section>
 
-      <Container>
+      <Container id="blog">
         <Row className='text-center'>
-          <h1 className='oueprd text-uppercase mt-3 mb-4'>Blog</h1>
+          <h1 className='oueprd text-uppercase mt-3 mb-4 fw-bold'>Blog</h1>
         </Row>
       </Container>
       <Container fluid className="mb-5">
@@ -211,21 +232,21 @@ const Blog = () => {
         </section> */}
 
         <section className="social-media-section text-center">
-          <h4 className="mb-3">Follow Us On</h4>
+          <h4 className="mb-3 fw-bold">Follow Us On</h4>
           <div className="d-flex justify-content-center gap-3">
             <a
               href={socialLinks.facebook}
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle gallery_social_logo_shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaFacebookF style={{ height: "1rem", fill: "#444444" }} />
+              <FaFacebookF style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             <a
               href={socialLinks.instagram}
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaInstagram style={{ height: "1rem", fill: "#444444" }} />
+              <FaInstagram style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             {socialLinks.email && (
             <a
@@ -233,7 +254,7 @@ const Blog = () => {
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaEnvelope style={{ height: "1rem", fill: "#444444" }} />
+              <FaEnvelope style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             )}
             {socialLinks.whatsapp && (
@@ -242,7 +263,7 @@ const Blog = () => {
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaWhatsapp style={{ height: "1rem", fill: "#444444" }} />
+              <FaWhatsapp style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             )}
           </div>

@@ -11,10 +11,10 @@ import Button from "react-bootstrap/Button";
 const PrevArrow = ({ onClick, currentSlide }) => (
   <button
     onClick={onClick}
-    className="slick-prev"
+    className="slick-next"
     style={{
       position: "absolute",
-      left: "-40px",
+      right: "-31px",
       top: "50%",
       transform: "translateY(-50%)",
       zIndex: 2,
@@ -34,10 +34,10 @@ const PrevArrow = ({ onClick, currentSlide }) => (
 const NextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="slick-next"
+    className="slick-prev"
     style={{
       position: "absolute",
-      right: "-40px",
+      left: "-31px",
       top: "50%",
       transform: "translateY(-50%)",
       zIndex: 2,
@@ -110,12 +110,13 @@ const ClientFeedback = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="text-danger">{error}</p>;
+  
 
   return (
     <>
-      <section className="py-5 mt-5" style={{ backgroundColor: "#777777" }}>
+      <section className="py-5 mt-5" style={{ backgroundColor: "#777777", boxShadow: "none" }}>
         <div className="container-fluid">
-          <h2 className="text-center fw-bold mb-4">Insights From Our Valued Clients</h2>
+          <h1 className="text-center fw-bold mb-5 text-white">Insights From Our Valued Clients</h1>
         </div>
       </section>
 
@@ -123,7 +124,7 @@ const ClientFeedback = () => {
         <div className="container position-relative">
           <Slider {...settings}>
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="p-3 custom-padding">
+              <div key={index} className="p-4 custom-padding">
                 <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius">
                   <h5 className="fw-bold mb-2">{testimonial.company_Name}</h5>
                   <p className="text-muted mb-3">
@@ -153,7 +154,7 @@ const ClientFeedback = () => {
                         width: "100px",
                         height: "100px",
                         border: "4px solid white",
-                        boxShadow: "rgb(0 0 0 / 20%) 0px 2px 12px 7px",
+                        boxShadow: "rgb(0 0 0 / 20%) 0px 1px 8px 4px",
                       }}
                     />
                   </div>
@@ -192,7 +193,8 @@ const ClientFeedback = () => {
                     width: "100px",
                     height: "100px",
                     border: "4px solid white",
-                    boxShadow: "rgb(0 0 0 / 20%) 0px 2px 12px 7px",
+                    // boxShadow: "rgb(0 0 0 / 20%) 0px 2px 12px 7px",
+                    boxShadow: "rgb(0 0 0 / 20%) 0px 1px 8px 4px",
                   }}
                 />
               </div>

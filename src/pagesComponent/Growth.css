@@ -1,4 +1,4 @@
-/* styles.css */
+/* Updated Growth.css */
 .growth-section {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -8,18 +8,18 @@
 
 .growth-container {
   width: 100vw;
-  height: 100vh;
+  /* height: 86vh; */
+  height: 48vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: 40px; */
   box-sizing: border-box;
 }
 
 .title {
   font-size: 4rem;
   font-weight: bold;
-  margin-top: 40px;
+  margin-top: 15px;
   width: 100%;
   text-align: left;
   letter-spacing: 2px;
@@ -27,7 +27,7 @@
 
 .content-container {
   width: 100%;
-  margin-top: 32px;
+  margin-top: -20px;
   overflow: hidden;
   position: relative;
 }
@@ -39,7 +39,7 @@
 
 .section {
   width: 40vw;
-  padding: 60px 0;
+  padding: 25px 0px 10px;
   margin-right: 80px;
   flex-shrink: 0;
 }
@@ -64,6 +64,7 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 8px;
+  text-align: justify;
 }
 
 .section li span {
@@ -71,95 +72,130 @@
   margin-right: 8px;
 }
 
+/* Timeline Styling */
 .timeline {
   display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: 100%;
+  justify-content: space-between; /* Evenly distribute years */
   align-items: center;
-  cursor: pointer;
-  scrollbar-width: none; /* Firefox */
-}
-
-.timeline::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  /* padding: 0 5vw;  */
+  /* Adds spacing on the sides */
 }
 
 .timeline-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* margin-left: 1.2rem; */
+  flex: 1; /* Ensures equal spacing */
+  position: relative;
 }
 
+/* Timeline Line */
 .line-section {
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .timeline-line {
-  width: 50px;
+  flex-grow: 1; /* Extend the line fully */
   height: 2px;
   background-color: white;
 }
 
+/* Timeline Dots */
 .timeline-dot {
-  /* margin-right: 2px;
-  margin-left: 2px; */
-  width: 25px;
-  height: 25px;
-  border: 2px solid white;
+  width: 22px;
+  height: 22px;
+  border: 3px solid white;
   border-radius: 50%;
+  background-color: black;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
   transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
-  /* vivek css */
-  /* margin-right: 6px;
-  margin-left: 6px; */
 }
 
 .timeline-dot.active {
-  transform: scale(1);
+  transform: scale(1.2);
   background-color: #ffa51b;
   border-color: #ffa51b;
 }
 
+/* Timeline Year Text */
 .timeline-year {
   font-size: 20px;
   font-weight: 600;
   margin-top: 8px;
-  transition: color 0.3s;
   border: none;
   background: transparent;
   color: white;
-    /* vivek css */
-  margin-left: 1.5rem;
 }
 
 .timeline-year.active {
   color: #ffa51b;
 }
 
-
-@media (max-width: 769) and (max-width: 841px) {
+/* Responsive Design */
+@media (max-width: 768px) {
   .section {
-    padding: 50px 0;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 768px) {
-  .section {
-    padding: 30px 0;
+    /* padding: 30px 0; */
+    padding: 0px 0;
     width: 67vw;
   }
 
   .content-container {
     margin-top: 20px;
   }
+
 }
 
-@media (min-width: 575px) and (max-width: 641px) {
+@media (max-width: 767px) {
+  .growth-container {
+    height: 58vh;
+  }
+}
+
+@media (min-width: 819px) and (max-width: 820px) {
+  .growth-container {
+    height: 38vh;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 1025px) {
+  .growth-container {
+    height: 74vh;
+  }
+}
+
+@media (min-width: 911px) and (max-width: 913px) {
+  .growth-container {
+    height: 34vh;
+  }
+
+  .content-container {
+    margin-top: -5px;
+  }
+
+}
+
+@media (min-width: 539px) and (max-width: 541px) {
+  .growth-container {
+    height: 66vh !important;
+  }
+
+}
+
+@media (min-width: 343px) and (max-width: 345px) {
+  .growth-container {
+    height: 55vh !important;
+  }
+
+}
+
+@media (max-width: 575px) {
   .section {
     padding: 30px 0;
     width: 76vw;
@@ -168,74 +204,40 @@
   .content-container {
     margin-top: 20px;
   }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .growth-container {
+    height: 75vh;
+  }
 }
 
-@media (min-width: 476px) and (max-width: 574px) {
+@media (min-width: 390px) and (max-width: 430px) {
+  .growth-container {
+    height: 59vh;
+  }
+}
+
+@media (max-width: 414px) {
   .section {
-    padding: 30px 30px;
+    padding: 15px 15px;
     width: 88vw;
   }
 
-  .content-container {
-    margin-top: 20px;
+  .title {
+    font-size: 2.5rem;
   }
 }
 
-@media (min-width: 414px) and (max-width: 477px) {
+@media (max-width: 350px) {
   .section {
-    padding: 11px 30px;
-    width: 88vw;
-  }
-
-  .content-container {
-    margin-top: 20px;
-  }
-}
-
-@media (min-width: 353px) and (max-width: 413px) {
-  .section {
-    padding: 11px 30px;
+    padding: 10px;
     width: 96vw;
   }
 
-  .content-container {
-    margin-top: 20px;
-  }
-
   .title {
-    margin-top: 10px;
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 200px) and (max-width: 352px) {
-  .section {
-    padding: 11px 11px;
-    width: 88vw;
-  }
-
-  .content-container {
-    margin-top: 20px;
-  }
-
-  .title {
-    margin-top: 10px;
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 343px) and (max-width: 345px) {
-  .section {
-    padding: 75px 11px;
-    width: 88vw;
-  }
-
-  .content-container {
-    margin-top: 20px;
-  }
-
-  .title {
-    margin-top: 10px;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }

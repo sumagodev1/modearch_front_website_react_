@@ -3,7 +3,9 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
-import gallery_banner_img from './images/gallery/gallery_banner_img.png';
+// import gallery_banner_img from './images/gallery/gallery_banner_img.png';
+import gallery_bannerimgDesktop  from "./images/gallery/gallery_banner_img.png";
+import gallery_bannerimgMobile from "./images/gallery/gallery_bannerimgMobile.png";
 import gallery_img1 from './images/gallery/gallery_img1.png'
 import gallery_img2 from './images/gallery/gallery_img2.png'
 import gallery from './images/gallery/gallery.png'
@@ -31,6 +33,25 @@ import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa
   
 
 const Gallery = () => {
+
+  const [imageSrc, setImageSrc] = useState(gallery_bannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(gallery_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(gallery_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
   const [galleryData, setGalleryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -78,7 +99,7 @@ const Gallery = () => {
         <div className="container-fluid px-0">
           <div className="gallery_banner_img">
             <img
-              src={gallery_banner_img}
+              src={imageSrc}
               alt="gallery_banner_img"
               className="img-fluid w-100"
             />
@@ -88,15 +109,15 @@ const Gallery = () => {
 
       <section>
         <div className='container py-5'>
-          <h2 className='text-center mb-4'>Gallery</h2>
+          <h2 className='text-center mb-4 fw-bold'>Gallery</h2>
           
           <div className='row align-items-center'>
             <div className='col-md-7'>
                 <img src={gallery_img1} alt='img1' className='img-fluid' />
             </div>
             <div className='col-md-5 mb-auto'>
-              <h3>Lorem Ipsum</h3>
-              <p>
+              <h3 className="fw-bold text-center">Lorem Ipsum</h3>
+              <p className="text-justify">
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
@@ -109,8 +130,8 @@ const Gallery = () => {
                 <img src={gallery_img2} alt='img4' className='img-fluid mb-4' />
             </div>
             <div className='col-md-5 order-md-1 mb-auto'>
-              <h3>Lorem Ipsum</h3>
-              <p>
+              <h3 className="fw-bold text-center">Lorem Ipsum</h3>
+              <p className="text-justify">
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
@@ -121,7 +142,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      <section>
+      <section className="gallery_main_section">
             <div className='container py-5'>
                 {loading ? (
                     <p className="text-center">Loading...</p>
@@ -139,7 +160,7 @@ const Gallery = () => {
                                 <div className='card shadow-sm gallery_card'>
                                     <img src={item.img} className='card-img-top gallery_img' alt={item.gallery_category} />
                                     <div className='card-body'>
-                                        <h5 className='card-title'>{item.gallery_category}</h5>
+                                        <h5 className='card-title fw-bold'>{item.gallery_category}</h5>
                                         <div className='d-flex justify-content-end'>
                                             {/* <button
                                                 className='btn btn-link text-decoration-none gallery_btn'
@@ -152,7 +173,7 @@ const Gallery = () => {
                                               to={`/gallery/${item.gallery_category
                                                 .toLowerCase()
                                                 .replace(/\s+/g, "-")}`}
-                                              className="btn btn-link text-decoration-none gallery_btn"
+                                              className="text-decoration-none see_more_btn see_more_underline_animation"
                                               onClick={()=>localStorage.setItem('objid',item.id)}
                                             >
                                               See More{" "}
@@ -162,6 +183,21 @@ const Gallery = () => {
                                                 className="expertise-logo"
                                               />
                                             </Link>
+
+                                            {/* <Link
+                                              to={`/gallery/${item.gallery_category
+                                                .toLowerCase()
+                                                .replace(/\s+/g, "-")}`}
+                                              className="btn btn-link text-decoration-none gallery_btn fw-bold see_more_gallery_underline_animation"
+                                              onClick={()=>localStorage.setItem('objid',item.id)}
+                                            >
+                                              See More{" "}
+                                              <img
+                                                src={up_arrow}
+                                                alt="Tekla Structures"
+                                                className="expertise-logo"
+                                              />
+                                            </Link> */}
 
                                         </div>
                                     </div>
@@ -230,21 +266,21 @@ const Gallery = () => {
         </section> */}
 
         <section className="social-media-section text-center">
-          <h4 className="mb-3">Follow Us On</h4>
+          <h4 className="mb-3 fw-bold">Follow Us On</h4>
           <div className="d-flex justify-content-center gap-3">
             <a
               href={socialLinks.facebook}
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle gallery_social_logo_shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaFacebookF style={{ height: "1rem", fill: "#444444" }} />
+              <FaFacebookF style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             <a
               href={socialLinks.instagram}
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaInstagram style={{ height: "1rem", fill: "#444444" }} />
+              <FaInstagram style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             {socialLinks.email && (
             <a
@@ -252,7 +288,7 @@ const Gallery = () => {
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaEnvelope style={{ height: "1rem", fill: "#444444" }} />
+              <FaEnvelope style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             )}
             {socialLinks.whatsapp && (
@@ -261,7 +297,7 @@ const Gallery = () => {
               className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
             >
-              <FaWhatsapp style={{ height: "1rem", fill: "#444444" }} />
+              <FaWhatsapp style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             )}
           </div>

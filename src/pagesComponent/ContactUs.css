@@ -31,6 +31,12 @@
     }
   }
 
+  @media (min-width: 768px) {
+    .contact-form-div{
+      padding-left: 0rem !important;
+    }
+  }
+
   .reach-us-bg-img{
     background: url('./images/contact/reachus-bg.png') no-repeat center center/cover;
   }
@@ -115,7 +121,7 @@
     /* Rotate icon when expanded */
     .accordion-button:not(.collapsed)::after {
         background-image: url('./images/contact/down.png');
-        transform: rotate(0deg);
+        transform: rotate(90deg) !important;
     }
 
     .accordion-button:not(.collapsed) {

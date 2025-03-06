@@ -6,10 +6,12 @@ import Footer from '../layoutComponent/Footer'
 import Faq from './Faq';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './ContactUs.css'
-import contact_banner_img from './images/contact/contact-banner-img.jpg'
+// import contact_banner_img from './images/contact/contact-banner-img.jpg'
+import contact_bannerimgDesktop  from "./images/contact/contact-banner-img.jpg";
+import contact_bannerimgMobile from "./images/contact/contact-bannerimgMobile.png";
 import reachus from './images/contact/reachus.png'
 import call from './images/contact/call.png'
-import location from './images/contact/location.png'
+import contact_location from './images/contact/location.png'
 import mail from './images/contact/mail.png'
 import connect from './images/contact/connect.png'
 import up_arrow from './images/up-arrow.png'
@@ -17,6 +19,24 @@ import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa
 import Swal from 'sweetalert2';
 
 const ContactUs = () => {
+
+  const [imageSrc, setImageSrc] = useState(contact_bannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(contact_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(contact_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -189,7 +209,22 @@ const ContactUs = () => {
 
     const [socialLinks, setSocialLinks] = useState({});
 
+    const [contacts, setContacts] = useState([]);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
+
+          // Fetch Contact Info
+        axios
+        .get("/header-contact/getheaderContacts")
+        .then((response) => {
+          if (response.data.result) {
+            setContacts(response.data.responseData || []);
+          } else {
+            setError(response.data.message);
+          }
+        })
+        .catch(() => setError("Failed to fetch contact info"));
   
         axios
         .get("/social-contact/get-socialcontacts")
@@ -202,6 +237,7 @@ const ContactUs = () => {
   
     }, []);
 
+
   return (
     <>
 
@@ -211,17 +247,39 @@ const ContactUs = () => {
             <meta name="keywords" content="contact, contact us, contact modearch steel, send contact, send" />
         </Helmet>
 
+        <Helmet>
+          <title>Contact Us - Contact to company</title>
+          <meta name="description" content="Contact for a some need of steel or product" />
+          <meta name="keywords" content="contact, contact us, contact modearch steel, send contact, send" />
+          <meta name="author" content="Your Company Name" />
+
+          {/* Open Graph Meta Tags */}
+          <meta property="og:title" content="Contact Us - Contact to company" />
+          <meta property="og:description" content="Contact for a some need of steel or product" />
+          <meta property="og:image" content="https://example.com/path-to-your-image.jpg" />
+          <meta property="og:url" content="https://example.com/contact" />
+          <meta property="og:type" content="website" />
+
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Contact Us - Contact to company" />
+          <meta name="twitter:description" content="Contact for a some need of steel or product" />
+          <meta name="twitter:image" content="https://example.com/path-to-your-image.jpg" />
+          <meta name="twitter:site" content="@YourTwitterHandle" />
+          <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
         <Navbar />
 
         <section className='g-0'>
             <div className="container-fluid px-0">
                 <div className="contact_banner_img">
-                    <img src={contact_banner_img} alt="Logo" className='img-fluid' />
+                    <img src={imageSrc} alt="Logo" className='img-fluid' />
                 </div>
             </div>
         </section>
 
-        <section className="reach-us py-1 reach-us-bg-img">
+        <section className="reach-us py-1 reach-us-bg-img mt-4 mt-md-0">
             <div className="container">
                 <div className="row align-items-center">
                 {/* Left Column - Text Content */}
@@ -236,40 +294,48 @@ const ContactUs = () => {
                     <div className="row mt-4 reach-us-contact-details">
                     <div className="col-12">
                         <div className="row reach-us-contact-details-row">
-                        <div className="col-md-6 col-lg-6 col-sm-6 mb-5 text-center text-md-start d-flex align-items-center">
+                        <div className="col-md-6 col-lg-6 col-sm-6 mb-5 text-center text-md-start d-flex align-items-start">
                             {/* <FaPhoneAlt className="icon me-2" /> */}
                             <img src={call} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} /> 
                             <div>
-                                <h5 className="fw-bold mb-0">CALL</h5>
-                                <p className="text-muted mb-0">+1 213-814-2277</p>
+                                <h4 className="fw-bold mb-0">CALL</h4>
+                                  <a href={`tel:+91${contacts[0]?.phone1 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
+                                    +91 {contacts[0]?.phone1 || "213-814-2277"}
+                                  </a>
+                                {/* <p className="text-muted mb-0">+1 213-814-2277</p> */}
                             </div>
                         </div>
 
-                        <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-center">
+                        <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
                             {/* <FaMapMarkerAlt className="icon me-2" /> */}
-                            <img src={location} className="img-fluid icon me-2 mb-6 location-icon" alt="General Inquiries" style={{ maxHeight: '30px' }} />
+                            <img src={contact_location} className="img-fluid icon me-2 mb-6 location-icon" alt="General Inquiries" style={{ maxHeight: '30px' }} />
                             <div>
-                                <h5 className="fw-bold mb-0">FIND US</h5>
+                                <h4 className="fw-bold mb-0">FIND US</h4>
                                 <p className="text-muted mb-0">05, B-11, Gharkul, Sector-15, Kharghar, Navi Mumbai - 410210</p>
                             </div>
                         </div>
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-center">
+                            <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
                                 {/* <FaEnvelope className="icon me-2" /> */}
                                 <img src={mail} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} />
                                 <div>
-                                    <h5 className="fw-bold mb-0">EMAIL ID</h5>
-                                    <p className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%" }}>sales@armstrongtgal.com</p>
+                                    <h4 className="fw-bold mb-0">EMAIL ID</h4>
+                                      {socialLinks.email && (
+                                          <a href={`mailto:${socialLinks.email}`} className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%", textDecoration: "none" }}>
+                                              {socialLinks.email}
+                                          </a>
+                                      )}
+                                    {/* <p className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%" }}>sales@armstrongtgal.com</p> */}
                                 </div>
                             </div>
 
-                            <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-center">
+                            <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
                                 {/* <FaEnvelope className="icon me-2" /> */}
                                 <img src={connect} className="img-fluid icon me-2 mb-4" alt="General Inquiries" style={{ maxHeight: '30px' }} />
                                 <div>
-                                    <h5 className="fw-bold mb-0 mt-3">CONNECT</h5>
+                                    <h4 className="fw-bold mb-0">CONNECT</h4>
                                     <div className="d-flex justify-content-center justify-content-md-start gap-1 mt-3">
                                         <a href={socialLinks.facebook} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaFacebookF style={{ height: '0.8rem' }} /></a>
                                         <a href={socialLinks.instagram} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }}><FaInstagram style={{ height: '0.8rem' }} /></a>
@@ -296,107 +362,107 @@ const ContactUs = () => {
             </div>
         </section>
 
-        <div className='container-fluid bg-dark black-color-div'>
+        <div className='container-fluid bg-dark black-color-div' id="contact-form">
 
         </div>
 
         <div className="container-fluid">
-            <div className="container contact-bg contact-position">
-                <div className="row justify-content-center align-items-center">
-                    <div className="col-md-6 ps-0">
-                    <div className="bg-white p-4 contact-form-rounded shadow-sm">
-                        <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label className="form-label">Name</label>
-                            <input
-                            type="text"
-                            name="name"
-                            className="form-control"
-                            placeholder="Full Name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            onKeyPress={(e) => {
-                              if (!/^[a-zA-Z\s]+$/.test(e.key)) e.preventDefault();
+          <div className="container contact-bg contact-position">
+              <div className="row justify-content-center align-items-center">
+                  <div className="col-md-6 contact-form-div">
+                  <div className="bg-white p-4 contact-form-rounded shadow-sm">
+                      <form onSubmit={handleSubmit}>
+                      <div className="mb-3">
+                          <label className="form-label">Name</label>
+                          <input
+                          type="text"
+                          name="name"
+                          className="form-control"
+                          placeholder="Full Name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          onKeyPress={(e) => {
+                            if (!/^[a-zA-Z\s]+$/.test(e.key)) e.preventDefault();
+                        }}
+                          />
+                          {errors.name && <small className="text-danger">{errors.name}</small>}
+                      </div>
+
+                      <div className="mb-3">
+                          <label className="form-label">Phone Number</label>
+                          <input
+                          type="tel"
+                          name="phone"
+                          className="form-control"
+                          placeholder="Your Phone Number"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          maxLength="10"
+                          onKeyPress={(e) => {
+                              if (!/[0-9]/.test(e.key)) e.preventDefault();
                           }}
-                            />
-                            {errors.name && <small className="text-danger">{errors.name}</small>}
-                        </div>
+                          />
+                          {errors.phone && <small className="text-danger">{errors.phone}</small>}
+                      </div>
 
-                        <div className="mb-3">
-                            <label className="form-label">Phone Number</label>
-                            <input
-                            type="tel"
-                            name="phone"
-                            className="form-control"
-                            placeholder="Your Phone Number"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            maxLength="10"
-                            onKeyPress={(e) => {
-                                if (!/[0-9]/.test(e.key)) e.preventDefault();
-                            }}
-                            />
-                            {errors.phone && <small className="text-danger">{errors.phone}</small>}
-                        </div>
+                      <div className="mb-3">
+                          <label className="form-label">Email</label>
+                          <input
+                          type="email"
+                          name="email"
+                          className="form-control"
+                          placeholder="xyz.abc@example.com"
+                          value={formData.email}
+                          onChange={handleChange}
+                          onKeyPress={(e) => {
+                            if (!/^[a-zA-Z0-9@.]*$/.test(e.key)) e.preventDefault();
+                        }}
+                          />
+                          {errors.email && <small className="text-danger">{errors.email}</small>}
+                      </div>
 
-                        <div className="mb-3">
-                            <label className="form-label">Email</label>
-                            <input
-                            type="email"
-                            name="email"
-                            className="form-control"
-                            placeholder="xyz.abc@example.com"
-                            value={formData.email}
-                            onChange={handleChange}
-                            onKeyPress={(e) => {
-                              if (!/^[a-zA-Z0-9@.]*$/.test(e.key)) e.preventDefault();
-                          }}
-                            />
-                            {errors.email && <small className="text-danger">{errors.email}</small>}
-                        </div>
+                      <div className="mb-3">
+                          <label className="form-label">Message</label>
+                          <textarea
+                          name="message"
+                          className="form-control"
+                          rows="3"
+                          placeholder="What can we help you with?"
+                          value={formData.message}
+                          onChange={handleChange}
+                          />
+                          <div className="text-end">
+                            <small>{formData.message.trim().split(/\s+/).filter(Boolean).length}/300</small>
+                          </div>
+                          {errors.message && <small className="text-danger">{errors.message}</small>}
+                      </div>
 
-                        <div className="mb-3">
-                            <label className="form-label">Message</label>
-                            <textarea
-                            name="message"
-                            className="form-control"
-                            rows="3"
-                            placeholder="What can we help you with?"
-                            value={formData.message}
-                            onChange={handleChange}
-                            />
-                            <div className="text-end">
-                              <small>{formData.message.trim().split(/\s+/).filter(Boolean).length}/300</small>
-                            </div>
-                            {errors.message && <small className="text-danger">{errors.message}</small>}
-                        </div>
+                      <div className="mb-3 d-flex align-items-center justify-content-between flex-column flex-md-row">
+                          <div className="me-3">
+                              <ReCAPTCHA
+                              ref={captchaRef}
+                              // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                              sitekey="6Lc7EOEqAAAAAKU4rKmaZVNBihgNpj0wrllf-EGq"
+                              secretkey="6Lc7EOEqAAAAAEyrHgdGXHyxdd5pAedSzss0-5cl"
+                              onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
+                              />
+                              {errors.recaptcha && <small className="text-danger">{errors.recaptcha}</small>}
+                          </div>
 
-                        <div className="mb-3 d-flex align-items-center justify-content-between flex-column flex-md-row">
-                            <div className="me-3">
-                                <ReCAPTCHA
-                                ref={captchaRef}
-                                // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
-                                sitekey="6Lc7EOEqAAAAAKU4rKmaZVNBihgNpj0wrllf-EGq"
-                                secretkey="6Lc7EOEqAAAAAEyrHgdGXHyxdd5pAedSzss0-5cl"
-                                onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
-                                />
-                                {errors.recaptcha && <small className="text-danger">{errors.recaptcha}</small>}
-                            </div>
+                          {/* <button type="submit" className="btn btn-dark">Submit →</button> */}
+                          <button type="submit" className="submit-button submit_btn_underline_animation">
+                              Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
+                          </button>
+                      </div>
+                      </form>
+                  </div>
+                  </div>
 
-                            {/* <button type="submit" className="btn btn-dark">Submit →</button> */}
-                            <button type="submit" className="submit-button">
-                                Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
-                            </button>
-                        </div>
-                        </form>
-                    </div>
-                    </div>
-
-                    <div className="col-md-6 d-none d-md-block">
-                    {/* <img src={logo} className="img-fluid rounded" alt="General Inquiries" /> */}
-                    </div>
-                </div>
-            </div>
+                  <div className="col-md-6 d-none d-md-block">
+                  {/* <img src={logo} className="img-fluid rounded" alt="General Inquiries" /> */}
+                  </div>
+              </div>
+          </div>
         </div>
 
       <section className='faq-bg-img mb-5'>

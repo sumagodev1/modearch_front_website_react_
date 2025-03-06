@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import ClientFeedback from "./ClientFeedback";
 import homebannerimage from "./images/home/home_banner_image.png";
 import craneHookImage from "./images/home/crane_hook.png";
 import steelStructureImage from "./images/home/steelStructureImage.png";
-import homeprecisionsteelimg from "./images/home/homeprecisionsteelimg.png";
+import homeprecisionsteelimgDesktop  from "./images/home/homeprecisionsteelimg.png";
+import homeprecisionsteelimgMobile from "./images/home/homeprecisionsteelimgMobile.png";
 import certifiedSideImg from "./images/home/certified_side_img.png";
 import certified_img from "./images/home/certified_img.png";
 import Carousel from "react-bootstrap/Carousel";
@@ -30,6 +32,24 @@ const Home = () => {
   const [homeslider, setHomeslider] = useState([]);
   console.log(homeslider);
   const [socialLinks, setSocialLinks] = useState({});
+
+  const [imageSrc, setImageSrc] = useState(homeprecisionsteelimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(homeprecisionsteelimgMobile); // Mobile image
+      } else {
+        setImageSrc(homeprecisionsteelimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
 
   useEffect(() => {
     axios
@@ -104,7 +124,7 @@ const Home = () => {
       </section>
 
       <section className="who-we-are-section">
-        <div className="container-fliud who_we_are_outer_padding">
+        <div className="container-fliud who_we_are_outer_padding mt-2">
           <div className="container-fluid">
             <div className="row who-we-are-row">
               <div className="col-md-6 image-column">
@@ -118,7 +138,7 @@ const Home = () => {
                 <div className="text-content-wrapper">
                   <h2 className="ms-4 mt-4">Who We Are?</h2>
                   <div className="bordered-text">
-                    <p>
+                    <p className="text-justify">
                       The Journey Of Modearch Steel Began in 2017, When A Small
                       Yet Passionate Team Started Working On The Vision Of
                       Delivering Precision- Driven Steel Detailing And Design
@@ -129,9 +149,10 @@ const Home = () => {
                       Setting Up Our Second Office in Delaware. Dover. In 2023
                       To Cater To The North American Market.
                     </p>
-                    <a
-                      href="#"
-                      className="btn learn-more-button text-white button_align_left"
+                    <Link
+                      to="/about"
+                      className="btn learn-more-button text-white button_align_left fw-bold underline_animation"
+                      onClick={() => setTimeout(() => window.location.hash = "#about-us", 100)}
                     >
                       Learn More{" "}
                       <img
@@ -139,7 +160,7 @@ const Home = () => {
                         alt="up_arrow"
                         className="img-fluid"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -162,10 +183,22 @@ const Home = () => {
                   Solutions In The Field. We Ensure Precision, Efficiency, And
                   Accuracy In Every Project We Undertake.
                 </p>
-                <a href="#" className="btn fw-bold button_align_left">
+                <Link
+                  to="/service"
+                  className="text-decoration-none btn fw-bold button_align_left get_in_touch_underline_animation"
+                  onClick={() => setTimeout(() => window.location.hash = "#service", 100)}
+                >
+                  Get In Touch{" "}
+                  <img
+                    src={up_arrow}
+                    alt="Tekla Structures"
+                    className="expertise-logo img-fluid"
+                  />
+                </Link>
+                {/* <a href="#" className="btn fw-bold button_align_left">
                   Check Out{" "}
                   <img src={up_arrow} alt="up_arrow" className="img-fluid" />
-                </a>
+                </a> */}
               </div>
               <div className="col-lg-6 position-relative image-content">
                 <img
@@ -184,12 +217,12 @@ const Home = () => {
       </section>
 
       <section className="">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-md-5">
+            <div className="col-md-5 craftsmanship-text">
               <h1 className="fw-bold">DETAILING CRAFTSMANSHIP</h1>
               <div>
-                <p className="text-justify">
+                <p className="text-justify mt-3">
                   From structural steel fabrication drawings to intricate steel
                   connection designs, each project exemplifies our commitment to
                   accuracy, quality, and innovation. Whether it's commercial
@@ -202,10 +235,22 @@ const Home = () => {
                 </p>
               </div>
               <div className="detailing_crafts_check_out_btn mb-5">
-                <a href="#" className="btn fw-bold">
+                <Link
+                  to="/completed_project"
+                  className="text-decoration-none btn fw-bold get_in_touch_underline_animation"
+                  onClick={() => setTimeout(() => window.location.hash = "#completed_project", 100)}
+                >
+                  Check Out{" "}
+                  <img
+                    src={up_arrow}
+                    alt="Tekla Structures"
+                    className="expertise-logo img-fluid"
+                  />
+                </Link>
+                {/* <a href="#" className="btn fw-bold">
                   Check Out{" "}
                   <img src={up_arrow} alt="up_arrow" className="img-fluid" />
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-7 detailing_crafts_section"></div>
@@ -217,11 +262,23 @@ const Home = () => {
         <div className="container-fluid px-0">
           <div className="about-precision-steel-img position-relative">
             <img
-              src={homeprecisionsteelimg}
+              src={imageSrc}
               alt="about-precision-steel-img"
-              className="img-fluid w-100"
+              className="img-fluid w-100 home-precision-img"
             />
-            <a
+            <Link
+              to="/contactUs"
+              className="text-decoration-none btn position-absolute about-precision-steel-btn text-white get_in_white_underline_animation"
+              onClick={() => setTimeout(() => window.location.hash = "#contact-form", 100)}
+            >
+              Get In Touch{" "}
+              <img
+                src={up_arrow_white}
+                alt="Tekla Structures"
+                className="expertise-logo img-fluid"
+              />
+            </Link>
+            {/* <a
               href="#"
               className="btn position-absolute about-precision-steel-btn text-white"
             >
@@ -231,14 +288,15 @@ const Home = () => {
                 alt="up_arrow"
                 className="img-fluid about-precision-steel-btn-icon"
               />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
 
       <section>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
+            <div className="col-sm-12 col-md-1 certified_text_div"></div>
             <div className="col-sm-12 col-md-6 certified_text_div">
               <div className="certified_text_border">
                 <h5 className="mb-3">
@@ -246,7 +304,7 @@ const Home = () => {
                   <span className="fw-bold">Trusted </span>for Excellence
                 </h5>
                 <div className="mb-5">
-                  <p>
+                  <p className="certified_para">
                     Modearch is proudly certified by AISD, NISD, and CISC,
                     reflecting our commitment to precision, compliance, and
                     industry-leading standards in steel detailing. These
@@ -266,7 +324,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6">
+            <div className="col-sm-12 col-md-5">
               <img
                 src={certifiedSideImg}
                 alt="certifiedSideImg"
@@ -277,7 +335,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="numbers-section p-5">
+      <section className="numbers-section p-4">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6 text-content">
@@ -285,43 +343,55 @@ const Home = () => {
                 <strong>Modearch Steel</strong>
               </h2>
               <h3>Detailing in Numbers</h3>
-              <a
+              <Link
+                to="/contactUs"
+                className="text-decoration-none btn button_align_left get-in-touch fw-bold get_in_touch_underline_animation"
+                onClick={() => setTimeout(() => window.location.hash = "#contact-form", 100)}
+              >
+                Get In Touch{" "}
+                <img
+                  src={up_arrow}
+                  alt="Tekla Structures"
+                  className="expertise-logo img-fluid"
+                />
+              </Link>
+              {/* <a
                 href="#"
                 className="btn button_align_left get-in-touch fw-bold"
               >
                 Get In Touch{" "}
                 <img src={up_arrow} alt="up_arrow" className="img-fluid" />
-              </a>
+              </a> */}
             </div>
             <div className="col-md-6 stats-grid">
               <div className="row">
                 <div className="col-6 stat-box number-section-border">
                   <div className="stat-icon-text">
                     <img src={employees} alt="Logo" className="img-fluid" />
-                    <h4>50+</h4>
+                    <h1 className="fw-bold">50+</h1>
                   </div>
                   <p>EMPLOYEES</p>
                 </div>
                 <div className="col-6 stat-box">
                   <div className="stat-icon-text">
                     <img src={coreServices} alt="Logo" className="img-fluid" />
-                    <h4>10+</h4>
+                    <h1 className="fw-bold">10+</h1>
                   </div>
                   <p>CORE SERVICE</p>
                 </div>
               </div>
-              <div className="row mt-4">
+              <div className="row mt-3">
                 <div className="col-6 stat-box number-section-border">
                   <div className="stat-icon-text">
                     <img src={project} alt="Logo" className="img-fluid" />
-                    <h4>5+</h4>
+                    <h1 className="fw-bold">5+</h1>
                   </div>
                   <p>PROJECT COMPLETED</p>
                 </div>
                 <div className="col-6 stat-box">
                   <div className="stat-icon-text">
                     <img src={client} alt="Logo" className="img-fluid" />
-                    <h4>23+</h4>
+                    <h1 className="fw-bold">23+</h1>
                   </div>
                   <p>SATISFIED CLIENT</p>
                 </div>
@@ -331,10 +401,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="p-5 mb-5">
+      <section className="p-3 mt-5 mb-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 col-sm-12">
+            <div className="col-md-5 col-sm-12">
               <div>
                 <h4 className="fw-bold">Stay Up to Date</h4>
                 <div>
@@ -345,14 +415,26 @@ const Home = () => {
                   </p>
                 </div>
                 <div>
-                  <a href="#" className="btn button_align_left fw-bold">
+                <Link
+                  to="/blog"
+                  className="text-decoration-none btn button_align_left fw-bold read_blog_underline_animation"
+                  onClick={() => setTimeout(() => window.location.hash = "#blog", 100)}
+                >
+                  Read Our Blog{" "}
+                  <img
+                    src={up_arrow}
+                    alt="Tekla Structures"
+                    className="expertise-logo img-fluid"
+                  />
+                </Link>
+                  {/* <a href="#" className="btn button_align_left fw-bold">
                     Read Our Blog{" "}
                     <img src={up_arrow} alt="up_arrow" className="img-fluid" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-sm-12">
+            <div className="col-md-7 col-sm-12 mt-5 mt-md-0">
               <div>
                 <h4 className="fw-bold">
                   Want to help shape the future of steel detailing?
@@ -364,10 +446,22 @@ const Home = () => {
                   </p>
                 </div>
                 <div>
-                  <a href="#" className="btn button_align_left fw-bold">
+                  <Link
+                    to="/about"
+                    className="text-decoration-none btn button_align_left fw-bold join_team_underline_animation"
+                    onClick={() => setTimeout(() => window.location.hash = "#modearch_team", 100)}
+                  >
+                    Join the Modearch Team{" "}
+                    <img
+                      src={up_arrow}
+                      alt="Tekla Structures"
+                      className="expertise-logo img-fluid"
+                    />
+                  </Link>
+                  {/* <a href="#" className="btn button_align_left fw-bold">
                     Join the Modearch Team{" "}
                     <img src={up_arrow} alt="up_arrow" className="img-fluid" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
@@ -376,21 +470,21 @@ const Home = () => {
       </section>
 
       <section className="social-media-section text-center">
-        <h4 className="mb-3">Follow Us On</h4>
+        <h4 className="mb-3 fw-bold">Follow Us On</h4>
         <div className="d-flex justify-content-center gap-3">
           <a
             href={socialLinks.facebook}
             className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle gallery_social_logo_shadow"
             style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
           >
-            <FaFacebookF style={{ height: "1rem", fill: "#444444" }} />
+            <FaFacebookF style={{ height: "1.2rem", fill: "#444444" }} />
           </a>
           <a
             href={socialLinks.instagram}
             className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
             style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
           >
-            <FaInstagram style={{ height: "1rem", fill: "#444444" }} />
+            <FaInstagram style={{ height: "1.2rem", fill: "#444444" }} />
           </a>
           {socialLinks.email && (
           <a
@@ -398,7 +492,7 @@ const Home = () => {
             className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
             style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
           >
-            <FaEnvelope style={{ height: "1rem", fill: "#444444" }} />
+            <FaEnvelope style={{ height: "1.2rem", fill: "#444444" }} />
           </a>
           )}
           {socialLinks.whatsapp && (
@@ -407,7 +501,7 @@ const Home = () => {
             className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
             style={{ width: "45px", height: "45px", backgroundColor: "#fff" }}
           >
-            <FaWhatsapp style={{ height: "1rem", fill: "#444444" }} />
+            <FaWhatsapp style={{ height: "1.2rem", fill: "#444444" }} />
           </a>
           )}
         </div>
