@@ -88,11 +88,16 @@ const ProjectDetails = () => {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.get(`/projectDetailsWithImages/projects/${id}`);
-        console.log(response);
+        console.log("API Response:", response);
+  
+        if (!response.data) {
+          console.log("No data received from API.");
+          return;
+        }
   
         const projectData = response.data;
   
-        // Ensure project_images is parsed if it's a string
+        // Ensure project_images is parsed correctly
         const formattedProject = {
           ...projectData,
           project_images: typeof projectData.project_images === "string"
@@ -100,28 +105,14 @@ const ProjectDetails = () => {
             : projectData.project_images,
         };
   
-        // Only set project if isActive is true
-        if (formattedProject.isActive) {
+        console.log("Formatted Project Data:", formattedProject);
+  
+        // Check if project is inactive before setting state
+        if (!formattedProject.isActive) {
           setProject(formattedProject);
+          console.log("Project set in state:", formattedProject);
         } else {
-          console.log("Project is inactive, not setting state.");
-        }
-  
-        if (response.data.result) {
-          // Filter active projects
-          const activeProjects = response.data.responseData?.filter(
-            (project) => project.isActive === true
-          );
-  
-          // Find the selected project
-          const selectedBlog = activeProjects?.find(
-            (project) =>
-              project.project_name.toLowerCase().replace(/\s+/g, "-") === project_name
-          );
-  
-          if (selectedBlog) {
-            console.log("Selected Blog:", selectedBlog);
-          }
+          console.log("Project is active, ignoring.");
         }
       } catch (error) {
         console.error("Error fetching project details:", error);
@@ -131,7 +122,8 @@ const ProjectDetails = () => {
     if (id) {
       fetchProjectDetails();
     }
-  }, [project_name, id]);
+  }, [id]);
+  
   
   
 
@@ -167,7 +159,8 @@ const ProjectDetails = () => {
         </div>
       </section>
 
-      {project?.isActive ? (
+      {/* {project?.isActive ? ( */}
+      {project ? (
       <>
       <div className="container-fluid bg-dark py-3">
         <div className="container category_container flex-wrap d-flex justify-content-center align-items-center gap-3 text-center">

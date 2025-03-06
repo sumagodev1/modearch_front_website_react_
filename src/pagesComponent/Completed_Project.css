@@ -52,19 +52,33 @@
     display: flex;
     overflow-x: auto; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent items from wrapping */
-    padding: 10px 0; /* Optional padding for spacing */
-    scroll-behavior: smooth; 
-    scrollbar-width: none;
-  }
-
-  .category_container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+    padding: 10px 0;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    /* scrollbar-width: thin;  */
+    cursor: pointer;
   }
   
-  /* Enable auto-scrolling on small screens */
+  /* Custom Scrollbar for Chrome, Edge, and Safari */
+  .category_container::-webkit-scrollbar {
+    height: 2px; /* Thin scrollbar */
+    border-radius: 1rem; /* Rounded corners */
+    background: black; /* Background color */
+    cursor: pointer;
+  }
+  
+  .category_container::-webkit-scrollbar-thumb {
+    background: #E7E7E7; /* Scrollbar color */
+    border-radius: 1rem; /* Rounded corners */
+  }
+  
+  .category_container::-webkit-scrollbar-thumb:hover {
+    background: #E7E7E7; /* Slightly darker color on hover */
+  }
+  
+  /* Auto-scrolling on small screens */
   @media (max-width: 768px) {
     .category_container {
-      animation: autoScroll 10s linear infinite; /* Auto-scroll effect */
+      /* animation: autoScroll 10s linear infinite;  */
     }
   }
   
@@ -77,6 +91,7 @@
       transform: translateX(-50%); /* Scroll half of the content width */
     }
   }
+  
   
   .category-btn {
     flex-shrink: 0; /* Prevent buttons from shrinking */

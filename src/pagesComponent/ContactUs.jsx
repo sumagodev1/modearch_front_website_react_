@@ -69,16 +69,27 @@ const ContactUs = () => {
         }
     
         // Phone validation
-        const phoneRegex = /^[0-9]{10}$/;
+        const phoneRegex = /^[9876][0-9]{9}$/; // Matches numbers starting with 9, 8, 7, or 6, followed by 9 digits
         if (!formData.phone) {
           newErrors.phone = 'Please enter your phone number';
           valid = false;
         } else if (!phoneRegex.test(formData.phone)) {
-          newErrors.phone = 'Please enter a valid 10-digit phone number';
+          newErrors.phone = 'Mobile number must start with 9, 8, 7, or 6 and must be 10 digits long';
           valid = false;
         } else {
           newErrors.phone = '';
         }
+
+        // const phoneRegex = /^[0-9]{10}$/;
+        // if (!formData.phone) {
+        //   newErrors.phone = 'Please enter your phone number';
+        //   valid = false;
+        // } else if (!phoneRegex.test(formData.phone)) {
+        //   newErrors.phone = 'Please enter a valid 10-digit phone number';
+        //   valid = false;
+        // } else {
+        //   newErrors.phone = '';
+        // }
     
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -284,7 +295,7 @@ const ContactUs = () => {
                 <div className="row align-items-center">
                 {/* Left Column - Text Content */}
                 <div className="col-md-6 text-center text-md-start">
-                    <h2 className="fw-bold">WAYS TO REACH US</h2>
+                    <h2 className="fw-bold mt-3">WAYS TO REACH US</h2>
                         <p className="text-muted text-justify">
                         Ask a question, drop your queries, or want to schedule a meeting with us? Fill out the form below,
                         and a Modearch representative will contact you within 24 hours.
@@ -373,7 +384,7 @@ const ContactUs = () => {
                   <div className="bg-white p-4 contact-form-rounded shadow-sm">
                       <form onSubmit={handleSubmit}>
                       <div className="mb-3">
-                          <label className="form-label">Name</label>
+                          <label className="form-label fw-bold">Name <span className='text-danger'>*</span></label>
                           <input
                           type="text"
                           name="name"
@@ -389,7 +400,7 @@ const ContactUs = () => {
                       </div>
 
                       <div className="mb-3">
-                          <label className="form-label">Phone Number</label>
+                          <label className="form-label fw-bold">Phone Number <span className='text-danger'>*</span></label>
                           <input
                           type="tel"
                           name="phone"
@@ -406,7 +417,7 @@ const ContactUs = () => {
                       </div>
 
                       <div className="mb-3">
-                          <label className="form-label">Email</label>
+                          <label className="form-label fw-bold">Email <span className='text-danger'>*</span></label>
                           <input
                           type="email"
                           name="email"
@@ -422,7 +433,7 @@ const ContactUs = () => {
                       </div>
 
                       <div className="mb-3">
-                          <label className="form-label">Message</label>
+                          <label className="form-label fw-bold">Message <span className='text-danger'>*</span></label>
                           <textarea
                           name="message"
                           className="form-control"

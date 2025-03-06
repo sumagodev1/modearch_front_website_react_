@@ -241,3 +241,18 @@
     font-size: 2rem;
   }
 }
+
+
+@media (min-width: 1280px) {
+  .growth-container {
+    height: 55vh !important;
+  }
+
+}
+
+@media (min-width: 1366px) and (max-width: 1366px)  {
+  .growth-container {
+    height: 61vh !important;
+  }
+
+}

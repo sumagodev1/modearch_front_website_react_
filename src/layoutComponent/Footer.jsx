@@ -63,6 +63,15 @@ const Footer = () => {
                 </div>
 
                 <div className="d-flex align-items-center mb-3">
+                  {/* <i className="bi bi-telephone-fill me-2"></i>  */}
+                  <img src={call} alt="call" className='img-fluid me-2' />
+                  {/* <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a> */}
+                  <a href={`tel:+91${contacts[0]?.phone2 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
+                    +91 {contacts[0]?.phone2 || "213-814-2277"}
+                  </a>
+                </div>
+
+                <div className="d-flex align-items-center mb-3">
                   {/* <i className="bi bi-envelope-fill me-2"></i>  */}
                   <img src={mail} alt="mail" className='img-fluid me-2' />
                   <a href={`mailto:${socialLinks.email || "sales@modearchsteel.com"}`} className="text-white text-decoration-none">{socialLinks.email || "sales@modearchsteel.com"}</a>

@@ -85,7 +85,7 @@ const Service_Faq = () => {
                                 </div>
 
                                 {/* FAQ Item 4 */}
-                                <div className="accordion-item border-0 rounded">
+                                <div className="accordion-item mb-3 border-0 rounded">
                                     <h2 className="accordion-header">
                                         <button className="accordion-button collapsed d-flex align-items-center custom-accordion-button" 
                                             type="button" data-bs-toggle="collapse" data-bs-target="#faq4">

@@ -81,7 +81,7 @@ const About = () => {
               <div className='row align-items-center'>
                   {/* Image Column */}
                   <div className='col-md-6 col-lg-6 col-12 mt-3 text-center'>
-                  <img src={about_us_img} alt="Who We Are" className='img-fluid' />
+                  <img src={about_us_img} alt="Who We Are" className='img-fluid mb-3' />
                   </div>
 
                   {/* Content Column */}

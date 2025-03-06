@@ -296,12 +296,12 @@ const Careers = () => {
               <form onSubmit={handleSubmit}>
                   <div className="row mb-3">
                   <div className="col-md-6">
-                  <label class="form-label fw-bold mb-0">Name</label>
+                  <label class="form-label fw-bold mb-0">Name <span className='text-danger'>*</span></label>
                       <input type="text" name="name" className="form-control" placeholder="Enter your name" value={formData.name} onChange={handleChange} onKeyPress={(e) => {if (!/^[a-zA-Z\s]+$/.test(e.key)) e.preventDefault(); }}/>
                       {errors.name && <small className="text-danger">{errors.name}</small>}
                   </div>
                   <div className="col-md-6">
-                      <label class="form-label fw-bold mb-0">Email Id</label>
+                      <label class="form-label fw-bold mb-0">Email Id <span className='text-danger'>*</span></label>
                       <input type="email" name="email" className="form-control" placeholder="Enter your email" value={formData.email} onChange={handleChange} onKeyPress={(e) => {if (!/^[a-zA-Z0-9@.]*$/.test(e.key)) e.preventDefault();}} />
                       {errors.email && <small className="text-danger">{errors.email}</small>}
                   </div>
@@ -309,12 +309,12 @@ const Careers = () => {
 
                   <div className="row mb-3">
                   <div className="col-md-6">
-                      <label class="form-label fw-bold mb-0">Mobile No.</label>
+                      <label class="form-label fw-bold mb-0">Mobile No. <span className='text-danger'>*</span></label>
                       <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="10" maxLength="10" onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} />
                       {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
                   </div>
                   <div className="col-md-6">
-                      <label class="form-label fw-bold mb-0">Subject</label>
+                      <label class="form-label fw-bold mb-0">Subject <span className='text-danger'>*</span></label>
                       <input type="text" name="subject" className="form-control" placeholder="Enter your subject" value={formData.subject} onChange={handleChange} />
                       {errors.subject && <small className="text-danger">{errors.subject}</small>}
                   </div>
@@ -322,7 +322,7 @@ const Careers = () => {
 
                   <div className="mb-3">
                     <label className="form-label fw-bold mb-0">
-                        Upload CV <span className="text-danger" style={{ fontSize: '13px' }}>(validation file size should be less than 1MB and PDF only)</span>
+                        Upload CV <span className='text-danger'>*</span> <span className="text-danger" style={{ fontSize: '13px' }}>(validation file size should be less than 1MB and PDF only)</span>
                     </label>
                     <div 
                         className="mb-3 d-flex justify-content-between align-items-center border" 
@@ -361,7 +361,7 @@ const Careers = () => {
                   </div>
 
                   <div className="mb-3">
-                      <label class="form-label fw-bold mb-0">Message</label>
+                      <label class="form-label fw-bold mb-0">Message <span className='text-danger'>*</span></label>
                   <textarea name="message" className="form-control" rows="4" placeholder="Enter your message" value={formData.message} onChange={handleChange}></textarea>
                   <div className="text-end">
                     <small>{formData.message.trim().split(/\s+/).filter(Boolean).length}/300</small>

@@ -3,10 +3,32 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
-import blog_banner_img from "./images/blog/blog_banner_img.png";
+// import blog_banner_img from "./images/blog/blog_banner_img.png";
+import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
+import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import './Blog.css'
 
 const Blogdetails = () => {
+
+  const [imageSrc, setImageSrc] = useState(blog_bannerimgDesktop);
+
+  // Function to update image based on screen size
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setImageSrc(blog_bannerimgMobile); // Mobile image
+      } else {
+        setImageSrc(blog_bannerimgDesktop); // Desktop image
+      }
+    };
+
+    updateImage(); // Set initial image
+    window.addEventListener("resize", updateImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
+
   const { title } = useParams();
   const [blogDetails, setBlogDetails] = useState(null);
 
@@ -42,9 +64,17 @@ const Blogdetails = () => {
 
       <section className="g-0">
         <div className="container-fluid px-0">
-          <img src={blog_banner_img} alt="Blog Banner" className="img-fluid w-100" />
+          <img src={imageSrc} alt="Blog Banner" className="img-fluid w-100" />
         </div>
       </section>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h2 className="mt-4">{blogDetails.title}</h2>
+          </div>
+        </div>
+      </div>
 
       <div className="container mt-5">
         <div className="text-center">
@@ -54,7 +84,7 @@ const Blogdetails = () => {
             className="img-fluid"
           />
         </div>
-        <h2 className="mt-4">{blogDetails.title}</h2>
+       
         <p className="blog_description mt-3">{blogDetails.shortDesc}</p>
         <div
           className="mt-3"
