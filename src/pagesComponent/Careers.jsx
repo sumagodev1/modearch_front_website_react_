@@ -233,7 +233,7 @@ const Careers = () => {
                 <img src={precision} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">PRECISION WITH AGILITY</h3>
-                  <p className='core-values-section-para'>
+                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                     We may be a compact team, but our expertise and technology enable
                     us to deliver big results. Our focus on efficiency, creativity,
                     and flexibility ensures every project is executed with excellence.
@@ -246,7 +246,7 @@ const Careers = () => {
                 <img src={globle} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">A GLOBAL PERSPECTIVE</h3>
-                  <p className='core-values-section-para'>
+                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                     With a diverse team and international collaborations, we bring
                     together expertise from around the world to deliver top-tier steel
                     detailing solutions.
@@ -259,7 +259,7 @@ const Careers = () => {
                 <img src={work} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">WORK THAT MATTERS</h3>
-                  <p className='core-values-section-para'>
+                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                     At Moderach Steel, every detail counts. We take pride in crafting
                     solutions that optimize fabrication, enhance efficiency, and bring
                     designs to life with precision.
@@ -272,7 +272,7 @@ const Careers = () => {
                 <img src={careers} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">CAREER GROWTH & LEARNING</h3>
-                  <p className='core-values-section-para'>
+                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                     We empower our team to grow—whether it's mastering new skills,
                     taking on new challenges, or exploring innovative projects that
                     push boundaries.

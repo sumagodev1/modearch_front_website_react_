@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 // import gallery_banner_img from './images/gallery/gallery_banner_img.png';
@@ -93,6 +94,29 @@ const Gallery = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>ModeArch Steel Gallery | Project Portfolio | Steel Detailing Visuals</title>
+        <meta name="description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
+        <meta name="keywords" content="steel detailing gallery, project portfolio, steel detailing images, 3D models, construction projects, work in progress, fabrication, assembly, installation" />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Steel Detailing Services | BIM, Connection Design | ModeArch Steel" />
+        <meta property="og:description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
+        <meta property="og:image" content={gallery_bannerimgDesktop} />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
+        <meta name="twitter:description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
+        <meta name="twitter:image" content={gallery_bannerimgDesktop} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
       <Navbar />
       
       <section className="g-0">
@@ -113,11 +137,11 @@ const Gallery = () => {
           
           <div className='row align-items-center'>
             <div className='col-md-7'>
-                <img src={gallery_img1} alt='img1' className='img-fluid' />
+                <img src={gallery_img1} alt='img1' className='img-fluid' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200" />
             </div>
             <div className='col-md-5 mb-auto'>
-              <h3 className="fw-bold text-center">Lorem Ipsum</h3>
-              <p className="text-justify">
+              <h3 className="fw-bold text-center" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">Lorem Ipsum</h3>
+              <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
@@ -127,11 +151,11 @@ const Gallery = () => {
           
           <div className='row align-items-center mt-5'>
             <div className='col-md-7 order-md-2'>
-                <img src={gallery_img2} alt='img4' className='img-fluid mb-4' />
+                <img src={gallery_img2} alt='img4' className='img-fluid mb-4' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200" />
             </div>
             <div className='col-md-5 order-md-1 mb-auto'>
-              <h3 className="fw-bold text-center">Lorem Ipsum</h3>
-              <p className="text-justify">
+              <h3 className="fw-bold text-center" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">Lorem Ipsum</h3>
+              <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
@@ -154,7 +178,7 @@ const Gallery = () => {
                     </div>
                   </>
                 ) : (
-                    <div className='row row-cols-1 row-cols-md-3 g-4'>
+                    <div className='row row-cols-1 row-cols-md-3 g-4' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                         {galleryData.map((item) => (
                             <div key={item.id} className='col'>
                                 <div className='card shadow-sm gallery_card'>

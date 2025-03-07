@@ -135,14 +135,14 @@ const GalleryDetails = () => {
 
       {!isActive || !categoryData ? (
         <div className="container py-5 text-center">
-          <h2 className="text-danger fw-bold">Category Not Found</h2>
-          <p className="text-muted">The requested category is either deactivated or does not exist.</p>
+          <h2 className="text-danger fw-bold">Images Not Found</h2>
+          <p className="text-muted">The requested category images is either deactivated or does not exist.</p>
           {/* <button className="btn btn-secondary mt-3" onClick={() => navigate(-1)}>
             Back to Gallery
           </button> */}
         </div>
       ) : (
-      <section className="container py-5">
+      <section className="container py-5" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
         <h2 className="text-center mb-4">{categoryData.gallery_category}</h2>
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {categoryData.gallery_images.map((img, i) => (

@@ -609,3 +609,19 @@
         margin-top: -2.5rem;
       }
     }
+
+    @media (max-width: 768px) {
+      .certified_text_border {
+        margin-top: 1.5rem ;
+        /* margin-bottom: 1.5rem ; */
+      }
+
+    }
+
+    @media (min-width: 769px) and (max-width: 1152px) {
+      .certified_text_border {
+        margin-top: 1.5rem ;
+        margin-bottom: 1.5rem ;
+      }
+
+    }

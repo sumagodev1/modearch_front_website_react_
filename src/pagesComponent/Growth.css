@@ -23,6 +23,7 @@
   width: 100%;
   text-align: left;
   letter-spacing: 2px;
+  margin-top: 4rem;
 }
 
 .content-container {
@@ -152,6 +153,15 @@
 
 }
 
+@media (max-width: 768px) {
+  .growth-container {
+    height: 55vh;
+  }
+  .title{
+    margin-top: 4rem;
+  }
+}
+
 @media (max-width: 767px) {
   .growth-container {
     height: 58vh;
@@ -166,7 +176,7 @@
 
 @media (min-width: 1023px) and (max-width: 1025px) {
   .growth-container {
-    height: 74vh;
+    height: 84vh;
   }
 }
 
@@ -227,7 +237,8 @@
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-top: 3rem;
   }
 }
 
@@ -243,16 +254,16 @@
 }
 
 
-@media (min-width: 1280px) {
+@media (min-width: 1280px) and  (max-width: 1365px){
   .growth-container {
-    height: 55vh !important;
+    height: 65vh !important;
   }
 
 }
 
 @media (min-width: 1366px) and (max-width: 1366px)  {
   .growth-container {
-    height: 61vh !important;
+    height: 75vh !important;
   }
 
 }

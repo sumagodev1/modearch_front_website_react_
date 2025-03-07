@@ -59,11 +59,27 @@ const About = () => {
   return (
     <>
 
-        <Helmet>
-            <title>About Us - About Modearch Steel company</title>
-            <meta name="description" content="About for a Modearch Steel company" />
-            <meta name="keywords" content="about, about us, about modearch steel" />
-        </Helmet>
+      <Helmet>
+        <title>About Us - About Modearch Steel company</title>
+        <meta name="description" content="Learn about ModeArch Steel's journey, mission, and values. We are a leading provider of steel detailing and BIM solutions with a global presence and a commitment to excellence." />
+        <meta name="keywords" content="steel detailing, structural steel, BIM modeling, connection design, shop drawings, erection drawings, steel fabrication, Navi Mumbai, Delaware, Nashik, construction services" />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="About ModeArch Steel | Our Story & Mission | Steel Detailing Experts" />
+        <meta property="og:description" content="Learn about ModeArch Steel's journey, mission, and values. We are a leading provider of steel detailing and BIM solutions with a global presence and a commitment to excellence." />
+        <meta property="og:image" content={aboutprecisionsteelimgDesktop} />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
+        <meta name="twitter:description" content="Learn about ModeArch Steel's journey, mission, and values. We are a leading provider of steel detailing and BIM solutions with a global presence and a commitment to excellence." />
+        <meta name="twitter:image" content={aboutprecisionsteelimgDesktop} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
 
         <Navbar />
 
@@ -81,21 +97,21 @@ const About = () => {
               <div className='row align-items-center'>
                   {/* Image Column */}
                   <div className='col-md-6 col-lg-6 col-12 mt-3 text-center'>
-                  <img src={about_us_img} alt="Who We Are" className='img-fluid mb-3' />
+                  <img src={about_us_img} alt="Who We Are" className='img-fluid mb-3' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600" />
                   </div>
 
                   {/* Content Column */}
                   <div className='col-md-6 col-lg-6 col-12 mt-3'>
                   <div className='p-3'>
-                      <h2 className='fw-bold text-white ms-4 mb-3'>Who We Are ?</h2>
+                      <h2 className='fw-bold text-white ms-4 mb-3' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">Who We Are ?</h2>
                       <div className='who-we-are-para'>
-                          <p className='mb-0'>
+                          <p className='mb-0' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
                           The journey of Modaztech Steel began in 2017. With a small yet passionate team, we started working on the vision of delivering precision-driven steel detailing and design solutions. After three years of dedication and growth, we established our first office in Navi Mumbai in 2022, marking a significant milestone in our business.
                           </p>
-                          <p className='mb-0'>
+                          <p className='mb-0' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
                           As our expertise and demand grew, we expanded globally, setting up our second office in Delaware, USA, in 2023 to cater to the North American market. The same year, we further strengthened our presence by opening our third office in Nashik, followed by our fourth office in Nashik in 2024, reinforcing our commitment to innovation and excellence.
                           </p>
-                          <p className='mb-2'>
+                          <p className='mb-2' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
                           With a decade of experience, 100+ successful projects, and a 100+ team of skilled steel detailers, we have positioned ourselves as a trusted partner for fabricators, contractors, and engineering firms worldwide. Our foundation is defined by accuracy, quality, and global collaboration, and we remain committed to shaping the future of steel detailing with cutting-edge technology and industry expertise.
                           </p>
                       </div>
@@ -114,7 +130,7 @@ const About = () => {
           <div className="row justify-content-center align-items-stretch vision-mission-row">
             {/* Vision Box */}
             <div className="col-md-6 mb-4 d-flex">
-              <div className="p-4 bg-white vision-mission-rounded shadow text-center w-100 d-flex flex-column">
+              <div className="p-4 bg-white vision-mission-rounded shadow text-center w-100 d-flex flex-column" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
                 <div className='d-flex'>
                   <h3 className="fw-bold">
                     Vision <img src={vision} alt="Logo" className='img-fluid ms-2' style={{maxWidth:'71px'}} />
@@ -133,7 +149,7 @@ const About = () => {
 
                     </div>
                 </div>
-              <div className="p-4 bg-white vision-mission-rounded shadow text-center w-100 d-flex flex-column">
+              <div className="p-4 bg-white vision-mission-rounded shadow text-center w-100 d-flex flex-column" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
                 <div className='d-flex'>
                   <h3 className="fw-bold">
                     Mission <img src={mission} alt="Logo" className='img-fluid ms-2' style={{maxWidth:'51px'}} />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from 'react-helmet-async';
 import "./service.css";
 import Service1 from "./images/service/service1.png";
 // import service_banner_img from "./images/service/service_banner_img.png";
@@ -109,9 +110,68 @@ const Service = () => {
       fetchServices();
     }, []);
 
+    useEffect(() => {
+      const counters = document.querySelectorAll(".counter");
+      const speed = 50; // Adjust speed
+  
+      const countUp = (counter) => {
+        const target = +counter.getAttribute("data-count");
+        let count = 0;
+  
+        const updateCount = () => {
+          count += Math.ceil(target / 50); // Control increment step
+          if (count >= target) {
+            counter.innerText = target + "+";
+          } else {
+            counter.innerText = count;
+            setTimeout(updateCount, speed);
+          }
+        };
+  
+        updateCount();
+      };
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              countUp(entry.target);
+              observer.unobserve(entry.target); // Stop observing after animation
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+  
+      counters.forEach((counter) => observer.observe(counter));
+    }, []);
+
 
   return (
     <>
+
+      <Helmet>
+        <title>Steel Detailing Services | BIM, Connection Design | ModeArch Steel</title>
+        <meta name="description" content="Explore ModeArch Steel's comprehensive services, including structural steel detailing, connection design, BIM modeling, and more. We deliver high-quality solutions for diverse industries." />
+        <meta name="keywords" content="steel detailing services, BIM modeling, connection design, shop drawings, erection drawings, miscellaneous steel, material take-off, CNC fabrication, quality control, construction services" />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Steel Detailing Services | BIM, Connection Design | ModeArch Steel" />
+        <meta property="og:description" content="Explore ModeArch Steel's comprehensive services, including structural steel detailing, connection design, BIM modeling, and more. We deliver high-quality solutions for diverse industries." />
+        <meta property="og:image" content={servicenexttobannerimgDesktop} />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
+        <meta name="twitter:description" content="Explore ModeArch Steel's comprehensive services, including structural steel detailing, connection design, BIM modeling, and more. We deliver high-quality solutions for diverse industries." />
+        <meta name="twitter:image" content={servicenexttobannerimgDesktop} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
       <Navbar />
 
       <section className="g-0">
@@ -132,7 +192,7 @@ const Service = () => {
 
       <section className="service-section mt-5 sevices-bg-img" id="service">
         <div className="container service-section-container">
-          <h2 className="text-center mb-4">Services</h2>
+          <h2 className="text-center mb-4 fw-bold" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">Services</h2>
           <div className="row">
             {serviceData.slice(0, 3).map((service, index) => (
               <div key={index} className="col-md-12 mb-4">
@@ -155,9 +215,9 @@ const Service = () => {
                   >
                     {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                     <div className="w-100">
-                      <h1>{service.title}</h1>
-                      <h5>{service.subtitle}</h5>
-                      <p className="text-justify">{service.desc}</p>
+                      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
+                      <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
+                      <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -174,8 +234,8 @@ const Service = () => {
                 {/* First Row - Stats */}
                 <div className="row text-center mb-4 d-none d-md-flex">
                   <div className="col-md-4">
-                    <h2 className="fw-bold" style={{ color: "#fff" }}>
-                      10+
+                    <h2 className="fw-bold counter" data-count="10" style={{ color: "#fff" }}>
+                      0+
                     </h2>
                     <h5>Years of Expertise</h5>
                     <p>
@@ -184,8 +244,8 @@ const Service = () => {
                     </p>
                   </div>
                   <div className="col-md-4">
-                    <h2 className="fw-bold" style={{ color: "#fff" }}>
-                      1000+
+                    <h2 className="fw-bold counter" data-count="1000" style={{ color: "#fff" }}>
+                      0+
                     </h2>
                     <h5>Successful Projects</h5>
                     <p>
@@ -194,8 +254,8 @@ const Service = () => {
                     </p>
                   </div>
                   <div className="col-md-4">
-                    <h2 className="fw-bold" style={{ color: "#fff" }}>
-                      1,500+
+                    <h2 className="fw-bold counter" data-count="1500" style={{ color: "#fff" }}>
+                      0+
                     </h2>
                     <h5>Ons of Steel Detailed Monthly</h5>
                     <p>
@@ -316,9 +376,9 @@ const Service = () => {
                     >
                         {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                         <div className="w-100">
-                        <h1>{service.title}</h1>
-                        <h5>{service.subtitle}</h5>
-                        <p>{service.desc}</p>
+                        <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
+                        <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
+                        <p data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
                         </div>
                     </div>
                     </div>

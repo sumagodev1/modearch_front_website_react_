@@ -73,7 +73,7 @@ const Blog = () => {
 
   const renderBlogCard = (blog, index, reverse) => (
     <Col key={blog.id} xl={6} lg={6} md={12} sm={12} className="my-2 my-lg-0">
-      <Card className="border-0 h-100 text-white">
+      <Card className="border-0 h-100 text-white" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
         <Row className="align-items-center">
           {reverse ? (
             <>

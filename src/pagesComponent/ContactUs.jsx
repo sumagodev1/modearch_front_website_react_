@@ -253,32 +253,26 @@ const ContactUs = () => {
     <>
 
         <Helmet>
-            <title>Contact Us - Contact to company</title>
-            <meta name="description" content="Contact for a some need of steel or product" />
-            <meta name="keywords" content="contact, contact us, contact modearch steel, send contact, send" />
-        </Helmet>
-
-        <Helmet>
           <title>Contact Us - Contact to company</title>
-          <meta name="description" content="Contact for a some need of steel or product" />
-          <meta name="keywords" content="contact, contact us, contact modearch steel, send contact, send" />
-          <meta name="author" content="Your Company Name" />
+          <meta name="description" content="Contact ModeArch Steel for your steel detailing needs. Fill out our contact form or find our office locations in Navi Mumbai, Delaware, and Nashik. We're ready to assist you." />
+          <meta name="keywords" content="contact ModeArch Steel, steel detailing contact, get a quote, steel detailing inquiries, Navi Mumbai office, Delaware office, Nashik office, phone number, email" />
+          <meta name="author" content="ModeArch Steel" />
 
           {/* Open Graph Meta Tags */}
-          <meta property="og:title" content="Contact Us - Contact to company" />
-          <meta property="og:description" content="Contact for a some need of steel or product" />
-          <meta property="og:image" content="https://example.com/path-to-your-image.jpg" />
-          <meta property="og:url" content="https://example.com/contact" />
+          <meta property="og:title" content="Contact ModeArch Steel | Get a Quote | Steel Detailing Inquiries" />
+          <meta property="og:description" content="Contact ModeArch Steel for your steel detailing needs. Fill out our contact form or find our office locations in Navi Mumbai, Delaware, and Nashik. We're ready to assist you." />
+          <meta property="og:image" content={contact_bannerimgDesktop} />
+          <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
           <meta property="og:type" content="website" />
 
           {/* Twitter Card Meta Tags */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Contact Us - Contact to company" />
-          <meta name="twitter:description" content="Contact for a some need of steel or product" />
-          <meta name="twitter:image" content="https://example.com/path-to-your-image.jpg" />
+          <meta name="twitter:title" content="Contact ModeArch Steel | Get a Quote | Steel Detailing Inquiries" />
+          <meta name="twitter:description" content="Contact ModeArch Steel for your steel detailing needs. Fill out our contact form or find our office locations in Navi Mumbai, Delaware, and Nashik. We're ready to assist you." />
+          <meta name="twitter:image" content={contact_bannerimgDesktop} />
           <meta name="twitter:site" content="@YourTwitterHandle" />
           <meta name="twitter:creator" content="@YourTwitterHandle" />
-      </Helmet>
+        </Helmet>
 
         <Navbar />
 

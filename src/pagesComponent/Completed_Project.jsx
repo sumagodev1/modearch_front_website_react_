@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import ProjectDetails from "./ProjectDetails";
@@ -115,6 +116,29 @@ const Completed_Project = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Completed Steel Detailing Projects | ModeArch Steel Portfolio</title>
+        <meta name="description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
+        <meta name="keywords" content="completed steel projects, steel detailing portfolio, construction projects, case studies, project highlights, industrial projects, commercial projects, infrastructure projects." />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Completed Steel Detailing Projects | ModeArch Steel Portfolio" />
+        <meta property="og:description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
+        <meta property="og:image" content={complete_project_bannerimgDesktop} />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
+        <meta name="twitter:description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
+        <meta name="twitter:image" content={complete_project_bannerimgDesktop} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
       <Navbar />
 
       <section className="g-0">
@@ -172,7 +196,7 @@ const Completed_Project = () => {
                   key={project.id}
                   className="col-lg-4 col-md-6 col-sm-12 mb-4"
                 >
-                  <div className="project-card p-3">
+                  <div className="project-card p-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
                     <img
                       src={project.img}
                       className="card-img-top img-fluid project-img-effect"
@@ -180,8 +204,8 @@ const Completed_Project = () => {
                     />
                     <div className="card-body p-2">
                       <div className="d-flex justify-content-between align-items-center">
-                        <h5 className="card-title mb-0 project_name">
-                          {project.project_name}
+                        <h5 className="card-title mb-0 project_name" title={project.project_name}>
+                          {project.project_name.length > 15 ? `${project.project_name.slice(0, 15)}...` : project.project_name}
                         </h5>
                         <Link
                           to={`/completed_project/${project.project_name

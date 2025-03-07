@@ -125,24 +125,35 @@ const ClientFeedback = () => {
           <Slider {...settings}>
             {testimonials.map((testimonial, index) => (
               <div key={index} className="p-4 custom-padding">
-                <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius">
+                  {/* h-100 d-flex flex-column style={{ minHeight: "320px" }} */}
+                <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius  h-100 d-flex flex-column" style={{ minHeight: "290px" }}>
                   <h5 className="fw-bold mb-2">{testimonial.company_Name}</h5>
                   <p className="text-muted mb-3">
-                    {truncateReview(testimonial.review, 200)}
-                    {testimonial.review.length > 200 && (
+                    {truncateReview(testimonial.review, 150)}
+                    {testimonial.review.length > 150 && (
                       <span className='read-more' onClick={() => handleShowModal(testimonial)}>
                         ... <b>Read More</b>
                       </span>
                     )}
                   </p>
-                  <div className="d-flex align-items-center justify-content-between">
+                  {/* <div className="d-flex align-items-center justify-content-between">
                     <div>
                       <span className="text-warning">
-                        {"★".repeat(testimonial.rating)}
-                        {"☆".repeat(5 - testimonial.rating)}
+                        {"★".repeat(testimonial.star)}
+                        {"☆".repeat(5 - testimonial.star)}
                       </span>
                       <br />
                       <small className="text-muted">{testimonial.name}</small>
+                    </div>
+                  </div> */}
+                  <div className="mt-auto">
+                    <span className="text-warning">
+                      {"★".repeat(testimonial.star)}
+                      {"☆".repeat(5 - testimonial.star)}
+                    </span>
+                    <br />
+                    <div className="w-100">
+                      <small className="text-muted">{testimonial.name}</small>  {/* Now always at bottom */}
                     </div>
                   </div>
                   <div className="position-absolute cust-feedback-img translate-middle-x" style={{ bottom: "-14px" }}>
