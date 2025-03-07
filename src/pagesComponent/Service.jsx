@@ -192,7 +192,7 @@ const Service = () => {
 
       <section className="service-section mt-5 sevices-bg-img" id="service">
         <div className="container service-section-container">
-          <h2 className="text-center mb-4 fw-bold" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">Services</h2>
+          <h2 className="text-center mb-4 fw-bold" >Services</h2>
           <div className="row">
             {serviceData.slice(0, 3).map((service, index) => (
               <div key={index} className="col-md-12 mb-4">
@@ -215,9 +215,9 @@ const Service = () => {
                   >
                     {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                     <div className="w-100">
-                      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
-                      <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
-                      <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
+                      <h1 >{service.title}</h1>
+                      <h5 >{service.subtitle}</h5>
+                      <p className="text-justify" >{service.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -376,9 +376,9 @@ const Service = () => {
                     >
                         {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                         <div className="w-100">
-                        <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
-                        <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
-                        <p data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
+                        <h1 >{service.title}</h1>
+                        <h5 >{service.subtitle}</h5>
+                        <p >{service.desc}</p>
                         </div>
                     </div>
                     </div>

@@ -196,7 +196,7 @@ const Completed_Project = () => {
                   key={project.id}
                   className="col-lg-4 col-md-6 col-sm-12 mb-4"
                 >
-                  <div className="project-card p-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                  <div className="project-card p-3">
                     <img
                       src={project.img}
                       className="card-img-top img-fluid project-img-effect"

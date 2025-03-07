@@ -170,7 +170,7 @@ const ProjectDetails = () => {
         </div>
       </div>
 
-      <div className="container my-5" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+      <div className="container my-5">
         {project && (
           <div className="row justify-content-center">
             {project.project_images?.map((img, i) => (
@@ -213,18 +213,18 @@ const ProjectDetails = () => {
             </p>
           </div>
           <div className="col-md-6">
-            <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+            <h5>
               <strong>Location:</strong> {project.project_name}
             </h5>
-            <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+            <h5>
               <strong>Total Tonnage:</strong> {project.project_total_tonnage || "N/A"}
             </h5>
           </div>
           <div className="col-md-6">
-            <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+            <h5>
               <strong>Year of Completion:</strong> {project.project_year_of_completion || "N/A"}
             </h5>
-            <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+            <h5>
               <strong>Status:</strong> {project.project_status || "N/A"}
             </h5>
           </div>
