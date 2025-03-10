@@ -19,8 +19,17 @@ import ClientFeedback from './ClientFeedback';
 import aboutprecisionsteelimgDesktop  from "./images/about/about-precision-steel-img.png";
 import aboutprecisionsteelimgMobile from "./images/about/about-precision-steel-imgMobile.png";
 import up_arrow from './images/up-arrow.png'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, // Animation duration in milliseconds
+        once: true, // Whether animation should only happen once
+      });
+    }, []);
 
   const [imageSrc, setImageSrc] = useState(aboutbannerimgDesktop);
   const [aboutprecisionsteelimageSrc, setAboutprecisionsteelimageSrc] = useState(aboutprecisionsteelimgDesktop);
@@ -60,7 +69,7 @@ const About = () => {
     <>
 
       <Helmet>
-        <title>About Us - About Modearch Steel company</title>
+        <title>About ModeArch Steel | Our Story & Mission | Steel Detailing Experts</title>
         <meta name="description" content="Learn about ModeArch Steel's journey, mission, and values. We are a leading provider of steel detailing and BIM solutions with a global presence and a commitment to excellence." />
         <meta name="keywords" content="steel detailing, structural steel, BIM modeling, connection design, shop drawings, erection drawings, steel fabrication, Navi Mumbai, Delaware, Nashik, construction services" />
         <meta name="author" content="ModeArch Steel" />
@@ -68,15 +77,15 @@ const About = () => {
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="About ModeArch Steel | Our Story & Mission | Steel Detailing Experts" />
         <meta property="og:description" content="Learn about ModeArch Steel's journey, mission, and values. We are a leading provider of steel detailing and BIM solutions with a global presence and a commitment to excellence." />
-        <meta property="og:image" content={aboutprecisionsteelimgDesktop} />
-        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/about-banner-img.c8642c1a21176a16945f.png" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/about" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta name="twitter:description" content="Learn about ModeArch Steel's journey, mission, and values. We are a leading provider of steel detailing and BIM solutions with a global presence and a commitment to excellence." />
-        <meta name="twitter:image" content={aboutprecisionsteelimgDesktop} />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/about-banner-img.c8642c1a21176a16945f.png" />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
       </Helmet>
@@ -106,7 +115,7 @@ const About = () => {
                       <h2 className='fw-bold text-white ms-4 mb-3' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">Who We Are ?</h2>
                       <div className='who-we-are-para'>
                           <p className='mb-0' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
-                          The journey of Modaztech Steel began in 2017. With a small yet passionate team, we started working on the vision of delivering precision-driven steel detailing and design solutions. After three years of dedication and growth, we established our first office in Navi Mumbai in 2022, marking a significant milestone in our business.
+                          The journey of Modearch Steel began in 2017. With a small yet passionate team, we started working on the vision of delivering precision-driven steel detailing and design solutions. After three years of dedication and growth, we established our first office in Navi Mumbai in 2022, marking a significant milestone in our business.
                           </p>
                           <p className='mb-0' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
                           As our expertise and demand grew, we expanded globally, setting up our second office in Delaware, USA, in 2023 to cater to the North American market. The same year, we further strengthened our presence by opening our third office in Nashik, followed by our fourth office in Nashik in 2024, reinforcing our commitment to innovation and excellence.

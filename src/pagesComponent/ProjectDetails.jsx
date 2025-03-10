@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from 'react-helmet-async';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -133,6 +134,29 @@ const ProjectDetails = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Completed Steel Detailing Projects | ModeArch Steel Portfolio</title>
+        <meta name="description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
+        <meta name="keywords" content="completed steel projects, steel detailing portfolio, construction projects, case studies, project highlights, industrial projects, commercial projects, infrastructure projects." />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Completed Steel Detailing Projects | ModeArch Steel Portfolio" />
+        <meta property="og:description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/…plete_project_banner_img.b95ddf64f782ffa954b5.png" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com//completed_project" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
+        <meta name="twitter:description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/…plete_project_banner_img.b95ddf64f782ffa954b5.png" />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
       <Navbar />
 
       <section className="g-0">
@@ -191,7 +215,7 @@ const ProjectDetails = () => {
         )}
 
 
-        <Lightbox
+        {/* <Lightbox
           open={open}
           close={() => setOpen(false)}
           index={index}
@@ -201,6 +225,27 @@ const ProjectDetails = () => {
             description: `Image ${i + 1}`,
           }))}
           plugins={[Fullscreen, Slideshow, Thumbnails, Video, Zoom]}
+        /> */}
+
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          index={index}
+          slides={project.project_images.map(img => ({
+            src: `${axios.defaults.baseURL}${img}`,
+            title: project.project_name,
+            width: 1600,  // Add width and height for proper zooming
+            height: 1200,
+          }))}
+          plugins={[Fullscreen, Slideshow, Thumbnails, Video, Zoom]}
+          zoom={{
+            maxZoomPixelRatio: 5,   // Increase zoom limit
+            zoomInMultiplier: 2,    // Control zoom speed
+            doubleTapDelay: 300,    // Allow double-tap to zoom
+            doubleClickDelay: 300,  // Allow double-click to zoom
+            doubleTapMaxDelay: 500,
+          }}
+          captions={{ showToggle: true }}
         />
 
 

@@ -13,6 +13,8 @@ import gallery from './images/gallery/gallery.png'
 import up_arrow from './images/up-arrow.png'
 import './Gallery.css'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // const staticGalleryData = [
 //     {
@@ -34,6 +36,13 @@ import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa
   
 
 const Gallery = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, // Animation duration in milliseconds
+        once: true, // Whether animation should only happen once
+      });
+    }, []);
 
   const [imageSrc, setImageSrc] = useState(gallery_bannerimgDesktop);
 
@@ -96,7 +105,7 @@ const Gallery = () => {
     <>
 
       <Helmet>
-        <title>ModeArch Steel Gallery | Project Portfolio | Steel Detailing Visuals</title>
+        <title>Gallery ModeArch Steel | ModeArch Steel Gallery | Project Portfolio | Steel Detailing Visuals</title>
         <meta name="description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
         <meta name="keywords" content="steel detailing gallery, project portfolio, steel detailing images, 3D models, construction projects, work in progress, fabrication, assembly, installation" />
         <meta name="author" content="ModeArch Steel" />
@@ -104,15 +113,15 @@ const Gallery = () => {
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Steel Detailing Services | BIM, Connection Design | ModeArch Steel" />
         <meta property="og:description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
-        <meta property="og:image" content={gallery_bannerimgDesktop} />
-        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/gallery_banner_img.eb03d58f0a9809a899f0.png" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/gallery" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta name="twitter:description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
-        <meta name="twitter:image" content={gallery_bannerimgDesktop} />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/gallery_banner_img.eb03d58f0a9809a899f0.png" />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
       </Helmet>
@@ -137,29 +146,27 @@ const Gallery = () => {
           
           <div className='row align-items-center'>
             <div className='col-md-7'>
-                <img src={gallery_img1} alt='img1' className='img-fluid' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200" />
+                <img src={gallery_img1} alt='img1' className='img-fluid'  />
             </div>
             <div className='col-md-5 mb-auto'>
-              <h3 className="fw-bold text-center" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">Lorem Ipsum</h3>
-              <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+              <h3 className="fw-bold text-center">Life at Modearch Steel: Work, Culture & Celebrations</h3>
+              <p className="text-justify" style={{ textIndent: "20px" }} >
+                At Modearch Steel, we believe in fostering a dynamic and inspiring workplace where creativity, teamwork, and precision come together. Our commitment to excellence in steel detailing is reflected in our work and the strong culture we have built. From brainstorming sessions and hands-on project execution to knowledge-sharing initiatives, every aspect of our work environment encourages growth and collaboration.
               </p>
             </div>
           </div>
           
           <div className='row align-items-center mt-5'>
             <div className='col-md-7 order-md-2'>
-                <img src={gallery_img2} alt='img4' className='img-fluid mb-4' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200" />
+                <img src={gallery_img2} alt='img4' className='img-fluid mb-4'  />
             </div>
             <div className='col-md-5 order-md-1 mb-auto'>
-              <h3 className="fw-bold text-center" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">Lorem Ipsum</h3>
-              <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                Lorem ipsum is simply dummy text of the printing and typesetting industry.
+              <h3 className="fw-bold text-center">Celebrating Team Spirit & Workplace Culture</h3>
+              <p className="text-justify" style={{ textIndent: "20px" }} >
+                Beyond our professional endeavors, we cherish the moments that bring us together as a team. Festive celebrations, milestone achievements, and team outings create an engaging and lively atmosphere where bonds are strengthened. Whether it’s a casual day at the office, a rewarding project completion, or a grand celebration, every moment at Modearch Steel is a testament to our positive work culture.
+              </p>
+              <p className="text-justify" style={{ textIndent: "20px" }} >
+                We believe in fostering an environment where creativity and collaboration thrive. Team members are encouraged to share ideas, challenge each other, and grow both professionally and personally. This spirit of mutual respect and shared success creates a workplace that is not only productive but also enjoyable. At Modearch Steel, every individual’s contribution is valued, and we continue to build a culture that emphasizes learning, growth, and collective achievement.
               </p>
             </div>
           </div>
@@ -178,7 +185,7 @@ const Gallery = () => {
                     </div>
                   </>
                 ) : (
-                    <div className='row row-cols-1 row-cols-md-3 g-4' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                    <div className='row row-cols-1 row-cols-md-3 g-4' >
                         {galleryData.map((item) => (
                             <div key={item.id} className='col'>
                                 <div className='card shadow-sm gallery_card'>

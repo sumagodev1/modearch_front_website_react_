@@ -57,8 +57,8 @@ const Footer = () => {
                   {/* <i className="bi bi-telephone-fill me-2"></i>  */}
                   <img src={call} alt="call" className='img-fluid me-2' />
                   {/* <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a> */}
-                  <a href={`tel:+91${contacts[0]?.phone1 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
-                    +91 {contacts[0]?.phone1 || "213-814-2277"}
+                  <a href={`tel:+1${contacts[0]?.phone1 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
+                    +1 {contacts[0]?.phone1 || "213-814-2277"}
                   </a>
                 </div>
 
@@ -74,13 +74,13 @@ const Footer = () => {
                 <div className="d-flex align-items-center mb-3">
                   {/* <i className="bi bi-envelope-fill me-2"></i>  */}
                   <img src={mail} alt="mail" className='img-fluid me-2' />
-                  <a href={`mailto:${socialLinks.email || "sales@modearchsteel.com"}`} className="text-white text-decoration-none">{socialLinks.email || "sales@modearchsteel.com"}</a>
+                  <a href={`mailto:${socialLinks.email || "sales@modearchsteel.com"}`} className="text-white text-decoration-none" style={{wordBreak: "break-word"}}>{socialLinks.email || "sales@modearchsteel.com"}</a>
                 </div>
 
                 <div className="d-flex mb-3">
                   {/* <i className="bi bi-geo-alt-fill me-2"></i>  */}
                   <img src={add1} alt="add1" className='img-fluid me-2' style={{height:"1.5rem"}} />
-                  <span>05, B-11, Charkul, Sector-15, Kharghar, Navi Mumbai - 410210</span>
+                  <span style={{textAlign:"left"}}>05, B-11, Charkul, Sector-15, Kharghar, Navi Mumbai - 410210</span>
                 </div>
 
                 <div className="d-flex">

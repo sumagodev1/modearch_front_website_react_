@@ -38,6 +38,19 @@ const Home = () => {
   console.log(homeslider);
   const [socialLinks, setSocialLinks] = useState({});
 
+  // const homebannerimage_dynamic = homeslider.find((slide) => slide.view === "Desktop")?.image || "https://staging-api-v2.modearchsteel.com/uploads/homeslider/1741250790964-home_banner_image.png";
+
+  const baseURL = axios.defaults.baseURL; // Dynamically set the baseURL
+  const homebannerimage_dynamic = homeslider.find((slide) => slide.view === "Desktop")?.image;
+
+  // Ensure the image URL is absolute
+  const absoluteHomeBannerImage = homebannerimage_dynamic
+    ? `${baseURL.replace(/\/$/, '')}/${homebannerimage_dynamic.replace(/^\//, '')}`
+    : "https://staging-api-v2.modearchsteel.com/uploads/homeslider/1741250790964-home_banner_image.png";
+
+  console.log("Final Open Graph Imagee:", absoluteHomeBannerImage);
+
+
   const [imageSrc, setImageSrc] = useState(homeprecisionsteelimgDesktop);
 
   useEffect(() => {
@@ -182,7 +195,7 @@ const Home = () => {
     <>
 
       <Helmet>
-        <title>Home - Home</title>
+        <title>Home ModeArch Steel |Precision Steel Detailing & BIM Solutions | ModeArch Steel</title>
         <meta name="description" content="ModeArch Steel provides expert structural steel detailing, connection design, and BIM solutions worldwide. We deliver accurate, efficient, and high-quality services. Request a quote today!" />
         <meta name="keywords" content="steel detailing, structural steel, BIM modeling, connection design, shop drawings, erection drawings, steel fabrication, Navi Mumbai, Delaware, Nashik, construction services" />
         <meta name="author" content="ModeArch Steel" />
@@ -190,7 +203,7 @@ const Home = () => {
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta property="og:description" content="ModeArch Steel provides expert structural steel detailing, connection design, and BIM solutions worldwide. We deliver accurate, efficient, and high-quality services. Request a quote today!" />
-        <meta property="og:image" content={homebannerimage} />
+        <meta property="og:image" content={absoluteHomeBannerImage} />
         <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
         <meta property="og:type" content="website" />
 
@@ -198,7 +211,7 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta name="twitter:description" content="ModeArch Steel provides expert structural steel detailing, connection design, and BIM solutions worldwide. We deliver accurate, efficient, and high-quality services. Request a quote today!" />
-        <meta name="twitter:image" content={homebannerimage} />
+        <meta name="twitter:image" content={absoluteHomeBannerImage} />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
       </Helmet>
@@ -324,10 +337,10 @@ const Home = () => {
       <section className="">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-5 craftsmanship-text">
-              <h1 className="fw-bold" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">DETAILING CRAFTSMANSHIP</h1>
+            <div className="col-md-5 craftsmanship-text mb-4">
+              <h1 className="fw-bold mt-4" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">DETAILING CRAFTSMANSHIP</h1>
               <div>
-                <p className="text-justify mt-3" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">
+                <p className="text-capitalize text-justify mt-3" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">
                   From structural steel fabrication drawings to intricate steel
                   connection designs, each project exemplifies our commitment to
                   accuracy, quality, and innovation. Whether it's commercial
@@ -446,7 +459,7 @@ const Home = () => {
 
       <section className="numbers-section p-4">
         <div className="container">
-          <div className="row align-items-center">
+          <div className="row align-items-center mt-4 mb-4">
             <div className="col-md-6 text-content">
               <h2>
                 <strong>Modearch Steel</strong>
@@ -473,7 +486,7 @@ const Home = () => {
               </a> */}
             </div>
             <div className="col-md-6 stats-grid">
-              <div className="row">
+              <div className="row mb-2">
                 <div className="col-6 stat-box number-section-border">
                   <div className="stat-icon-text">
                     <img src={employees} alt="Logo" className="img-fluid" />

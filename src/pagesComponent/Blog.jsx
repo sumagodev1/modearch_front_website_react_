@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import axios from "axios";
+import { Helmet } from 'react-helmet-async';
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 // import blog_banner_img from "./images/blog/blog_banner_img.png";
 import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
@@ -73,7 +74,7 @@ const Blog = () => {
 
   const renderBlogCard = (blog, index, reverse) => (
     <Col key={blog.id} xl={6} lg={6} md={12} sm={12} className="my-2 my-lg-0">
-      <Card className="border-0 h-100 text-white" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+      <Card className="border-0 h-100 text-white" >
         <Row className="align-items-center">
           {reverse ? (
             <>
@@ -177,6 +178,29 @@ const Blog = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Steel Detailing Blog | Insights, Tips, and News | ModeArch Steel</title>
+        <meta name="description" content="Stay up-to-date with the latest insights, industry trends, and expert tips on steel detailing, BIM modeling, connection design, and more. Explore ModeArch Steel's blog for valuable resources." />
+        <meta name="keywords" content="steel detailing blog, BIM modeling, connection design, steel fabrication, construction industry, steel detailing tips, structural steel, architecture, engineering" />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Steel Detailing Blog | Insights, Tips, and News | ModeArch Steel" />
+        <meta property="og:description" content="Stay up-to-date with the latest insights, industry trends, and expert tips on steel detailing, BIM modeling, connection design, and more. Explore ModeArch Steel's blog for valuable resources." />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/blog_banner_img.545da9530ea787abe84e.png" /> 
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/blog" /> 
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Steel Detailing Blog | Insights, Tips, and News | ModeArch Steel" />
+        <meta name="twitter:description" content="Stay up-to-date with the latest insights, industry trends, and expert tips on steel detailing, BIM modeling, connection design, and more. Explore ModeArch Steel's blog for valuable resources." />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/blog_banner_img.545da9530ea787abe84e.png" /> 
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
       <Navbar />
 
       <section className="g-0">

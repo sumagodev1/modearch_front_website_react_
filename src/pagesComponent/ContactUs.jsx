@@ -253,7 +253,7 @@ const ContactUs = () => {
     <>
 
         <Helmet>
-          <title>Contact Us - Contact to company</title>
+          <title>Contact ModeArch Steel | Get a Quote | Steel Detailing Inquiries</title>
           <meta name="description" content="Contact ModeArch Steel for your steel detailing needs. Fill out our contact form or find our office locations in Navi Mumbai, Delaware, and Nashik. We're ready to assist you." />
           <meta name="keywords" content="contact ModeArch Steel, steel detailing contact, get a quote, steel detailing inquiries, Navi Mumbai office, Delaware office, Nashik office, phone number, email" />
           <meta name="author" content="ModeArch Steel" />
@@ -261,7 +261,7 @@ const ContactUs = () => {
           {/* Open Graph Meta Tags */}
           <meta property="og:title" content="Contact ModeArch Steel | Get a Quote | Steel Detailing Inquiries" />
           <meta property="og:description" content="Contact ModeArch Steel for your steel detailing needs. Fill out our contact form or find our office locations in Navi Mumbai, Delaware, and Nashik. We're ready to assist you." />
-          <meta property="og:image" content={contact_bannerimgDesktop} />
+          <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/contact-banner-img.b8fb526e9c84c3d1b23a.jpg" />
           <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
           <meta property="og:type" content="website" />
 
@@ -269,7 +269,7 @@ const ContactUs = () => {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Contact ModeArch Steel | Get a Quote | Steel Detailing Inquiries" />
           <meta name="twitter:description" content="Contact ModeArch Steel for your steel detailing needs. Fill out our contact form or find our office locations in Navi Mumbai, Delaware, and Nashik. We're ready to assist you." />
-          <meta name="twitter:image" content={contact_bannerimgDesktop} />
+          <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/contact-banner-img.b8fb526e9c84c3d1b23a.jpg" />
           <meta name="twitter:site" content="@YourTwitterHandle" />
           <meta name="twitter:creator" content="@YourTwitterHandle" />
         </Helmet>
@@ -304,8 +304,12 @@ const ContactUs = () => {
                             <img src={call} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} /> 
                             <div>
                                 <h4 className="fw-bold mb-0">CALL</h4>
-                                  <a href={`tel:+91${contacts[0]?.phone1 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
-                                    +91 {contacts[0]?.phone1 || "213-814-2277"}
+                                  <a href={`tel:+1${contacts[0]?.phone1 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
+                                    +1 {contacts[0]?.phone1 || "213-814-2277"}
+                                  </a>
+                                  <br></br>
+                                  <a href={`tel:+91${contacts[0]?.phone2 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
+                                    +91 {contacts[0]?.phone2 || "213-814-2277"}
                                   </a>
                                 {/* <p className="text-muted mb-0">+1 213-814-2277</p> */}
                             </div>

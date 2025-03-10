@@ -159,15 +159,15 @@ const Service = () => {
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Steel Detailing Services | BIM, Connection Design | ModeArch Steel" />
         <meta property="og:description" content="Explore ModeArch Steel's comprehensive services, including structural steel detailing, connection design, BIM modeling, and more. We deliver high-quality solutions for diverse industries." />
-        <meta property="og:image" content={servicenexttobannerimgDesktop} />
-        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/service_banner_img.49804b99476f5993dade.png" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/service" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta name="twitter:description" content="Explore ModeArch Steel's comprehensive services, including structural steel detailing, connection design, BIM modeling, and more. We deliver high-quality solutions for diverse industries." />
-        <meta name="twitter:image" content={servicenexttobannerimgDesktop} />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/service_banner_img.49804b99476f5993dade.png" />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
       </Helmet>

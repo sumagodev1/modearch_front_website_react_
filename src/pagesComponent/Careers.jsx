@@ -209,11 +209,27 @@ const Careers = () => {
 
   return (
     <>
-        <Helmet>
-            <title>careers - Upload Your CV</title>
-            <meta name="description" content="Apply for a job by uploading your CV" />
-            <meta name="keywords" content="career, jobs, CV, resume, apply" />
-        </Helmet>
+    <Helmet>
+      <title>Careers at ModeArch Steel | Join Our Team | Steel Detailing Experts</title>
+      <meta name="description" content="Explore exciting career opportunities at ModeArch Steel. Join our growing team of steel detailing experts and contribute to innovative projects in the structural steel industry." />
+      <meta name="keywords" content="careers at ModeArch Steel, steel detailing jobs, BIM modeling careers, connection design jobs, engineering jobs, structural steel, join our team, construction industry careers" />
+      <meta name="author" content="ModeArch Steel" />
+
+      {/* Open Graph Meta Tags */}
+      <meta property="og:title" content="Careers at ModeArch Steel | Join Our Team | Steel Detailing Experts" />
+      <meta property="og:description" content="Explore exciting career opportunities at ModeArch Steel. Join our growing team of steel detailing experts and contribute to innovative projects in the structural steel industry." />
+      <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/careers_banner_img.e01b1b19c22c885ea69a.png" /> 
+      <meta property="og:url" content="https://staging-v2.modearchsteel.com/careers" />
+      <meta property="og:type" content="website" />
+
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Careers at ModeArch Steel | Join Our Team | Steel Detailing Experts" />
+      <meta name="twitter:description" content="Explore exciting career opportunities at ModeArch Steel. Join our growing team of steel detailing experts and contribute to innovative projects in the structural steel industry." />
+      <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/careers_banner_img.e01b1b19c22c885ea69a.png" /> 
+      <meta name="twitter:site" content="@YourTwitterHandle" />
+      <meta name="twitter:creator" content="@YourTwitterHandle" />
+    </Helmet>
         
         <Navbar />
 
@@ -233,7 +249,7 @@ const Careers = () => {
                 <img src={precision} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">PRECISION WITH AGILITY</h3>
-                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                  <p className='core-values-section-para'>
                     We may be a compact team, but our expertise and technology enable
                     us to deliver big results. Our focus on efficiency, creativity,
                     and flexibility ensures every project is executed with excellence.
@@ -246,7 +262,7 @@ const Careers = () => {
                 <img src={globle} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">A GLOBAL PERSPECTIVE</h3>
-                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                  <p className='core-values-section-para'>
                     With a diverse team and international collaborations, we bring
                     together expertise from around the world to deliver top-tier steel
                     detailing solutions.
@@ -259,7 +275,7 @@ const Careers = () => {
                 <img src={work} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">WORK THAT MATTERS</h3>
-                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                  <p className='core-values-section-para'>
                     At Moderach Steel, every detail counts. We take pride in crafting
                     solutions that optimize fabrication, enhance efficiency, and bring
                     designs to life with precision.
@@ -272,7 +288,7 @@ const Careers = () => {
                 <img src={careers} alt="Logo" className='fs-2 me-2 img-fluid core-values-section-img' />
                 <div>
                   <h3 className="fw-bold mb-3 career-title">CAREER GROWTH & LEARNING</h3>
-                  <p className='core-values-section-para' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                  <p className='core-values-section-para'>
                     We empower our team to grow—whether it's mastering new skills,
                     taking on new challenges, or exploring innovative projects that
                     push boundaries.

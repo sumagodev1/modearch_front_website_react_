@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Helmet } from 'react-helmet-async';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import gallery from './images/gallery/gallery.png';
@@ -130,6 +131,29 @@ const GalleryDetails = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Gallery ModeArch Steel | ModeArch Steel Gallery | Project Portfolio | Steel Detailing Visuals</title>
+        <meta name="description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
+        <meta name="keywords" content="steel detailing gallery, project portfolio, steel detailing images, 3D models, construction projects, work in progress, fabrication, assembly, installation" />
+        <meta name="author" content="ModeArch Steel" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Steel Detailing Services | BIM, Connection Design | ModeArch Steel" />
+        <meta property="og:description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/gallery_banner_img.eb03d58f0a9809a899f0.png" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/gallery" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
+        <meta name="twitter:description" content="View ModeArch Steel's project gallery showcasing our expertise in steel detailing and BIM modeling. See our completed projects, 3D models, and work in progress." />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/gallery_banner_img.eb03d58f0a9809a899f0.png" />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:creator" content="@YourTwitterHandle" />
+      </Helmet>
+
       <Navbar />
 
 
@@ -157,16 +181,25 @@ const GalleryDetails = () => {
           <button className="btn btn-secondary" onClick={() => navigate(-1)}>Back to Gallery</button>
         </div> */}
 
-          <Lightbox
-          open={open}
-          close={() => setOpen(false)}
-          index={index}
-          slides={categoryData.gallery_images.map(img => ({
-            src: `${axios.defaults.baseURL}${img}`,
-          }))}
-          plugins={[Fullscreen, Slideshow, Thumbnails, Video, Zoom]}
-          captions={{ showToggle: true }}
-        />
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={index}
+        slides={categoryData.gallery_images.map(img => ({
+          src: `${axios.defaults.baseURL}${img}`,
+          width: 1600,  // Add width and height for proper zooming
+          height: 1200,
+        }))}
+        plugins={[Fullscreen, Slideshow, Thumbnails, Video, Zoom]}
+        zoom={{
+          maxZoomPixelRatio: 5,   // Increase zoom limit
+          zoomInMultiplier: 2,    // Control zoom speed
+          doubleTapDelay: 300,    // Allow double-tap to zoom
+          doubleClickDelay: 300,  // Allow double-click to zoom
+          doubleTapMaxDelay: 500,
+        }}
+        captions={{ showToggle: true }}
+      />
 
       </section>
 

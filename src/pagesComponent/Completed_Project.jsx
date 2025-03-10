@@ -126,15 +126,15 @@ const Completed_Project = () => {
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Completed Steel Detailing Projects | ModeArch Steel Portfolio" />
         <meta property="og:description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
-        <meta property="og:image" content={complete_project_bannerimgDesktop} />
-        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:image" content="https://staging-v2.modearchsteel.com/static/media/…plete_project_banner_img.b95ddf64f782ffa954b5.png" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/completed_project" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta name="twitter:description" content="Explore our portfolio of completed steel detailing projects. See how ModeArch Steel delivers precision and quality in various industries. View project descriptions and highlights." />
-        <meta name="twitter:image" content={complete_project_bannerimgDesktop} />
+        <meta name="twitter:image" content="https://staging-v2.modearchsteel.com/static/media/…plete_project_banner_img.b95ddf64f782ffa954b5.png" />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
       </Helmet>
