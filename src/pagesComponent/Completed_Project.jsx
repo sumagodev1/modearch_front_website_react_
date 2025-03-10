@@ -65,6 +65,8 @@ const Completed_Project = () => {
   const [projectsData, setProjectsData] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
 
+  const [showAllProjects, setShowAllProjects] = useState(false); // State for toggling between showing 6 or all projects
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -113,6 +115,11 @@ const Completed_Project = () => {
   const isProjectDetailsPage = location.pathname.startsWith(
     "/completed_project/project/"
   );
+
+    // Handle toggling of projects (6 or all)
+    const handleToggleProjects = () => {
+      setShowAllProjects(!showAllProjects);
+    };
 
   return (
     <>
@@ -191,7 +198,8 @@ const Completed_Project = () => {
         <div className="container my-4">
           <div className="row">
             {projectsData.length > 0 ? (
-              projectsData.map((project) => (
+              // projectsData.map((project) => (
+                projectsData.slice(0, showAllProjects ? projectsData.length : 6).map((project) => (
                 <div
                   key={project.id}
                   className="col-lg-4 col-md-6 col-sm-12 mb-4"
@@ -241,6 +249,25 @@ const Completed_Project = () => {
             )}
           </div>
         </div>
+
+          {/* Toggle Button for See More / See Less */}
+          {projectsData.length > 6 && (
+            <div className="container text-center my-4">
+              <button
+                className="border-0 fw-bold see_more_underline_animation"
+                style={{ background: "none", color: "black", fontSize: "16px" }}
+                onClick={handleToggleProjects}
+              >
+                {showAllProjects ? "See Less Projects" : "See More Projects"}{" "}
+                  <img
+                    src={up_arrow}
+                    alt="Tekla Structures"
+                    className="expertise-logo img-fluid"
+                  />
+              </button>
+            </div>
+          )}
+        
         {/* )} */}
 
         {/* Nested Routes for Project Details */}
