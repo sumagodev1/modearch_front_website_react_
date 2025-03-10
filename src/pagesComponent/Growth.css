@@ -276,9 +276,16 @@
 
 }
 
-@media (min-width: 1400px)  {
+@media (min-width: 1400px) and (max-width: 1800px)  {
   .growth-container {
     height: 72vh !important;
+  }
+
+}
+
+@media (min-width: 1800px)  {
+  .growth-container {
+    height: 46vh !important;
   }
 
 }
