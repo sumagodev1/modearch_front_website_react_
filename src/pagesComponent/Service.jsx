@@ -12,6 +12,8 @@ import servicenexttobannerimgMobile from "./images/service/servicenexttobannerim
 import Navbar from "../layoutComponent/Navbar";
 import Service_Faq from "./Service_Faq";
 import Footer from "../layoutComponent/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // const services = [
 //   {
@@ -59,6 +61,13 @@ import Footer from "../layoutComponent/Footer";
 // ];
 
 const Service = () => {
+
+      useEffect(() => {
+        AOS.init({
+          duration: 1000, // Animation duration in milliseconds
+          once: true, // Whether animation should only happen once
+        });
+      }, []);
 
   const [imageSrc, setImageSrc] = useState(service_bannerimgDesktop);
   const [servicenexttobannerimageSrc, setServicenexttobannerimageSrc] = useState(servicenexttobannerimgDesktop);
@@ -215,9 +224,9 @@ const Service = () => {
                   >
                     {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                     <div className="w-100">
-                      <h1 >{service.title}</h1>
-                      <h5 >{service.subtitle}</h5>
-                      <p className="text-justify" >{service.desc}</p>
+                      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
+                      <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
+                      <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -376,9 +385,9 @@ const Service = () => {
                     >
                         {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                         <div className="w-100">
-                        <h1 >{service.title}</h1>
-                        <h5 >{service.subtitle}</h5>
-                        <p >{service.desc}</p>
+                        <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
+                        <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
+                        <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
                         </div>
                     </div>
                     </div>
