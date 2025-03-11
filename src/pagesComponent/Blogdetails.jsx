@@ -85,9 +85,9 @@ const Blogdetails = () => {
           />
         </div>
        
-        <p className="blog_description mt-3">{blogDetails.shortDesc}</p>
+        <p className="blog_description mt-3 text-justify">{blogDetails.shortDesc}</p>
         <div
-          className="mt-3"
+          className="mt-3 text-justify"
           dangerouslySetInnerHTML={{ __html: blogDetails.longDesc }}
         />
       </div>

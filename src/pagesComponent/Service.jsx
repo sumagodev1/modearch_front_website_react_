@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
 import { Helmet } from 'react-helmet-async';
 import "./service.css";
@@ -12,6 +13,7 @@ import servicenexttobannerimgMobile from "./images/service/servicenexttobannerim
 import Navbar from "../layoutComponent/Navbar";
 import Service_Faq from "./Service_Faq";
 import Footer from "../layoutComponent/Footer";
+import up_arrow_white from "./images/up-arrow-white.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -110,8 +112,10 @@ const Service = () => {
       const fetchServices = async () => {
         try {
           const response = await axios.get("/infrastructure/get-infrastructure");
-          console.log("hryy",response.data.responseData);
-          setServiceData(response.data.responseData);
+                // Filter data to only include items where isActive is true
+            const activeServices = response.data.responseData.filter(service => service.isActive === true);
+            console.log("Active Services:", activeServices);
+          setServiceData(activeServices);
         } catch (error) {
           console.error("Error fetching service data", error);
         }
@@ -154,6 +158,14 @@ const Service = () => {
   
       counters.forEach((counter) => observer.observe(counter));
     }, []);
+
+    const [showModal, setShowModal] = useState(false);
+    const [selectedService, setSelectedService] = useState(null);
+  
+    const handleShow = (service) => {
+      setSelectedService(service);
+      setShowModal(true);
+    };
 
 
   return (
@@ -224,15 +236,53 @@ const Service = () => {
                   >
                     {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                     <div className="w-100">
-                      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
-                      <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
-                      <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
+                      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.title}</h1>
+                      <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
+                      {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
+                      <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
+                        {service.desc.length > 200 ? (
+                          <>
+                            {service.desc.slice(0, 200)}...
+                            <span
+                              className="fw-bold cursor-pointer"
+                              onClick={() => handleShow(service)}
+                              style={{ cursor: "pointer" }}
+                            >
+                              {" "}
+                              Read More
+                              {/* <img
+                                src={up_arrow_white}
+                                alt="Tekla Structures"
+                                className="expertise-logo img-fluid"
+                              /> */}
+                            </span>
+                          </>
+                        ) : (
+                          service.desc
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>{selectedService?.title}</Modal.Title>
+              {/* <Modal.Title>{selectedService?.subtitle}</Modal.Title> */}
+            </Modal.Header>
+            <Modal.Body>
+              <p>{selectedService?.desc}</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShowModal(false)}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
         </div>
       </section>
 
@@ -362,7 +412,7 @@ const Service = () => {
         </section>
 
         <section>
-            <div className="container mb-5">
+          <div className="container mb-5">
             <div className="row">
                 {serviceData.slice(3).map((service, index) => (
                 <div key={index} className="col-md-12 mb-4">
@@ -385,16 +435,54 @@ const Service = () => {
                     >
                         {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                         <div className="w-100">
-                        <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
-                        <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
-                        <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500">{service.desc}</p>
-                        </div>
+                        <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.title}</h1>
+                        <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
+                        {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
+                        <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
+                          {service.desc.length > 200 ? (
+                            <>
+                              {service.desc.slice(0, 200)}...
+                              <span
+                                className="fw-bold cursor-pointer"
+                                onClick={() => handleShow(service)}
+                                style={{ cursor: "pointer" }}
+                              >
+                                {" "}
+                                Read More
+                                {/* <img
+                                  src={up_arrow_white}
+                                  alt="Tekla Structures"
+                                  className="expertise-logo img-fluid"
+                                /> */}
+                              </span>
+                            </>
+                          ) : (
+                            service.desc
+                          )}
+                        </p>
                     </div>
                     </div>
+                  </div>
                 </div>
                 ))}
             </div>
-            </div>
+
+              <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+                <Modal.Header closeButton>
+                  <Modal.Title>{selectedService?.title}</Modal.Title>
+                  {/* <Modal.Title>{selectedService?.subtitle}</Modal.Title> */}
+                </Modal.Header>
+                <Modal.Body>
+                  <p>{selectedService?.desc}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={() => setShowModal(false)}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+
+          </div>
         </section>
 
       <section className="service-faq mb-5">

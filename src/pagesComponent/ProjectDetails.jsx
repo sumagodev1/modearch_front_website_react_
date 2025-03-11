@@ -9,7 +9,9 @@ import Footer from "../layoutComponent/Footer";
 // import complete_project_banner_img from "./images/project/complete_project_banner_img.png";
 import complete_project_bannerimgDesktop  from "./images/project/complete_project_banner_img.png";
 import complete_project_bannerimgMobile from "./images/project/complete_project_bannermgMobile.png";
-import complete_project_img from "./images/project/complete_project_img.png";
+// import complete_project_img from "./images/project/complete_project_img.png";
+import complete_projectimgDesktop  from "./images/project/complete_project_img.png";
+import complete_projectimgMobile from "./images/project/complete_projectimgMobile.png";
 import world_map from "./images/project/world_map.png";
 import sds2Logo from "./images/project/sds2Logo.png";
 import teklaLogo from "./images/project/teklaLogo.png";
@@ -33,6 +35,7 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 const ProjectDetails = () => {
 
   const [imageSrc, setImageSrc] = useState(complete_project_bannerimgDesktop);
+  const [complete_projectimageSrc, setComplete_projectimageSrc] = useState(complete_projectimgDesktop);
 
   // Function to update image based on screen size
   useEffect(() => {
@@ -48,6 +51,21 @@ const ProjectDetails = () => {
     window.addEventListener("resize", updateImage); // Listen for resize events
 
     return () => window.removeEventListener("resize", updateImage); // Cleanup event listener
+  }, []);
+
+  useEffect(() => {
+    const updateServiceImage = () => {
+      if (window.innerWidth < 768) {
+        setComplete_projectimageSrc(complete_projectimgMobile); // Mobile image
+      } else {
+        setComplete_projectimageSrc(complete_projectimgDesktop); // Desktop image
+      }
+    };
+
+    updateServiceImage(); // Set initial image
+    window.addEventListener("resize", updateServiceImage); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateServiceImage); // Cleanup event listener
   }, []);
 
   const { project_name } = useParams();
@@ -175,7 +193,7 @@ const ProjectDetails = () => {
         <div className="container-fluid px-0">
           <div className="complete_project_img">
             <img
-              src={complete_project_img}
+              src={complete_projectimageSrc}
               alt="complete_project_img"
               className="img-fluid"
             />
@@ -198,7 +216,7 @@ const ProjectDetails = () => {
         {project && (
           <div className="row justify-content-center">
             {project.project_images?.map((img, i) => (
-              <div key={i} className="col-md-3 col-sm-6 mb-3">
+              <div key={i} className="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
                 <img
                   src={`${axios.defaults.baseURL}${img}`}
                   className="img-fluid rounded shadow-sm"

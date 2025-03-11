@@ -306,7 +306,7 @@ const Careers = () => {
         <section className='careers-form-section mb-4'>
           <div className="container mt-5">
               
-              <div className="card p-4 mx-auto career-form-shadow" style={{ backgroundColor: '#C4C4C4', top:'-2rem', border:'1px solid #C4C4C4' }}>
+              <div className="card p-4 mx-auto career-form-shadow" style={{ backgroundColor: '#D3D3D3', top:'-2rem', border:'1px solid #D3D3D3' }}>
               <h4 className="mb-4">UPLOAD YOUR CV</h4>
 
               <form onSubmit={handleSubmit}>

@@ -305,7 +305,7 @@ const Home = () => {
                   className="text-decoration-none btn fw-bold button_align_left get_in_touch_underline_animation"
                   onClick={() => setTimeout(() => window.location.hash = "#service", 100)}
                 >
-                  Get In Touch{" "}
+                  Check Our Services{" "}
                   <img
                     src={up_arrow}
                     alt="Tekla Structures"
@@ -334,10 +334,10 @@ const Home = () => {
         <ClientFeedback />
       </section>
 
-      <section className="">
+      <section className="craftsmanship_section">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-5 craftsmanship-text mb-4">
+            <div className="col-md-6 col-lg-5 craftsmanship-text mb-4">
               <h1 className="fw-bold mt-4" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">DETAILING CRAFTSMANSHIP</h1>
               <div>
                 <p className="text-capitalize text-justify mt-3" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">
@@ -372,7 +372,7 @@ const Home = () => {
                 </a> */}
               </div>
             </div>
-            <div className="col-md-7 detailing_crafts_section"></div>
+            <div className="col-md-6 col-lg-7 detailing_crafts_section"></div>
           </div>
         </div>
       </section>

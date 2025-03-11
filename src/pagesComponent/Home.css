@@ -625,3 +625,15 @@
       }
 
     }
+
+    @media (max-width: 768px) {
+      .craftsmanship_section{
+        margin-top: -4rem;
+      }
+    }
+
+    @media (max-width: 766px) {
+      .numbers-section{
+        margin-top: -6rem;
+      }
+    }

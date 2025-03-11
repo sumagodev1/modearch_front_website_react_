@@ -299,7 +299,7 @@ const ContactUs = () => {
                     <div className="row mt-4 reach-us-contact-details">
                     <div className="col-12">
                         <div className="row reach-us-contact-details-row">
-                        <div className="col-md-6 col-lg-6 col-sm-6 mb-5 text-center text-md-start d-flex align-items-start">
+                        <div className="col-md-6 col-lg-6 col-sm-6 mb-3 text-center text-md-start d-flex align-items-start">
                             {/* <FaPhoneAlt className="icon me-2" /> */}
                             <img src={call} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} /> 
                             <div>
@@ -474,7 +474,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-      <section className='faq-bg-img mb-5'>
+      <section className='faq-bg-img mb-4'>
         <Faq/>
       </section>
         

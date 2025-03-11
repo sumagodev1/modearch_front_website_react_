@@ -193,3 +193,9 @@
         justify-content: center !important;
     }
 }
+
+@media (max-width: 766px) {
+  .faq-bg-img{
+    margin-top: -5rem;
+  }
+}

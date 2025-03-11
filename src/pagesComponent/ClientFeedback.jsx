@@ -70,7 +70,12 @@ const ClientFeedback = () => {
       try {
         const response = await axios.get("testimonials/get-testimonials");
         if (response.data.result) {
-          setTestimonials(response.data.responseData);
+
+          // Filter only active testimonials
+          const activeTestimonials = response.data.responseData.filter(testimonial => testimonial.isActive);
+          // console.log("response Testimo",response.data.responseData);
+          
+          setTestimonials(activeTestimonials);
         } else {
           setError(response.data.message);
         }
@@ -183,7 +188,7 @@ const ClientFeedback = () => {
           </Modal.Header>
           <Modal.Body className="mb-4">
             <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius">
-              <h5 className="fw-bold mb-2">{selectedTestimonial.company_Name}</h5>
+              {/* <h5 className="fw-bold mb-2">{selectedTestimonial.company_Name}</h5> */}
               <p className="text-muted mb-3">{selectedTestimonial.review}</p>
               <div className="d-flex align-items-center justify-content-between">
                 <div>
