@@ -240,9 +240,9 @@ const Service = () => {
                       <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
                       {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
                       <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
-                        {service.desc.length > 200 ? (
+                        {service.desc.length > 350 ? (
                           <>
-                            {service.desc.slice(0, 200)}...
+                            {service.desc.slice(0, 350)}...
                             <span
                               className="fw-bold cursor-pointer"
                               onClick={() => handleShow(service)}
@@ -316,7 +316,7 @@ const Service = () => {
                     <h2 className="fw-bold counter" data-count="1500" style={{ color: "#fff" }}>
                       0+
                     </h2>
-                    <h5>Ons of Steel Detailed Monthly</h5>
+                    <h5>Tons of Steel Detailed Monthly</h5>
                     <p>
                       Ensuring efficiency in fabrication and erection processes.
                     </p>
@@ -336,8 +336,8 @@ const Service = () => {
                   </div>
                   <div className="col-6 d-flex align-items-center">
                     <p className="mobile-para">
-                      Delivered with unmatched precision, optimizing fabrication
-                      and installation.
+                      A decade of excellence in steel detailing, connection
+                      design, and BIM solutions
                     </p>
                   </div>
                   <div className="col-6">
@@ -368,8 +368,7 @@ const Service = () => {
                   </div>
                   <div className="col-6 d-flex align-items-center">
                     <p className="mobile-para">
-                      Delivered with unmatched precision, optimizing fabrication
-                      and installation.
+                      Ensuring efficiency in fabrication and erection processes.
                     </p>
                   </div>
                 </div>
@@ -439,9 +438,9 @@ const Service = () => {
                         <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
                         {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
                         <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
-                          {service.desc.length > 200 ? (
+                          {service.desc.length > 350 ? (
                             <>
-                              {service.desc.slice(0, 200)}...
+                              {service.desc.slice(0, 350)}...
                               <span
                                 className="fw-bold cursor-pointer"
                                 onClick={() => handleShow(service)}

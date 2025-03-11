@@ -3,7 +3,7 @@ import axios from "axios";
 import logo from './images/website-logo.png'
 import footerimg from './images/footer/footer-img.png'
 import '../pagesComponent/Careers.css'
-import { FaFacebookF, FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedin, FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import './Footer.css'
 import call from './images/footer/call.png'
 import mail from './images/footer/mail.png'
@@ -126,8 +126,14 @@ const Footer = () => {
                   <h6 className="fw-bold mt-3 text-center">Follow Moderach</h6>
                   <div className='d-flex justify-content-center'>
                     <a href={socialLinks.facebook} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaFacebookF style={{ height: '0.8rem' }} /></a>
-                    <a href="#" className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaYoutube style={{ height: '0.8rem' }} /></a>
-                    <a href={socialLinks.instagram}  className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaLinkedin style={{ height: '0.8rem' }} /></a>
+                    <a href={socialLinks.instagram} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaInstagram style={{ height: '0.8rem' }} /></a>
+                    {socialLinks.email && (
+                    <a href={socialLinks.email}  className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaEnvelope style={{ height: '0.8rem' }} /></a>
+                    )}
+                    {socialLinks.whatsapp && (
+                    <a href={`https://wa.me/${socialLinks.whatsapp.replace(/\D/g, "")}`} className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaWhatsapp style={{ height: '0.8rem' }} /></a>
+                    )}
+                    <a href={socialLinks.linkedin}  className="text-dark me-2 d-inline-flex align-items-center justify-content-center rounded-circle shadow" style={{ width: '25px', height: '25px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer"  ><FaLinkedin style={{ height: '0.8rem' }} /></a>
                   </div>
                 </div>
               </div>

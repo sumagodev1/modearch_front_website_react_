@@ -10,7 +10,7 @@ import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import { useNavigate } from "react-router-dom";
 import up_arrow from './images/up-arrow.png'
 import up_arrow_white from './images/up-arrow-white.png'
-import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 const Blog = () => {
 
@@ -290,6 +290,10 @@ const Blog = () => {
               <FaWhatsapp style={{ height: "1.2rem", fill: "#444444" }} />
             </a>
             )}
+            <a href={socialLinks.linkedin} className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+              style={{ width: "45px", height: "45px", backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer" >
+              <FaLinkedin style={{ height: '1.2rem', fill: "#444444" }} />
+            </a>
           </div>
         </section>
 

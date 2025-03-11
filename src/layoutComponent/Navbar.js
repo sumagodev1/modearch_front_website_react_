@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation } from 'react-router-dom';
 import logo from './website-logo.png';
-import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -160,6 +160,10 @@ const Navbar = () => {
                     <FaWhatsapp style={{ height: "0.8rem" }} />
                   </a>
                 )}
+                <a href={socialLinks.linkedin} className="text-dark me-2 d-flex align-items-center justify-content-center rounded-circle shadow"
+                  style={{ width: '30px', height: '30px', backgroundColor: '#fff' }} target="_blank" rel="noopener noreferrer" >
+                  <FaLinkedin style={{ height: '0.8rem' }} />
+                </a>
               </div>
             </div>
           </div>

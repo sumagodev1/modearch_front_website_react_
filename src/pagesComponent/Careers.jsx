@@ -338,7 +338,7 @@ const Careers = () => {
 
                   <div className="mb-3">
                     <label className="form-label fw-bold mb-0">
-                        Upload CV <span className='text-danger'>*</span> <span className="text-danger" style={{ fontSize: '13px' }}>(validation file size should be less than 1MB and PDF only)</span>
+                        Upload CV <span className='text-danger'>*</span> <span className="text-danger" style={{ fontSize: '13px' }}>(size should be less than 1MB and PDF only)</span>
                     </label>
                     <div 
                         className="mb-3 d-flex justify-content-between align-items-center border" 
