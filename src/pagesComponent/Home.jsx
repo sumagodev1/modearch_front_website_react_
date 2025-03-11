@@ -293,7 +293,7 @@ const Home = () => {
             <div className="row align-items-center steel-structure-section-row">
               <div className="col-lg-6 text-content">
                 <h2 className="fw-bold" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900">Structural Steel Detailing</h2>
-                <p data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900">
+                <p data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900" className="text-justify">
                   At Modearch, We Pride Ourselves On Our Cutting-Edge Approach
                   To Steel Detailing. Utilizing Industry-Leading Software To
                   Deliver Exceptional Results For Our Clients. Leveraging The
@@ -360,7 +360,7 @@ const Home = () => {
                   onClick={() => setTimeout(() => window.location.hash = "#completed_project", 100)}
                   data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
                 >
-                  Our Projects{" "}
+                  Check Our Projects{" "}
                   <img
                     src={up_arrow}
                     alt="Tekla Structures"
@@ -378,7 +378,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="g-0">
+      <section className="g-0 about-precision-steel-section">
         <div className="container-fluid px-0">
           <div className="about-precision-steel-img position-relative">
             <img
@@ -524,7 +524,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="p-3 mt-5 mb-5">
+      <section className="p-3 mt-4 md:mt-5 mb-5">
         <div className="container">
           <div className="row">
             <div className="col-md-5 col-sm-12">

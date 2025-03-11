@@ -302,7 +302,7 @@
     .get_in_touch_underline_animation::before {
       content: "";
       /* width: 100%; */
-      width: 81%;
+      width: 84%;
       height: 5%;
     
       background-color: #000;
@@ -314,7 +314,7 @@
     
     .get_in_touch_underline_animation:hover::before {
       /* left: 0%; */
-      left: 9%;
+      left: 7%;
     }
 
     .get_in_touch_underline_animation {
@@ -635,5 +635,11 @@
     @media (max-width: 766px) {
       .numbers-section{
         margin-top: -6rem;
+      }
+    }
+
+    @media (max-width: 766px) {
+      .about-precision-steel-section{
+        margin-top: -2rem;
       }
     }

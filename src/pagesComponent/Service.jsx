@@ -167,6 +167,26 @@ const Service = () => {
       setShowModal(true);
     };
 
+    // for sevices text limit
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Set the limit based on whether it's mobile or not
+    const charLimit = isMobile ? 200 : 350;
+  
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768); // Adjust 768px if needed
+      };
+  
+      handleResize(); // Check the screen size initially
+      window.addEventListener("resize", handleResize);
+  
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+
 
   return (
     <>
@@ -240,9 +260,9 @@ const Service = () => {
                       <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
                       {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
                       <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
-                        {service.desc.length > 350 ? (
+                        {service.desc.length > charLimit ? (
                           <>
-                            {service.desc.slice(0, 350)}...
+                            {service.desc.slice(0, charLimit)}...
                             <span
                               className="fw-bold cursor-pointer"
                               onClick={() => handleShow(service)}
@@ -438,9 +458,9 @@ const Service = () => {
                         <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
                         {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
                         <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
-                          {service.desc.length > 350 ? (
+                          {service.desc.length > charLimit ? (
                             <>
-                              {service.desc.slice(0, 350)}...
+                              {service.desc.slice(0, charLimit)}...
                               <span
                                 className="fw-bold cursor-pointer"
                                 onClick={() => handleShow(service)}
