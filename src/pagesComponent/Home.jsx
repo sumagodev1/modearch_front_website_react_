@@ -360,7 +360,7 @@ const Home = () => {
                   onClick={() => setTimeout(() => window.location.hash = "#completed_project", 100)}
                   data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
                 >
-                  Check Out{" "}
+                  Our Projects{" "}
                   <img
                     src={up_arrow}
                     alt="Tekla Structures"
