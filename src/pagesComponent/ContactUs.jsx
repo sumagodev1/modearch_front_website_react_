@@ -451,8 +451,11 @@ const ContactUs = () => {
                               <ReCAPTCHA
                               ref={captchaRef}
                               // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
-                              sitekey="6LcvPesqAAAAADOOYwjQlAP7YuXckifnTPJ9rvVS"
-                              secretkey="6LcvPesqAAAAAEasHj8-Rc9jAH8znHjyfD_6dgAO"
+                              // sitekey="6LcvPesqAAAAADOOYwjQlAP7YuXckifnTPJ9rvVS"
+                              // secretkey="6LcvPesqAAAAAEasHj8-Rc9jAH8znHjyfD_6dgAO"
+
+                              sitekey = "6LckIvEqAAAAAPdy1kCNcZ-VEnwUf6zcJAw1zjK8"
+                              secretkey = "6LckIvEqAAAAAJokDpuRBhmJLdCAz2Y3wHkjQhuU"
                               onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
                               />
                               {errors.recaptcha && <small className="text-danger">{errors.recaptcha}</small>}

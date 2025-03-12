@@ -29,3 +29,20 @@
 .gallery_main_section{
     margin-top: -3rem;
 }
+
+
+/*  */
+
+/* CSS to control image height based on viewport size */
+@media (max-width: 768px) {
+    .gallery_img {
+      height: 150px; /* Smaller height on mobile */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .gallery_img {
+      height: 250px; /* Larger height on tablets and desktops */
+    }
+  }
+  

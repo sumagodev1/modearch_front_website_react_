@@ -151,7 +151,7 @@ const Blog = () => {
                         >
                         {blog.title.length > 23 ? blog.title.substring(0, 23) + "..." : blog.title}
                         </Card.Title>
-                        <Card.Text className="blogCardDesc pt-3" dangerouslySetInnerHTML={{ __html: blog.shortDesc }} />
+                        <Card.Text className="blogCardDesc pt-3 text-justify" dangerouslySetInnerHTML={{ __html: blog.shortDesc }} />
                     </div>
                     <div className="mt-auto">
                         <Button

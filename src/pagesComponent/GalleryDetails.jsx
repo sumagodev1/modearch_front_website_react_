@@ -83,22 +83,58 @@ const GalleryDetails = () => {
   // }, [gallery_category]);
   
 
+  // useEffect(() => {
+  //   const fetchProjectDetails = async () => {
+  //     try {
+  //       const response = await axios.get(`/galleryImages/galleryImages/${id}`);
+  //       console.log("galleryImages", response.data);
+  
+  //       // Check if isActive is true, then do not update the state
+  //       if (response.data.isActive) {
+  //         console.log("Data is deactive, not setting categoryData");
+  //         return; // Exit the function early
+  //       }
+  
+  //       setCategoryData(response.data);
+  //       console.log("categoryData", categoryData);
+  
+  //       const galleryData = response.data;
+  
+  //       if (typeof galleryData.gallery_images === "string") {
+  //         galleryData.gallery_images = JSON.parse(galleryData.gallery_images);
+  //       }
+  
+  //       if (response.data.result) {
+  //         const selectedBlog = response.data.responseData.find(
+  //           (gallery) =>
+  //             gallery.gallery_category.toLowerCase().replace(/\s+/g, "-") ===
+  //             gallery_category
+  //         );
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching blog details:", error);
+  //     }
+  //   };
+  
+  //   fetchProjectDetails();
+  // }, [gallery_category]);
+
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.get(`/galleryImages/galleryImages/${id}`);
         console.log("galleryImages", response.data);
   
-        // Check if isActive is true, then do not update the state
-        if (response.data.isActive) {
-          console.log("Data is deactive, not setting categoryData");
+        // Ensure that isActive is strictly false and isDelete is also false
+        if (response.data.isActive !== false || response.data.isDelete) {
+          console.log("Data does not meet the required condition, not setting categoryData");
           return; // Exit the function early
         }
   
         setCategoryData(response.data);
-        console.log("categoryData", categoryData);
+        console.log("categoryData", response.data);
   
-        const galleryData = response.data;
+        let galleryData = response.data;
   
         if (typeof galleryData.gallery_images === "string") {
           galleryData.gallery_images = JSON.parse(galleryData.gallery_images);
@@ -107,8 +143,7 @@ const GalleryDetails = () => {
         if (response.data.result) {
           const selectedBlog = response.data.responseData.find(
             (gallery) =>
-              gallery.gallery_category.toLowerCase().replace(/\s+/g, "-") ===
-              gallery_category
+              gallery.gallery_category.toLowerCase().replace(/\s+/g, "-") === gallery_category
           );
         }
       } catch (error) {
@@ -118,6 +153,7 @@ const GalleryDetails = () => {
   
     fetchProjectDetails();
   }, [gallery_category]);
+  
   
 
   const [open, setOpen] = useState(false);
@@ -166,9 +202,9 @@ const GalleryDetails = () => {
           </button> */}
         </div>
       ) : (
-      <section className="container py-5" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+      <section className="container py-5">
         <h2 className="text-center mb-4">{categoryData.gallery_category}</h2>
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        {/* <div className="row row-cols-1 row-cols-md-3 g-4">
           {categoryData.gallery_images.map((img, i) => (
             <div key={i} className='col'>
               <div className='card shadow-sm gallery_card' onClick={() => { setIndex(i); setOpen(true); }} style={{ cursor: "pointer" }}>
@@ -176,7 +212,53 @@ const GalleryDetails = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
+        {/* <div className="row row-cols-1 row-cols-md-3 g-4">
+          {categoryData.gallery_images.map((img, i) => (
+            <div key={i} className='col'>
+              <div
+                className='card shadow-sm gallery_card'
+                onClick={() => { setIndex(i); setOpen(true); }}
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  src={`${axios.defaults.baseURL}${img}`}
+                  className='card-img-top gallery_img'
+                  alt={img.gallery_category}
+                  style={{
+                    objectFit: 'cover',   // Ensure the image covers the container without distortion
+                    height: '250px',      // Set a fixed height for all images
+                    width: '100%',        // Set width to 100% to make it responsive
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div> */}
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+  {categoryData.gallery_images.map((img, i) => (
+    <div key={i} className="col">
+      <div
+        className="card shadow-sm gallery_card"
+        onClick={() => { setIndex(i); setOpen(true); }}
+        style={{ cursor: "pointer" }}
+      >
+        <img
+          src={`${axios.defaults.baseURL}${img}`}
+          className="card-img-top gallery_img img-fluid" // Added img-fluid for responsiveness
+          alt={img.gallery_category}
+          style={{
+            objectFit: 'cover',   // Ensure the image covers the container without distortion
+            height: '250vh',      // Set a fixed height for all images
+            width: '100%',        // Set width to 100% to make it responsive
+          }}
+        />
+      </div>
+    </div>
+  ))}
+</div>
+
+
         {/* <div className="text-center mt-4">
           <button className="btn btn-secondary" onClick={() => navigate(-1)}>Back to Gallery</button>
         </div> */}

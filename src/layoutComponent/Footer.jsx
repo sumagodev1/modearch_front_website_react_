@@ -100,12 +100,13 @@ const Footer = () => {
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/about" className="text-white text-decoration-none">About</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/service" className="text-white text-decoration-none">Services</a></li>
                       <li className="d-flex align-items-center text-nowrap"><i className="bi bi-chevron-right me-2"></i><a href="/completed_project" className="text-white text-decoration-none">Project</a></li>
-                      <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/gallery" className="text-white text-decoration-none">Gallery</a></li>
+                      
                     </ul>
                   </div>
 
                   <div className="col-6">
                     <ul className="list-unstyled quick-link-ul">
+                    <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/gallery" className="text-white text-decoration-none">Gallery</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/blog" className="text-white text-decoration-none">Blog</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/careers" className="text-white text-decoration-none">Careers</a></li>
                       <li className="d-flex align-items-center"><i className="bi bi-chevron-right me-2"></i><a href="/contactUs" className="text-white text-decoration-none">Contact</a></li>

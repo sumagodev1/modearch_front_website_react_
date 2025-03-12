@@ -48,7 +48,7 @@ const Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq1" className="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             Modearch Steel was founded in <strong>2017</strong> and has grown into a global leader in steel detailing, serving clients across multiple countries. 
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@ const Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             We have offices in:
                                             <ul style={{ listStyleType: "lower-alpha"}}>
                                                 <li><strong>Dover, Delaware, USA</strong></li>
@@ -83,7 +83,7 @@ const Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             Turnaround time depends on the <strong>size and complexity</strong> of the project. Small projects take <strong>1-2 weeks,</strong> while larger projects take <strong>4-8 weeks</strong>. 
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@ const Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq4" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             You can get started by:
                                             <ul style={{ listStyleType: "lower-alpha"}}>
                                                 <li><strong>Requesting a quote </strong>via our website</li>
@@ -130,7 +130,7 @@ const Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq5" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                         Yes, we offer <strong>regular progress updates</strong> and maintain open communication with clients throughout the project lifecycle.
                                         </div>
                                     </div>

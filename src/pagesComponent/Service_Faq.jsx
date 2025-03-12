@@ -48,7 +48,7 @@ const Service_Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq1" className="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             We offer <strong>structural steel detailing, connection design, miscellaneous steel detailing (stairs, railings, ladders, etc.), BIM & 3D modeling, material take-off & estimation, CNC & fabrication support, and quality control & compliance services.</strong>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@ const Service_Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             Yes, we adhere to <strong>AISC, NISD, CISC, and OSHA</strong> standards to ensure compliance, accuracy, and safety in all our projects.
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@ const Service_Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             Absolutely! With <strong>10+ years of experience, 1,000+ projects completed, and 1,500+ tons of steel detailing per month,</strong> we have the capacity and expertise to manage large and complex projects efficiently.
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@ const Service_Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq4" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             Our <strong>BIM expertise enables clash detection, optimized project coordination, reduced errors, and seamless collaboration</strong> among stakeholders, ensuring fewer delays and efficient execution. 
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@ const Service_Faq = () => {
                                         </button>
                                     </h2>
                                     <div id="faq5" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div className="accordion-body">
+                                        <div className="accordion-body text-justify">
                                             Yes, we operate according to <strong>US and Canadian time zones,</strong> ensuring smooth communication and project execution for our international clients.
                                         </div>
                                     </div>

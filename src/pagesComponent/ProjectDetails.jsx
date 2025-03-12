@@ -214,6 +214,22 @@ const ProjectDetails = () => {
 
       <div className="container my-5">
         {project && (
+          // <div className="row justify-content-center">
+          //   {project.project_images?.map((img, i) => (
+          //     <div key={i} className="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
+          //       <img
+          //         src={`${axios.defaults.baseURL}${img}`}
+          //         className="img-fluid rounded shadow-sm"
+          //         alt={`Project Image ${i + 1}`}
+          //         onClick={() => {
+          //           setIndex(i);
+          //           setOpen(true);
+          //         }}
+          //         style={{ cursor: "pointer" }}
+          //       />
+          //     </div>
+          //   ))}
+          // </div>
           <div className="row justify-content-center">
             {project.project_images?.map((img, i) => (
               <div key={i} className="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
@@ -225,11 +241,17 @@ const ProjectDetails = () => {
                     setIndex(i);
                     setOpen(true);
                   }}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    objectFit: 'cover',   // Ensure the image covers the container
+                    height: '200px',      // Set a fixed height for all images
+                    width: '100%',        // Set width to 100% to make it responsive
+                  }}
                 />
               </div>
             ))}
           </div>
+
         )}
 
 

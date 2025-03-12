@@ -426,7 +426,7 @@ const Home = () => {
                   <span className="fw-bold">Trusted </span>for Excellence
                 </h5>
                 <div className="mb-5">
-                  <p className="certified_para">
+                  <p className="certified_para text-justify">
                     Modearch is proudly certified by AISD, NISD, and CISC,
                     reflecting our commitment to precision, compliance, and
                     industry-leading standards in steel detailing. These

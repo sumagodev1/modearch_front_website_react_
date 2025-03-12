@@ -54,7 +54,7 @@ const MeetExpert = () => {
 
                 {/* Info Section */}
                 <div className="w-50 team-info-section text-white d-flex flex-column justify-content-center p-4 text-start">
-                  <p className="" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">{member.description}</p>
+                  <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">{member.description}</p>
                   <div className="name-role mt-1" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
                     <h5 className="mb-0" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600" >{member.name}</h5>
                     <small className="mb-0" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">{member.designation}</small>

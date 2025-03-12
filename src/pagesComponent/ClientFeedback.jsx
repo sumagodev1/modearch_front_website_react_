@@ -133,7 +133,7 @@ const ClientFeedback = () => {
                   {/* h-100 d-flex flex-column style={{ minHeight: "320px" }} */}
                 <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius  h-100 d-flex flex-column" style={{ minHeight: "290px" }}>
                   <h5 className="fw-bold mb-2">{testimonial.company_Name}</h5>
-                  <p className="text-muted mb-3">
+                  <p className="text-muted mb-3 text-justify">
                     {truncateReview(testimonial.review, 150)}
                     {testimonial.review.length > 150 && (
                       <span className='read-more' onClick={() => handleShowModal(testimonial)}>
