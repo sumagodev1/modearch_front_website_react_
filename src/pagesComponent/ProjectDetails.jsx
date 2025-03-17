@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from 'react-helmet-async';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
@@ -74,6 +74,22 @@ const ProjectDetails = () => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [projectdetails, setProjectdetails] = useState(null);
+
+    // Fetch project data from localStorage
+    useEffect(() => {
+      const storedProjectData = JSON.parse(localStorage.getItem('projectData'));
+      
+      if (storedProjectData) {
+        setProjectdetails(storedProjectData);
+      } else {
+        // If no data in localStorage, redirect to the homepage or an error page
+        navigate("/completed_project"); // You can change this to another page if needed
+      }
+    }, [navigate]);
+
   // useEffect(() => {
   //   const fetchProjectDetails = async () => {
   //     try {
@@ -126,10 +142,12 @@ const ProjectDetails = () => {
   
         console.log("Formatted Project Data:", formattedProject);
   
-        // Check if project is inactive before setting state
-        if (!formattedProject.isActive) {
+        // Check if project is inactive or marked for deletion before setting state
+        if (!formattedProject.isActive && !formattedProject.isDelete) {
           setProject(formattedProject);
           console.log("Project set in state:", formattedProject);
+        } else if (formattedProject.isDelete) {
+          console.log("Project is marked for deletion, ignoring.");
         } else {
           console.log("Project is active, ignoring.");
         }
@@ -141,7 +159,7 @@ const ProjectDetails = () => {
     if (id) {
       fetchProjectDetails();
     }
-  }, [id]);
+  }, [id]);  
   
   
   
@@ -293,34 +311,36 @@ const ProjectDetails = () => {
           <div className="col-md-12">
             <h2>{project.project_name}</h2>
             <p>
-              {project.project_info ||
+              {projectdetails.project_info ||
                 "This is a sample description for the project."}
             </p>
           </div>
           <div className="col-md-6">
             <h5>
-              <strong>Location:</strong> {project.project_name}
+              <strong>Location:</strong> {projectdetails.project_name}
             </h5>
             <h5>
-              <strong>Total Tonnage:</strong> {project.project_total_tonnage || "N/A"}
+              <strong>Total Tonnage:</strong> {projectdetails.project_total_tonnage || "N/A"}
             </h5>
           </div>
           <div className="col-md-6">
             <h5>
-              <strong>Year of Completion:</strong> {project.project_year_of_completion || "N/A"}
+              <strong>Year of Completion:</strong> {projectdetails.project_year_of_completion || "N/A"}
             </h5>
             <h5>
-              <strong>Status:</strong> {project.project_status || "N/A"}
+              <strong>Status:</strong> {projectdetails.project_status || "N/A"}
             </h5>
           </div>
         </div>
       </div>
       </>
       ) : (
+        <>
         <div className="container text-center py-5">
-          <h2 className="text-danger fw-bold">Project Not Found</h2>
+            {/* text-danger */}
+          <h2 className="fw-bold">Project Images Not Found</h2>
           <p className="text-muted mb-1">
-            The project you are looking for is either inactive or does not exist.
+            The project images you are looking for is either inactive or does not exist.
           </p>
           {/* <img
             src="https://via.placeholder.com/600x300?text=No+Project+Available"
@@ -331,6 +351,45 @@ const ProjectDetails = () => {
             Browse our other exciting projects and explore our expertise.
           </p>
         </div>
+
+        {projectdetails && (
+            // <div className="container mt-5">
+            //   <h3>Project Details from Location</h3>
+            //   <p><strong>Project Info:</strong> {projectdetails.project_info || "No project information available."}</p>
+            //   <p><strong>Location:</strong> {projectdetails.project_name}</p>
+            //   <p><strong>Total Tonnage:</strong> {projectdetails.project_total_tonnage || "N/A"}</p>
+            //   <p><strong>Year of Completion:</strong> {projectdetails.project_year_of_completion || "N/A"}</p>
+            //   <p><strong>Status:</strong> {projectdetails.project_status || "N/A"}</p>
+            // </div>
+            <div className="container mb-5">
+              <div className="row mt-4">
+                <div className="col-md-12">
+                  <h2>{projectdetails.project_name}</h2>
+                  <p>
+                    {projectdetails.project_info ||
+                      "This is a sample description for the project."}
+                  </p>
+                </div>
+                <div className="col-md-6">
+                  <h5>
+                    <strong>Location:</strong> {projectdetails.project_name}
+                  </h5>
+                  <h5>
+                    <strong>Total Tonnage:</strong> {projectdetails.project_total_tonnage || "N/A"}
+                  </h5>
+                </div>
+                <div className="col-md-6">
+                  <h5>
+                    <strong>Year of Completion:</strong> {projectdetails.project_year_of_completion || "N/A"}
+                  </h5>
+                  <h5>
+                    <strong>Status:</strong> {projectdetails.project_status || "N/A"}
+                  </h5>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       <section className="expertise-section mb-1">

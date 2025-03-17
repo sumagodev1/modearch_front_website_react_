@@ -220,7 +220,11 @@ const Completed_Project = () => {
                             .toLowerCase()
                             .replace(/\s+/g, "-")}`}
                           className="text-decoration-none see_more_btn see_more_underline_animation"
-                          onClick={()=>localStorage.setItem('objid',project.id)}
+                          // onClick={()=>localStorage.setItem('objid',project.id)}
+                          onClick={() => {
+                            localStorage.setItem('objid', project.id);
+                            localStorage.setItem('projectData', JSON.stringify(project));
+                          }}
                         >
                           See More{" "}
                           <img
