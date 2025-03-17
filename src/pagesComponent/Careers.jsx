@@ -162,7 +162,7 @@ const Careers = () => {
           // SweetAlert2 success message
           Swal.fire({
             title: 'Success!',
-            text: 'Form submitted successfully!',
+            text: 'Thank you! We will contact you soon.',
             icon: 'success',
             confirmButtonText: 'OK'
         });

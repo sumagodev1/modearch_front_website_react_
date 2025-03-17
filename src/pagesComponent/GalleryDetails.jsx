@@ -236,27 +236,27 @@ const GalleryDetails = () => {
           ))}
         </div> */}
         <div className="row row-cols-1 row-cols-md-3 g-4">
-  {categoryData.gallery_images.map((img, i) => (
-    <div key={i} className="col">
-      <div
-        className="card shadow-sm gallery_card"
-        onClick={() => { setIndex(i); setOpen(true); }}
-        style={{ cursor: "pointer" }}
-      >
-        <img
-          src={`${axios.defaults.baseURL}${img}`}
-          className="card-img-top gallery_img img-fluid" // Added img-fluid for responsiveness
-          alt={img.gallery_category}
-          style={{
-            objectFit: 'cover',   // Ensure the image covers the container without distortion
-            height: '250vh',      // Set a fixed height for all images
-            width: '100%',        // Set width to 100% to make it responsive
-          }}
-        />
-      </div>
-    </div>
-  ))}
-</div>
+          {categoryData.gallery_images.map((img, i) => (
+            <div key={i} className="col">
+              <div
+                className="card shadow-sm gallery_card"
+                onClick={() => { setIndex(i); setOpen(true); }}
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  src={`${axios.defaults.baseURL}${img}`}
+                  className="card-img-top gallery_img img-fluid" // Added img-fluid for responsiveness
+                  alt={img.gallery_category}
+                  style={{
+                    objectFit: 'cover',   // Ensure the image covers the container without distortion
+                    height: '50vh',      // Set a fixed height for all images
+                    width: '100%',        // Set width to 100% to make it responsive
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
 
         {/* <div className="text-center mt-4">
