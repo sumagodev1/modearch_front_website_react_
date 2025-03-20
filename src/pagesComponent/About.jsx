@@ -18,7 +18,7 @@ import ClientFeedback from './ClientFeedback';
 // import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png'
 import aboutprecisionsteelimgDesktop  from "./images/about/about-precision-steel-img.png";
 import aboutprecisionsteelimgMobile from "./images/about/about-precision-steel-imgMobile.png";
-import up_arrow from './images/up-arrow.png'
+import up_arrow from './images/up-arrow.svg'
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -106,21 +106,21 @@ const About = () => {
               <div className='row align-items-center'>
                   {/* Image Column */}
                   <div className='col-md-6 col-lg-6 col-12 mt-3 text-center'>
-                  <img src={about_us_img} alt="Who We Are" className='img-fluid mb-3' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600" />
+                  <img src={about_us_img} alt="Who We Are" className='img-fluid mb-3' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600" />
                   </div>
 
                   {/* Content Column */}
                   <div className='col-md-6 col-lg-6 col-12 mt-3'>
                   <div className='p-3'>
-                      <h2 className='fw-bold text-white ms-4 mb-3' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">Who We Are ?</h2>
+                      <h2 className='fw-bold text-white ms-4 mb-3' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">Who We Are ?</h2>
                       <div className='who-we-are-para'>
-                          <p className='mb-0' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
+                          <p className='mb-0' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
                           The journey of Modearch Steel began in 2017. With a small yet passionate team, we started working on the vision of delivering precision-driven steel detailing and design solutions. After three years of dedication and growth, we established our first office in Navi Mumbai in 2022, marking a significant milestone in our business.
                           </p>
-                          <p className='mb-0' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
+                          <p className='mb-0' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
                           As our expertise and demand grew, we expanded globally, setting up our second office in Delaware, USA, in 2023 to cater to the North American market. The same year, we further strengthened our presence by opening our third office in Nashik, followed by our fourth office in Nashik in 2024, reinforcing our commitment to innovation and excellence.
                           </p>
-                          <p className='mb-2' data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="600">
+                          <p className='mb-2' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
                           With a decade of experience, 100+ successful projects, and a 100+ team of skilled steel detailers, we have positioned ourselves as a trusted partner for fabricators, contractors, and engineering firms worldwide. Our foundation is defined by accuracy, quality, and global collaboration, and we remain committed to shaping the future of steel detailing with cutting-edge technology and industry expertise.
                           </p>
                       </div>

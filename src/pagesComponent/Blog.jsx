@@ -8,8 +8,8 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
 import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import { useNavigate } from "react-router-dom";
-import up_arrow from './images/up-arrow.png'
-import up_arrow_white from './images/up-arrow-white.png'
+import up_arrow from './images/up-arrow.svg'
+import up_arrow_white from './images/up-arrow-white.svg'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 const Blog = () => {
@@ -151,7 +151,8 @@ const Blog = () => {
                         >
                         {blog.title.length > 23 ? blog.title.substring(0, 23) + "..." : blog.title}
                         </Card.Title>
-                        <Card.Text className="blogCardDesc pt-3 text-justify" dangerouslySetInnerHTML={{ __html: blog.shortDesc }} />
+                          {/* text-justify */}
+                        <Card.Text className="blogCardDesc pt-3" dangerouslySetInnerHTML={{ __html: blog.shortDesc }} />
                     </div>
                     <div className="mt-auto">
                         <Button
@@ -213,7 +214,8 @@ const Blog = () => {
         <div className='container'>
           <h1 className='text-center fw-bold'>Industry Insights & Innovations</h1>
           <div className='p-4 text-center'>
-            <p className='blog_page_title text-justify'>Stay ahead with expert insights, industry trends, and the latest advancements in steel detailing. Explore technical updates, project highlights, and best practices shaping the future of structural steel design and detailing.</p>
+              {/* text-justify */}
+            <p className='blog_page_title'>Stay ahead with expert insights, industry trends, and the latest advancements in steel detailing. Explore technical updates, project highlights, and best practices shaping the future of structural steel design and detailing.</p>
           </div>
         </div>
       </section>

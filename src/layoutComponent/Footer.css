@@ -69,3 +69,10 @@
         padding-top: 0.2rem !important;
     }
 }
+
+.footer_bottom_line{
+    text-decoration: none;
+}
+.footer_bottom_line:hover{
+    font-weight: 600;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import up_arrow from './images/up-arrow.png'
+import up_arrow from './images/up-arrow.svg'
 
 const Faq = () => {
   return (

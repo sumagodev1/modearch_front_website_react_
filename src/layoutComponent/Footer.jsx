@@ -80,7 +80,7 @@ const Footer = () => {
                 <div className="d-flex mb-3">
                   {/* <i className="bi bi-geo-alt-fill me-2"></i>  */}
                   <img src={add1} alt="add1" className='img-fluid me-2' style={{height:"1.5rem"}} />
-                  <span style={{textAlign:"left"}}>05, B-11, Charkul, Sector-15, Kharghar, Navi Mumbai - 410210</span>
+                  <span style={{textAlign:"left"}}>Gharkul, Sector-15, Kharghar, Navi Mumbai - 410210</span>
                 </div>
 
                 <div className="d-flex">
@@ -149,7 +149,7 @@ const Footer = () => {
           <div className="container-fluid">
             <div className="row text-center text-md-start">
               <div className="col-md-12 col-lg-12 col-sm-12 mt-5 text-center footer-copyright-section">
-                © {currentYear} Copyright: <a href="https://sumagoinfotech.com" className="text-white" target="_blank" rel="noopener noreferrer">Made with Passion by Sumago Infotech</a>🤍
+                © {currentYear} Copyright: <a href="https://sumagoinfotech.com" className="text-white footer_bottom_line" target="_blank" rel="noopener noreferrer">Designed and Developed by Sumago infotech</a>
                {/* © {currentYear} Copyright : Made with Passion by Sumago Infotech 🤍 */}
               </div>
             </div>

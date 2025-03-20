@@ -11,7 +11,7 @@ import complete_project_bannerimgMobile from "./images/project/complete_project_
 // import complete_project_img from "./images/project/complete_project_img.png";
 import complete_projectimgDesktop  from "./images/project/complete_project_img.png";
 import complete_projectimgMobile from "./images/project/complete_projectimgMobile.png";
-import map from "./images/project/map.png";
+import map from "./images/project/map.webp";
 import sds2Logo from "./images/project/sds2Logo.png";
 import teklaLogo from "./images/project/teklaLogo.png";
 import sds2NewLogo from "./images/project/sds2NewLogo.png";
@@ -224,6 +224,7 @@ const Completed_Project = () => {
                           onClick={() => {
                             localStorage.setItem('objid', project.id);
                             localStorage.setItem('projectData', JSON.stringify(project));
+                            setTimeout(() => window.location.hash = "#project", 100);
                           }}
                         >
                           See More{" "}

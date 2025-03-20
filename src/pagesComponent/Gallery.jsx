@@ -10,7 +10,7 @@ import gallery_bannerimgMobile from "./images/gallery/gallery_bannerimgMobile.pn
 import gallery_img1 from './images/gallery/gallery_img1.png'
 import gallery_img2 from './images/gallery/gallery_img2.png'
 import gallery from './images/gallery/gallery.png'
-import up_arrow from './images/up-arrow.png'
+import up_arrow from './images/up-arrow.svg'
 import './Gallery.css'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 import AOS from "aos";

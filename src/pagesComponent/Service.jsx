@@ -13,7 +13,7 @@ import servicenexttobannerimgMobile from "./images/service/servicenexttobannerim
 import Navbar from "../layoutComponent/Navbar";
 import Service_Faq from "./Service_Faq";
 import Footer from "../layoutComponent/Footer";
-import up_arrow_white from "./images/up-arrow-white.png";
+import up_arrow_white from "./images/up-arrow-white.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -270,11 +270,11 @@ const Service = () => {
                             >
                               {" "}
                               Read More
-                              {/* <img
+                              <img
                                 src={up_arrow_white}
                                 alt="Tekla Structures"
                                 className="expertise-logo img-fluid"
-                              /> */}
+                              />
                             </span>
                           </>
                         ) : (
@@ -408,15 +408,16 @@ const Service = () => {
                     style={{ top: "-2rem" }}
                   >
                     <div className="service-line-circle first-circle"></div>
-                    <div className="service-line-circle"></div>
-                    <div className="service-line-circle"></div>
+                    <div className="service-line-circle first-circle"></div>
+                    <div className="service-line-circle first-circle"></div>
                   </div>
                 </div>
 
                 {/* Third Row - Labels */}
                 <div className="row text-center d-none d-md-flex">
                   <div className="col-md-4">
-                    <h5 className="fw-bold text-start">Our Track Record</h5>
+                      {/* fw-bold  */}
+                    <h5 className="text-start">Our Track Record</h5>
                   </div>
                   <div className="col-md-4">
                     <h5 className="text-center">Industries We Serve</h5>
@@ -468,11 +469,11 @@ const Service = () => {
                               >
                                 {" "}
                                 Read More
-                                {/* <img
+                                <img
                                   src={up_arrow_white}
                                   alt="Tekla Structures"
                                   className="expertise-logo img-fluid"
-                                /> */}
+                                />
                               </span>
                             </>
                           ) : (

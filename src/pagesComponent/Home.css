@@ -643,3 +643,44 @@
         margin-top: -2rem;
       }
     }
+
+    .customer-feedback-card-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .customer-feedback-card-effect:hover {
+      transform: translateY(-15px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .read-more_pointer{
+      cursor: pointer;
+    }
+
+    .read-more_pointer {
+      cursor: pointer;
+      display: inline-flex; /* Aligns text and image horizontally */
+      align-items: center; /* Centers the text and image */
+      gap: 5px; /* Adds a small space between text and icon */
+      transition: color 0.3s ease;
+    }
+    
+    .read-more_pointer img.up-arrow-icon {
+      /* width: 14px;  */
+      max-width: 20px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    
+
+     /* .customer-feedback-card-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .customer-feedback-card-effect:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 1px 25px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+     */

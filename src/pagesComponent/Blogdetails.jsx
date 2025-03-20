@@ -71,7 +71,7 @@ const Blogdetails = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h2 className="mt-4">{blogDetails.title}</h2>
+            <h2 className="mt-4"><b>{blogDetails.title}</b></h2>
           </div>
         </div>
       </div>

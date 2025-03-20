@@ -161,7 +161,19 @@ const ProjectDetails = () => {
     }
   }, [id]);  
   
-  
+  useEffect(() => {
+    if (location.hash === "#project") {
+      setTimeout(() => {
+        const projectSection = document.getElementById("project");
+        if (projectSection) {
+          const yOffset = -90; // Adjust this value for more or less offset
+          const y = projectSection.getBoundingClientRect().top + window.scrollY + yOffset;
+
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 300); // Ensure the DOM is loaded before scrolling
+    }
+  }, [location]);
   
 
   // if (!project) {
@@ -207,7 +219,7 @@ const ProjectDetails = () => {
         </div>
       </section>
 
-      <section className="g-0">
+      <section className="g-0" id="project">
         <div className="container-fluid px-0">
           <div className="complete_project_img">
             <img

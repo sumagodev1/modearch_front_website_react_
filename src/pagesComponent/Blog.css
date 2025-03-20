@@ -12,6 +12,10 @@
     border-color: transparent !important;
 }
 
+.blog_read_more_btn{
+    margin-left: -1rem;
+}
+
 
 @media (min-width: 768px) {
     .blogcrd {

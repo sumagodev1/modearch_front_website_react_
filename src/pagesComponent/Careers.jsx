@@ -11,7 +11,7 @@ import precision from './images/careers/precision.png'
 import globle from './images/careers/globle.png'
 import work from './images/careers/work.png'
 import careers from './images/careers/careers.png'
-import up_arrow from './images/up-arrow.png'
+import up_arrow from './images/up-arrow.svg'
 import './Careers.css'
 import Swal from 'sweetalert2';
 
@@ -353,7 +353,7 @@ const Careers = () => {
                   <div className="row mb-3">
                   <div className="col-md-6">
                       <label class="form-label fw-bold mb-0">Mobile No. <span className='text-danger'>*</span></label>
-                      <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="12" maxLength="12" onKeyPress={(e) => { if (!/[0-9+]/.test(e.key)) e.preventDefault(); }} />
+                      <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="13" maxLength="13" onKeyPress={(e) => { if (!/[0-9+]/.test(e.key)) e.preventDefault(); }} />
                       {/* onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} */}
                       {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
                   </div>
@@ -422,8 +422,11 @@ const Careers = () => {
 
                         // sitekey="6LcvPesqAAAAADOOYwjQlAP7YuXckifnTPJ9rvVS"
                         // secretkey="6LcvPesqAAAAAEasHj8-Rc9jAH8znHjyfD_6dgAO"
-                        sitekey = "6LckIvEqAAAAAPdy1kCNcZ-VEnwUf6zcJAw1zjK8"
-                        secretkey = "6LckIvEqAAAAAJokDpuRBhmJLdCAz2Y3wHkjQhuU"
+                        // sitekey = "6LckIvEqAAAAAPdy1kCNcZ-VEnwUf6zcJAw1zjK8"
+                        // secretkey = "6LckIvEqAAAAAJokDpuRBhmJLdCAz2Y3wHkjQhuU"
+
+                        sitekey = "6LeAZfoqAAAAAMc5CwBV3EdVbedy9IhxloDVUFNm"
+
                         onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
 
                             // positive.ae

@@ -7,6 +7,7 @@ import axios from "axios";
 import "./Home.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import up_arrow from "./images/up-arrow.png";
 
 const PrevArrow = ({ onClick, currentSlide }) => (
   <button
@@ -131,13 +132,19 @@ const ClientFeedback = () => {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="p-4 custom-padding">
                   {/* h-100 d-flex flex-column style={{ minHeight: "320px" }} */}
-                <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius  h-100 d-flex flex-column" style={{ minHeight: "290px" }}>
+                <div className="card border-0 p-4 position-relative customer-feedback-card-border-radius customer-feedback-card-effect  h-100 d-flex flex-column" style={{ minHeight: "290px" }}>
                   <h5 className="fw-bold mb-2">{testimonial.company_Name}</h5>
-                  <p className="text-muted mb-3 text-justify">
+                    {/* text-justify */}
+                  <p className="text-muted mb-3">
                     {truncateReview(testimonial.review, 150)}
                     {testimonial.review.length > 150 && (
-                      <span className='read-more' onClick={() => handleShowModal(testimonial)}>
-                        ... <b>Read More</b>
+                      <span className='read-more read-more_pointer' onClick={() => handleShowModal(testimonial)}>
+                        <b>Read More</b>                      
+                        <img
+                        src={up_arrow}
+                        alt="up_arrow"
+                        className="img-fluid up-arrow-icon"
+                      />
                       </span>
                     )}
                   </p>

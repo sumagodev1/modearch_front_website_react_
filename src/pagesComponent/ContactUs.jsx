@@ -14,7 +14,7 @@ import call from './images/contact/call.png'
 import contact_location from './images/contact/location.png'
 import mail from './images/contact/mail.png'
 import connect from './images/contact/connect.png'
-import up_arrow from './images/up-arrow.png'
+import up_arrow from './images/up-arrow.svg'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
@@ -366,32 +366,42 @@ const ContactUs = () => {
                         </div>
 
                         <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
-                            {/* <FaMapMarkerAlt className="icon me-2" /> */}
-                            <img src={contact_location} className="img-fluid icon me-2 mb-6 location-icon" alt="General Inquiries" style={{ maxHeight: '30px' }} />
-                            <div>
-                                <h4 className="fw-bold mb-0">FIND US</h4>
-                                <p className="text-muted mb-0">05, B-11, Gharkul, Sector-15, Kharghar, Navi Mumbai - 410210</p>
-                            </div>
+                          {/* <FaEnvelope className="icon me-2" /> */}
+                          <img src={mail} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} />
+                          <div>
+                              <h4 className="fw-bold mb-0">EMAIL ID</h4>
+                                {socialLinks.email && (
+                                    <a href={`mailto:${socialLinks.email}`} className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%", textDecoration: "none" }}>
+                                        {socialLinks.email}
+                                    </a>
+                                )}
+                              {/* <p className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%" }}>sales@armstrongtgal.com</p> */}
+                          </div>
                         </div>
+
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
-                                {/* <FaEnvelope className="icon me-2" /> */}
-                                <img src={mail} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} />
-                                <div>
-                                    <h4 className="fw-bold mb-0">EMAIL ID</h4>
-                                      {socialLinks.email && (
-                                          <a href={`mailto:${socialLinks.email}`} className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%", textDecoration: "none" }}>
-                                              {socialLinks.email}
-                                          </a>
-                                      )}
-                                    {/* <p className="text-muted mb-0" style={{ wordBreak: "break-word", maxWidth: "100%" }}>sales@armstrongtgal.com</p> */}
-                                </div>
-                            </div>
+                          <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
+                              {/* <FaMapMarkerAlt className="icon me-2" /> */}
+                              <img src={contact_location} className="img-fluid icon me-2 mb-6 location-icon" alt="General Inquiries" style={{ maxHeight: '30px' }} />
+                              <div>
+                                  <h4 className="fw-bold mb-0">INDIA</h4>
+                                  <p className="text-muted mb-0">Gharkul, Sector-15, Kharghar, Navi Mumbai - 410210</p>
+                              </div>
+                          </div>
 
-                            <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
-                                {/* <FaEnvelope className="icon me-2" /> */}
+                          <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
+                              {/* <FaMapMarkerAlt className="icon me-2" /> */}
+                              <img src={contact_location} className="img-fluid icon me-2 mb-6 location-icon" alt="General Inquiries" style={{ maxHeight: '30px' }} />
+                              <div>
+                                  <h4 className="fw-bold mb-0">US</h4>
+                                  <p className="text-muted mb-0">8, The Green Suite A, Dover, Delaware</p>
+                              </div>
+                          </div>
+
+                            {/* <div className="col-md-6 col-lg-6 col-sm-6 mb-4 text-center text-md-start d-flex align-items-start">
+                                
                                 <img src={connect} className="img-fluid icon me-2 mb-4" alt="General Inquiries" style={{ maxHeight: '30px' }} />
                                 <div>
                                     <h4 className="fw-bold mb-0">CONNECT</h4>
@@ -406,7 +416,7 @@ const ContactUs = () => {
                                         )}
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
                     </div>
@@ -456,8 +466,8 @@ const ContactUs = () => {
                           placeholder="Your Phone Number"
                           value={formData.phone}
                           onChange={handleChange}
-                          minLength="12" 
-                          maxLength="12"
+                          minLength="13" 
+                          maxLength="13"
                           // onKeyPress={(e) => {
                           //     if (!/[0-9]/.test(e.key)) e.preventDefault();
                           // }}
@@ -505,8 +515,9 @@ const ContactUs = () => {
                               // sitekey="6LcvPesqAAAAADOOYwjQlAP7YuXckifnTPJ9rvVS"
                               // secretkey="6LcvPesqAAAAAEasHj8-Rc9jAH8znHjyfD_6dgAO"
 
-                              sitekey = "6LckIvEqAAAAAPdy1kCNcZ-VEnwUf6zcJAw1zjK8"
-                              secretkey = "6LckIvEqAAAAAJokDpuRBhmJLdCAz2Y3wHkjQhuU"
+                              // sitekey = "6LckIvEqAAAAAPdy1kCNcZ-VEnwUf6zcJAw1zjK8"
+                              // secretkey = "6LckIvEqAAAAAJokDpuRBhmJLdCAz2Y3wHkjQhuU"
+                              sitekey ="6LeAZfoqAAAAAMc5CwBV3EdVbedy9IhxloDVUFNm"
                               onChange={handleRecaptchaChange}  // Handle ReCAPTCHA response change
                               />
                               {errors.recaptcha && <small className="text-danger">{errors.recaptcha}</small>}

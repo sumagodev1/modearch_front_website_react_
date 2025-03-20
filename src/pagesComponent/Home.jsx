@@ -13,7 +13,7 @@ import homeprecisionsteelimgDesktop  from "./images/home/homeprecisionsteelimg.p
 import homeprecisionsteelimgMobile from "./images/home/homeprecisionsteelimgMobile.png";
 import certifiedSideImg from "./images/home/certified_side_img.png";
 import certifiedSideImageSmall from "./images/home/certified_side_mobile_img.png";
-import certified_img from "./images/home/certified_img.png";
+import certified_img from "./images/home/certified_img.webp";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import {
@@ -23,7 +23,7 @@ import {
   FaWhatsapp,
   FaLinkedin,
 } from "react-icons/fa";
-import up_arrow_white from "./images/up-arrow-white.png";
+import up_arrow_white from "./images/up-arrow-white.svg";
 import up_arrow from "./images/up-arrow.png";
 import employees from "./images/home/employees.png";
 import coreServices from "./images/home/coreServices.png";
@@ -32,6 +32,8 @@ import client from "./images/home/client.png";
 import "./Home.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import CountUp from "react-countup"
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -247,7 +249,7 @@ const Home = () => {
                   src={cranehookimageimagesrc}
                   alt="Crane Hook"
                   className="img-fluid"
-                  data-aos="zoom-in"
+                  data-aos="fade-up"
                   data-aos-duration="2000"
                   data-aos-delay="900"
                 />
@@ -256,19 +258,11 @@ const Home = () => {
                 <div className="text-content-wrapper">
                   <h2 className="ms-4 mt-4">Who We Are?</h2>
                   <div className="bordered-text">
-                    <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900">
-                      The Journey Of Modearch Steel Began in 2017, When A Small
-                      Yet Passionate Team Started Working On The Vision Of
-                      Delivering Precision- Driven Steel Detailing And Design
-                      Solutions. After Five Years Of Dedication And Growth, We
-                      Established Our First Office In Navi Mumbai In 2022.
-                      Marking A Significant Milestone in Our Expansion. As Our
-                      Expertise And Client Base Grew, We Expanded Globally,
-                      Setting Up Our Second Office in Delaware. Dover. In 2023
-                      To Cater To The North American Market.
+                    <p className="text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">
+                      The journey of Modearch Steel began in 2017, when a small yet passionate team started working on the vision of delivering precision-driven steel detailing and design solutions. After five years of dedication and growth, we established our first office in Navi Mumbai in 2022, marking a significant milestone in our expansion. As our expertise and client base grew, we expanded globally, setting up our second office in Delaware, Dover, in 2023 to cater to the North American market.
                     </p>
                     <Link
-                      to="/about" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
+                      to="/about" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
                       className="btn learn-more-button text-white button_align_left fw-bold underline_animation"
                       onClick={() => setTimeout(() => window.location.hash = "#about-us", 100)}
                     >
@@ -292,17 +286,12 @@ const Home = () => {
           <div className="container-fluid position-relative">
             <div className="row align-items-center steel-structure-section-row">
               <div className="col-lg-6 text-content">
-                <h2 className="fw-bold" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900">Structural Steel Detailing</h2>
-                <p data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900" className="text-justify">
-                  At Modearch, We Pride Ourselves On Our Cutting-Edge Approach
-                  To Steel Detailing. Utilizing Industry-Leading Software To
-                  Deliver Exceptional Results For Our Clients. Leveraging The
-                  Power Of SDS2 And Tekla, Two Of The Most Advanced Software
-                  Solutions In The Field. We Ensure Precision, Efficiency, And
-                  Accuracy In Every Project We Undertake.
+                <h2 className="fw-bold" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">Structural Steel Detailing</h2>
+                <p data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900" className="text-justify">
+                  At Modearch, we pride ourselves on our cutting-edge approach to steel detailing, utilizing industry-leading software to deliver exceptional results for our clients. Leveraging the power of SDS2 and Tekla, two of the most advanced software solutions in the field, we ensure precision, efficiency, and accuracy in every project we undertake.
                 </p>
                 <Link
-                  to="/service" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
+                  to="/service" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
                   className="text-decoration-none btn fw-bold button_align_left get_in_touch_underline_animation"
                   onClick={() => setTimeout(() => window.location.hash = "#service", 100)}
                 >
@@ -323,7 +312,7 @@ const Home = () => {
                   src={steelStructureImage}
                   alt="Steel Structure"
                   className="structure-image img-fluid"
-                  data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
+                  data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
                 />
               </div>
             </div>
@@ -339,18 +328,11 @@ const Home = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 col-lg-5 craftsmanship-text mb-4">
-              <h1 className="fw-bold mt-4" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">DETAILING CRAFTSMANSHIP</h1>
+              <h1 className="fw-bold mt-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">DETAILING CRAFTSMANSHIP</h1>
               <div>
-                <p className="text-capitalize text-justify mt-3" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">
-                  From structural steel fabrication drawings to intricate steel
-                  connection designs, each project exemplifies our commitment to
-                  accuracy, quality, and innovation. Whether it's commercial
-                  buildings, industrial structures, or architectural marvels,
-                  our detailing work ensures strength, durability, and
-                  structural integrity. Explore our showcase to witness how we
-                  bring steel to life through meticulous detailing and
-                  craftsmanship. Trust us to elevate your projects with our
-                  unmatched expertise in steel detailing.
+                  {/* text-capitalize */}
+                <p className="text-justify mt-3" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">
+                  From structural steel fabrication drawings to intricate steel connection designs, each project exemplifies our commitment to accuracy, quality, and innovation. Whether it's commercial buildings, industrial structures, or architectural marvels, our detailing work ensures strength, durability, and structural integrity. Explore our showcase to witness how we bring steel to life through meticulous detailing and craftsmanship. Trust us to elevate your projects with our unmatched expertise in steel detailing.
                 </p>
               </div>
               <div className="detailing_crafts_check_out_btn mb-5">
@@ -358,7 +340,7 @@ const Home = () => {
                   to="/completed_project"
                   className="text-decoration-none btn fw-bold get_in_touch_underline_animation"
                   onClick={() => setTimeout(() => window.location.hash = "#completed_project", 100)}
-                  data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
+                  data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
                 >
                   Check Our Projects{" "}
                   <img
@@ -385,13 +367,13 @@ const Home = () => {
               src={imageSrc}
               alt="about-precision-steel-img"
               className="img-fluid w-100 home-precision-img"
-              data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
+              data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
             />
             <Link
               to="/contactUs"
               className="text-decoration-none btn position-absolute about-precision-steel-btn text-white get_in_white_underline_animation"
               onClick={() => setTimeout(() => window.location.hash = "#contact-form", 100)}
-              data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900"
+              data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
             >
               Get In Touch{" "}
               <img
@@ -421,20 +403,13 @@ const Home = () => {
             <div className="col-sm-12 col-md-1 certified_text_div"></div>
             <div className="col-sm-12 col-md-6 certified_text_div">
               <div className="certified_text_border">
-                <h5 className="mb-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="900">
+                <h5 className="mb-3" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">
                   <span className="fw-bold">Certified </span>for Precision,{" "}
                   <span className="fw-bold">Trusted </span>for Excellence
                 </h5>
                 <div className="mb-5">
                   <p className="certified_para text-justify">
-                    Modearch is proudly certified by AISD, NISD, and CISC,
-                    reflecting our commitment to precision, compliance, and
-                    industry-leading standards in steel detailing. These
-                    certifications ensure our expertise in delivering accurate,
-                    reliable, and high-quality detailing solutions that meet the
-                    highest structural and fabrication requirements. Backed by
-                    global standards, we guarantee excellence in every project
-                    we undertake
+                    Modearch is proudly certified by AISD, NISD, and CISC, reflecting our commitment to precision, compliance, and industry-leading standards in steel detailing. These certifications ensure our expertise in delivering accurate, reliable, and high-quality detailing solutions that meet the highest structural and fabrication requirements. Backed by global standards, we guarantee excellence in every project we undertake.
                   </p>
                 </div>
                 <div>
@@ -442,7 +417,7 @@ const Home = () => {
                     src={certified_img}
                     alt="certified_img"
                     className="img-fluid"
-                    data-aos="zoom-in-up" data-aos-duration="2000" data-aos-delay="900"
+                    data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
                   />
                 </div>
               </div>
@@ -491,14 +466,21 @@ const Home = () => {
                 <div className="col-6 stat-box number-section-border">
                   <div className="stat-icon-text">
                     <img src={employees} alt="Logo" className="img-fluid" />
-                    <h1 className="fw-bold">50+</h1>
+                    <h1 className="fw-bold">
+                      <CountUp start={0} end={50} duration={20} delay={0.5} />
+                      +
+                    </h1>
                   </div>
                   <p>EMPLOYEES</p>
                 </div>
                 <div className="col-6 stat-box">
                   <div className="stat-icon-text">
                     <img src={coreServices} alt="Logo" className="img-fluid" />
-                    <h1 className="fw-bold">10+</h1>
+                    {/* <h1 className="fw-bold">10+</h1> */}
+                    <h1 className="fw-bold">
+                      <CountUp start={0} end={10} duration={20} delay={0.5} />
+                      +
+                    </h1>
                   </div>
                   <p>CORE SERVICE</p>
                 </div>
@@ -507,14 +489,22 @@ const Home = () => {
                 <div className="col-6 stat-box number-section-border">
                   <div className="stat-icon-text">
                     <img src={project} alt="Logo" className="img-fluid" />
-                    <h1 className="fw-bold">5+</h1>
+                    {/* <h1 className="fw-bold">5+</h1> */}
+                    <h1 className="fw-bold">
+                      <CountUp start={0} end={150} duration={20} delay={0.5} />
+                      +
+                    </h1>
                   </div>
                   <p>PROJECT COMPLETED</p>
                 </div>
                 <div className="col-6 stat-box">
                   <div className="stat-icon-text">
                     <img src={client} alt="Logo" className="img-fluid" />
-                    <h1 className="fw-bold">23+</h1>
+                    {/* <h1 className="fw-bold">23+</h1> */}
+                    <h1 className="fw-bold">
+                      <CountUp start={0} end={150} duration={20} delay={0.5} />
+                      +
+                    </h1>
                   </div>
                   <p>SATISFIED CLIENT</p>
                 </div>
@@ -529,9 +519,9 @@ const Home = () => {
           <div className="row">
             <div className="col-md-5 col-sm-12">
               <div>
-                <h4 className="fw-bold" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">Stay Up to Date</h4>
+                <h4 className="fw-bold" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">Stay Up to Date</h4>
                 <div>
-                  <p data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">
+                  <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">
                     Visit our blog for the latest news on steel detailing,
                     industry standards, and updates related to Modearch's
                     services.
@@ -542,7 +532,7 @@ const Home = () => {
                   to="/blog"
                   className="text-decoration-none btn button_align_left fw-bold read_blog_underline_animation"
                   onClick={() => setTimeout(() => window.location.hash = "#blog", 100)}
-                  data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear"
+                  data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear"
                 >
                   Read Our Blog{" "}
                   <img
@@ -560,11 +550,11 @@ const Home = () => {
             </div>
             <div className="col-md-7 col-sm-12 mt-5 mt-md-0">
               <div>
-                <h4 className="fw-bold" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">
+                <h4 className="fw-bold" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">
                   Want to help shape the future of steel detailing?
                 </h4>
                 <div>
-                  <p data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">
+                  <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear">
                     Modearch is looking for talented and motivated individuals
                     to join our growing team
                   </p>
@@ -574,14 +564,14 @@ const Home = () => {
                     to="/about"
                     className="text-decoration-none btn button_align_left fw-bold join_team_underline_animation"
                     onClick={() => setTimeout(() => window.location.hash = "#modearch_team", 100)}
-                    data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear"
+                    data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear"
                   >
                     Join the Modearch Team{" "}
                     <img
                       src={up_arrow}
                       alt="Tekla Structures"
                       className="expertise-logo img-fluid"
-                      data-aos="fade-down" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear"
+                      data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700"  data-aos-easing="linear"
                     />
                   </Link>
                   {/* <a href="#" className="btn button_align_left fw-bold">
