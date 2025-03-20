@@ -110,8 +110,8 @@ const Navbar = () => {
               {/* Contact Info Section */}
               <div className="col-12 col-md-auto text-center text-md-end mb-2 mb-md-0 header-mail-number">
                 {/* <span className="me-3 d-block d-md-inline">+91 {contacts[0]?.phone1 || "213-814-2277"}</span> */}
-                <a href={`tel:+1${contacts[0]?.phone1 || "213-814-2277"}`} className="me-3 d-block d-md-inline" style={{ textDecoration: "none", color: "#000" }}>
-                  +1 {contacts[0]?.phone1 || "213-814-2277"}
+                <a href={`tel:${contacts[0]?.phone1 || "213-814-2277"}`} className="me-3 d-block d-md-inline" style={{ textDecoration: "none", color: "#000" }}>
+                  {contacts[0]?.phone1 || "213-814-2277"}
                 </a>
                 {/* <span className="me-3 d-block d-md-inline">sales@modearchsteel.com</span> */}
                 <a

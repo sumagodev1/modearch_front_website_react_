@@ -57,8 +57,8 @@ const Footer = () => {
                   {/* <i className="bi bi-telephone-fill me-2"></i>  */}
                   <img src={call} alt="call" className='img-fluid me-2' />
                   {/* <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a> */}
-                  <a href={`tel:+1${contacts[0]?.phone1 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
-                    +1 {contacts[0]?.phone1 || "213-814-2277"}
+                  <a href={`tel:${contacts[0]?.phone1 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
+                    {contacts[0]?.phone1 || "213-814-2277"}
                   </a>
                 </div>
 
@@ -66,8 +66,8 @@ const Footer = () => {
                   {/* <i className="bi bi-telephone-fill me-2"></i>  */}
                   <img src={call} alt="call" className='img-fluid me-2' />
                   {/* <a href="tel:+1238142227" className="text-white text-decoration-none">+1 123-814-2227</a> */}
-                  <a href={`tel:+91${contacts[0]?.phone2 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
-                    +91 {contacts[0]?.phone2 || "213-814-2277"}
+                  <a href={`tel:${contacts[0]?.phone2 || "213-814-2277"}`} className="text-white text-decoration-none" style={{ textDecoration: "none", color: "#000" }}>
+                    {contacts[0]?.phone2 || "213-814-2277"}
                   </a>
                 </div>
 

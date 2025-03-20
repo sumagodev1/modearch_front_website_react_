@@ -56,7 +56,8 @@ const Careers = () => {
         if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) return;
 
         // Allow only numbers in mobile field
-        if (name === "mobile" && !/^\d*$/.test(value)) return;
+        // if (name === "mobile" && !/^\d*$/.test(value)) return;
+        if (name === "mobile" && !/^[\d+]*$/.test(value)) return;
     
         // Allow only valid email characters
         if (name === "email" && !/^[a-zA-Z0-9@.]*$/.test(value)) return;
@@ -108,6 +109,26 @@ const Careers = () => {
     //   [name]: undefined
     // }));
   };
+
+  const validatePhone = (phone) => {
+    const phoneRegex = /^\+?[0-9]*$/; // Allows only numbers and '+'
+  
+    if (!phoneRegex.test(phone)) return false; // Only numbers and '+' are allowed
+  
+    if (phone.startsWith("+91")) {
+      // Indian number validation: after '+91', check if the number starts with 9, 8, 7, or 6
+      const indianNumber = phone.slice(3); // Remove '+91'
+      if (/^[6789]\d{9}$/.test(indianNumber)) return true;  // Number should start with 6, 7, 8, or 9 and be 10 digits long
+      return false; // If it doesn't match, return false
+    } else if (phone.startsWith("+1")) {
+      // US number validation
+      const usNumber = phone.slice(2); // Remove '+1'
+      if (/^\d{10}$/.test(usNumber)) return true;  // US number must be exactly 10 digits
+    }
+  
+    return false;  // If the phone doesn't start with '+91' or '+1'
+  };
+  
   
 
   const validateForm = () => {
@@ -119,10 +140,16 @@ const Careers = () => {
       newErrors.email = 'Enter a valid email';
     }
     // if (!formData.mobile.trim()) newErrors.mobile = 'Mobile number is required';
+    // if (!formData.mobile.trim()) {
+    //     newErrors.mobile = 'Mobile number is required';
+    //   } else if (!/^[9876][0-9]{9}$/.test(formData.mobile)) {
+    //     newErrors.mobile = 'Mobile number must start with 9, 8, 7, or 6 and must be 10 digits long';
+    // }
+
     if (!formData.mobile.trim()) {
-        newErrors.mobile = 'Mobile number is required';
-      } else if (!/^[9876][0-9]{9}$/.test(formData.mobile)) {
-        newErrors.mobile = 'Mobile number must start with 9, 8, 7, or 6 and must be 10 digits long';
+      newErrors.mobile = 'Mobile number is required';
+    } else if (!validatePhone(formData.mobile)) {
+      newErrors.mobile = 'Indian Mobile number must start with 9, 8, 7, or 6 and must be 10 digits after +91 (Indian number) or a valid US number (+1)';
     }
 
     if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
@@ -326,7 +353,8 @@ const Careers = () => {
                   <div className="row mb-3">
                   <div className="col-md-6">
                       <label class="form-label fw-bold mb-0">Mobile No. <span className='text-danger'>*</span></label>
-                      <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="10" maxLength="10" onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} />
+                      <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="12" maxLength="12" onKeyPress={(e) => { if (!/[0-9+]/.test(e.key)) e.preventDefault(); }} />
+                      {/* onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} */}
                       {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
                   </div>
                   <div className="col-md-6">

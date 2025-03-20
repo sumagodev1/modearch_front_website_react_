@@ -69,16 +69,24 @@ const ContactUs = () => {
         }
     
         // Phone validation
-        const phoneRegex = /^[9876][0-9]{9}$/; // Matches numbers starting with 9, 8, 7, or 6, followed by 9 digits
-        if (!formData.phone) {
-          newErrors.phone = 'Please enter your phone number';
-          valid = false;
-        } else if (!phoneRegex.test(formData.phone)) {
-          newErrors.phone = 'Mobile number must start with 9, 8, 7, or 6 and must be 10 digits long';
+        if (!validatePhone(formData.phone)) {
+          newErrors.phone = "Indian number must start with 9, 8, 7, or 6 after +91 or a valid US number (+1 XXXXXXXX).";
           valid = false;
         } else {
-          newErrors.phone = '';
+          newErrors.phone = "";
         }
+
+
+        // const phoneRegex = /^[9876][0-9]{9}$/; // Matches numbers starting with 9, 8, 7, or 6, followed by 9 digits
+        // if (!formData.phone) {
+        //   newErrors.phone = 'Please enter your phone number';
+        //   valid = false;
+        // } else if (!phoneRegex.test(formData.phone)) {
+        //   newErrors.phone = 'Mobile number must start with 9, 8, 7, or 6 and must be 10 digits long';
+        //   valid = false;
+        // } else {
+        //   newErrors.phone = '';
+        // }
 
         // const phoneRegex = /^[0-9]{10}$/;
         // if (!formData.phone) {
@@ -122,6 +130,25 @@ const ContactUs = () => {
         setErrors(newErrors);
         return valid;
       };
+
+      const validatePhone = (phone) => {
+        const phoneRegex = /^\+?[0-9]*$/; // Allows only numbers and '+'
+      
+        if (!phoneRegex.test(phone)) return false; // Only numbers and '+' are allowed
+      
+        if (phone.startsWith("+91")) {
+          // Indian number validation: after '+91', check if the number starts with 9, 8, 7, or 6
+          const indianNumber = phone.slice(3); // Remove '+91'
+          if (/^[6789]\d{9}$/.test(indianNumber)) return true;  // Number should start with 6, 7, 8, or 9 and be 10 digits long
+          return false; // If it doesn't match, return false
+        } else if (phone.startsWith("+1")) {
+          // US number validation
+          const usNumber = phone.slice(2); // Remove '+1'
+          if (/^\d{10}$/.test(usNumber)) return true;  // US number must be exactly 10 digits
+        }
+      
+        return false;  // If the phone doesn't start with '+91' or '+1'
+      };          
     
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -130,7 +157,7 @@ const ContactUs = () => {
         if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) return;
 
         // Allow only numbers in Phone field
-        if (name === "phone" && !/^\d*$/.test(value)) return;
+        // if (name === "phone" && !/^\d*$/.test(value)) return;
 
         // Allow only valid email characters
         if (name === "email" && !/^[a-zA-Z0-9@.]*$/.test(value)) return;
@@ -141,10 +168,33 @@ const ContactUs = () => {
           if (words.length > 300) return; // Restrict input if over 300 words
       }
 
+      if (name === "phone") {
+        let sanitizedValue = value.replace(/[^0-9+]/g, ""); // Only allow numbers and '+'
+    
+        if (sanitizedValue.includes("+") && sanitizedValue.indexOf("+") !== 0) {
+          return; // Prevent '+' anywhere except the start
+        }
+    
+        setFormData((prevState) => ({
+          ...prevState,
+          [name]: sanitizedValue
+        }));
+    
+        // Validate phone dynamically and remove error if correct
+        if (validatePhone(sanitizedValue)) {
+          setErrors((prevErrors) => ({ ...prevErrors, phone: "" }));
+        }
+      } else {
         setFormData((prevState) => ({
           ...prevState,
           [name]: value
         }));
+      }
+
+        // setFormData((prevState) => ({
+        //   ...prevState,
+        //   [name]: value
+        // }));
     
         // setErrors((prevState) => ({
         //   ...prevState,
@@ -304,12 +354,12 @@ const ContactUs = () => {
                             <img src={call} className="img-fluid icon me-2" alt="General Inquiries" style={{ maxHeight: '30px' }} /> 
                             <div>
                                 <h4 className="fw-bold mb-0">CALL</h4>
-                                  <a href={`tel:+1${contacts[0]?.phone1 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
-                                    +1 {contacts[0]?.phone1 || "213-814-2277"}
+                                  <a href={`tel:${contacts[0]?.phone1 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
+                                    {contacts[0]?.phone1 || "213-814-2277"}
                                   </a>
                                   <br></br>
-                                  <a href={`tel:+91${contacts[0]?.phone2 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
-                                    +91 {contacts[0]?.phone2 || "213-814-2277"}
+                                  <a href={`tel:${contacts[0]?.phone2 || "213-814-2277"}`} className="text-muted mb-0" style={{ textDecoration: "none" }}>
+                                    {contacts[0]?.phone2 || "213-814-2277"}
                                   </a>
                                 {/* <p className="text-muted mb-0">+1 213-814-2277</p> */}
                             </div>
@@ -406,10 +456,11 @@ const ContactUs = () => {
                           placeholder="Your Phone Number"
                           value={formData.phone}
                           onChange={handleChange}
-                          maxLength="10"
-                          onKeyPress={(e) => {
-                              if (!/[0-9]/.test(e.key)) e.preventDefault();
-                          }}
+                          minLength="12" 
+                          maxLength="12"
+                          // onKeyPress={(e) => {
+                          //     if (!/[0-9]/.test(e.key)) e.preventDefault();
+                          // }}
                           />
                           {errors.phone && <small className="text-danger">{errors.phone}</small>}
                       </div>
