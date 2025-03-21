@@ -352,9 +352,10 @@ const Careers = () => {
 
                   <div className="row mb-3">
                   <div className="col-md-6">
-                      <label class="form-label fw-bold mb-0">Mobile No. <span className='text-danger'>*</span></label>
+                      <label class="form-label fw-bold mb-0">Enter mobile number with country code. <span className='text-danger'>*</span></label>
                       <input type="text" name="mobile" className="form-control" placeholder="Enter your mobile no." value={formData.mobile} onChange={handleChange} minLength="13" maxLength="13" onKeyPress={(e) => { if (!/[0-9+]/.test(e.key)) e.preventDefault(); }} />
                       {/* onKeyPress={(e) => {if (!/[0-9]/.test(e.key)) e.preventDefault();}} */}
+                      <p className='mt-2'>(e.g., +91XXXXXXXXXX for India, +1XXXXXXXXXX for USA)</p>
                       {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
                   </div>
                   <div className="col-md-6">

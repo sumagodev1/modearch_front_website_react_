@@ -207,7 +207,7 @@ const ProjectDetails = () => {
 
       <Navbar />
 
-      <section className="g-0">
+      {/* <section className="g-0">
         <div className="container-fluid px-0">
           <div className="complete_project_banner_img">
             <img
@@ -217,7 +217,7 @@ const ProjectDetails = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="g-0" id="project">
         <div className="container-fluid px-0">

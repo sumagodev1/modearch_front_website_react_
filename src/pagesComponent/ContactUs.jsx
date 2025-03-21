@@ -458,7 +458,7 @@ const ContactUs = () => {
                       </div>
 
                       <div className="mb-3">
-                          <label className="form-label fw-bold">Phone Number <span className='text-danger'>*</span></label>
+                          <label className="form-label fw-bold">Enter mobile number with country code<span className='text-danger'>*</span></label>
                           <input
                           type="tel"
                           name="phone"
@@ -472,6 +472,7 @@ const ContactUs = () => {
                           //     if (!/[0-9]/.test(e.key)) e.preventDefault();
                           // }}
                           />
+                          <p className='mt-2'>(e.g., +91XXXXXXXXXX for India, +1XXXXXXXXXX for USA)</p>
                           {errors.phone && <small className="text-danger">{errors.phone}</small>}
                       </div>
 
