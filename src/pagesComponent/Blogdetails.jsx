@@ -7,8 +7,17 @@ import Footer from "../layoutComponent/Footer";
 import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
 import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import './Blog.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Blogdetails = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      once: false, // Whether animation should only happen once
+    });
+  }, []);
 
   const [imageSrc, setImageSrc] = useState(blog_bannerimgDesktop);
 
@@ -76,7 +85,7 @@ const Blogdetails = () => {
         </div>
       </div>
 
-      <div className="container mt-5">
+      <div className="container mt-5" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
         <div className="text-center">
           <img
             src={blogDetails.img}

@@ -149,7 +149,7 @@ const Footer = () => {
           <div className="container-fluid">
             <div className="row text-center text-md-start">
               <div className="col-md-12 col-lg-12 col-sm-12 mt-5 text-center footer-copyright-section">
-                © {currentYear} Copyright: <a href="https://sumagoinfotech.com" className="text-white footer_bottom_line" target="_blank" rel="noopener noreferrer">Designed and Developed by Sumago infotech</a>
+                © {currentYear} Copyright: <a href="https://sumagoinfotech.com" className="text-white footer_bottom_line" target="_blank" rel="noopener noreferrer">Designed and Developed by Sumago Infotech</a>
                {/* © {currentYear} Copyright : Made with Passion by Sumago Infotech 🤍 */}
               </div>
             </div>

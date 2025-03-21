@@ -11,8 +11,17 @@ import { useNavigate } from "react-router-dom";
 import up_arrow from './images/up-arrow.svg'
 import up_arrow_white from './images/up-arrow-white.svg'
 import { FaFacebookF, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Blog = () => {
+
+      useEffect(() => {
+        AOS.init({
+          duration: 1000, // Animation duration in milliseconds
+          once: false, // Whether animation should only happen once
+        });
+      }, []);
 
   const [imageSrc, setImageSrc] = useState(blog_bannerimgDesktop);
 
@@ -74,7 +83,7 @@ const Blog = () => {
 
   const renderBlogCard = (blog, index, reverse) => (
     <Col key={blog.id} xl={6} lg={6} md={12} sm={12} className="my-2 my-lg-0">
-      <Card className="border-0 h-100 text-white" >
+      <Card className="border-0 h-100 text-white" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
         <Row className="align-items-center">
           {reverse ? (
             <>

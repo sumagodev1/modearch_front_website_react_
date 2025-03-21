@@ -59,7 +59,7 @@ const Home = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration in milliseconds
-      once: true, // Whether animation should only happen once
+      once: false, // Whether animation should only happen once
     });
   }, []);
 
@@ -256,7 +256,7 @@ const Home = () => {
               </div>
               <div className="col-md-6 text-column">
                 <div className="text-content-wrapper">
-                  <h2 className="ms-4 mt-4">Who We Are?</h2>
+                  <h2 className="ms-4 mt-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="800">Who We Are?</h2>
                   <div className="bordered-text">
                     <p className="text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">
                       The journey of Modearch Steel began in 2017, when a small yet passionate team started working on the vision of delivering precision-driven steel detailing and design solutions. After five years of dedication and growth, we established our first office in Navi Mumbai in 2022, marking a significant milestone in our expansion. As our expertise and client base grew, we expanded globally, setting up our second office in Delaware, Dover, in 2023 to cater to the North American market.
@@ -408,7 +408,7 @@ const Home = () => {
                   <span className="fw-bold">Trusted </span>for Excellence
                 </h5>
                 <div className="mb-5">
-                  <p className="certified_para text-justify">
+                  <p className="certified_para text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="800">
                     Modearch is proudly certified by AISD, NISD, and CISC, reflecting our commitment to precision, compliance, and industry-leading standards in steel detailing. These certifications ensure our expertise in delivering accurate, reliable, and high-quality detailing solutions that meet the highest structural and fabrication requirements. Backed by global standards, we guarantee excellence in every project we undertake.
                   </p>
                 </div>

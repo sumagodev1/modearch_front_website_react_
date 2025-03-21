@@ -67,7 +67,7 @@ const Service = () => {
       useEffect(() => {
         AOS.init({
           duration: 1000, // Animation duration in milliseconds
-          once: true, // Whether animation should only happen once
+          once: false, // Whether animation should only happen once
         });
       }, []);
 
@@ -256,10 +256,10 @@ const Service = () => {
                   >
                     {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                     <div className="w-100">
-                      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.title}</h1>
-                      <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
-                      {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
-                      <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
+                      <h1 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
+                      <h5 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
+                      {/* <p className="text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
+                      <p className="text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
                         {service.desc.length > charLimit ? (
                           <>
                             {service.desc.slice(0, charLimit)}...
@@ -455,10 +455,10 @@ const Service = () => {
                     >
                         {/* <div className='service-text col-md-6 d-flex align-items-center bg-dark text-white p-4'> */}
                         <div className="w-100">
-                        <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.title}</h1>
-                        <h5 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.subtitle}</h5>
-                        {/* <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
-                        <p className="text-justify" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="400">
+                        <h1 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">{service.title}</h1>
+                        <h5 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">{service.subtitle}</h5>
+                        {/* <p className="text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">{service.desc}</p> */}
+                        <p className="text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
                           {service.desc.length > charLimit ? (
                             <>
                               {service.desc.slice(0, charLimit)}...

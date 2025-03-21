@@ -40,7 +40,7 @@ const Gallery = () => {
     useEffect(() => {
       AOS.init({
         duration: 1000, // Animation duration in milliseconds
-        once: true, // Whether animation should only happen once
+        once: false, // Whether animation should only happen once
       });
     }, []);
 
@@ -144,7 +144,7 @@ const Gallery = () => {
         <div className='container py-5'>
           <h2 className='text-center mb-4 fw-bold'>Gallery</h2>
           
-          <div className='row align-items-center'>
+          <div className='row align-items-center' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
             <div className='col-md-7'>
                 <img src={gallery_img1} alt='img1' className='img-fluid'  />
             </div>
@@ -156,7 +156,7 @@ const Gallery = () => {
             </div>
           </div>
           
-          <div className='row align-items-center mt-5'>
+          <div className='row align-items-center mt-5' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
             <div className='col-md-7 order-md-2'>
                 <img src={gallery_img2} alt='img4' className='img-fluid mb-4'  />
             </div>

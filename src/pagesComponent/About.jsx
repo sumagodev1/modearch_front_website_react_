@@ -27,7 +27,7 @@ const About = () => {
     useEffect(() => {
       AOS.init({
         duration: 1000, // Animation duration in milliseconds
-        once: true, // Whether animation should only happen once
+        once: false, // Whether animation should only happen once
       });
     }, []);
 

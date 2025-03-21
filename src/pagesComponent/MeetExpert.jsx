@@ -9,7 +9,7 @@ const MeetExpert = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
-      once: true, // Animation runs only once
+      once: false, // Animation runs only once
     });
   }, []);  
 
