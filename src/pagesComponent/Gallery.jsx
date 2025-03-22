@@ -5,10 +5,10 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 // import gallery_banner_img from './images/gallery/gallery_banner_img.png';
-import gallery_bannerimgDesktop  from "./images/gallery/gallery_banner_img.png";
-import gallery_bannerimgMobile from "./images/gallery/gallery_bannerimgMobile.png";
-import gallery_img1 from './images/gallery/gallery_img1.png'
-import gallery_img2 from './images/gallery/gallery_img2.png'
+import gallery_bannerimgDesktop  from "./images/gallery/gallery_banner_img.webp";
+import gallery_bannerimgMobile from "./images/gallery/gallery_bannerimgMobile.webp";
+import gallery_img1 from './images/gallery/gallery_img1.webp'
+import gallery_img2 from './images/gallery/gallery_img2.webp'
 import gallery from './images/gallery/gallery.png'
 import up_arrow from './images/up-arrow.svg'
 import './Gallery.css'
@@ -181,7 +181,7 @@ const Gallery = () => {
                   <>
                     {/* <p className="text-center text-danger">{error}</p> */}
                     <div className="container text-center py-2">
-                      <h4 className="text-danger fw-bold">Gallery images not available.</h4>
+                      <h4 className="fw-bold">Gallery images not available.</h4>
                     </div>
                   </>
                 ) : (

@@ -5,10 +5,10 @@ import { Helmet } from 'react-helmet-async';
 import "./service.css";
 import Service1 from "./images/service/service1.png";
 // import service_banner_img from "./images/service/service_banner_img.png";
-import service_bannerimgDesktop  from "./images/service/service_banner_img.png";
-import service_bannerimgMobile from "./images/service/homeprecisionsteelimgMobile.png";
+import service_bannerimgDesktop  from "./images/service/service_banner_img.webp";
+import service_bannerimgMobile from "./images/service/homeprecisionsteelimgMobile.webp";
 // import servicenexttobanner from "./images/service/service-next-to-banner.png";
-import servicenexttobannerimgDesktop  from "./images/service/service-next-to-banner.png";
+import servicenexttobannerimgDesktop  from "./images/service/service-next-to-banner.webp";
 import servicenexttobannerimgMobile from "./images/service/servicenexttobannerimgMobile.png";
 import Navbar from "../layoutComponent/Navbar";
 import Service_Faq from "./Service_Faq";
@@ -417,13 +417,13 @@ const Service = () => {
                 <div className="row text-center d-none d-md-flex">
                   <div className="col-md-4">
                       {/* fw-bold  */}
-                    <h5 className="text-start">Our Track Record</h5>
+                    {/* <h5 className="text-start">Our Track Record</h5> */}
                   </div>
                   <div className="col-md-4">
-                    <h5 className="text-center">Industries We Serve</h5>
+                    {/* <h5 className="text-center">Industries We Serve</h5> */}
                   </div>
                   <div className="col-md-4">
-                    <h5 className="text-end">Compliance</h5>
+                    {/* <h5 className="text-end">Compliance</h5> */}
                   </div>
                 </div>
               </div>

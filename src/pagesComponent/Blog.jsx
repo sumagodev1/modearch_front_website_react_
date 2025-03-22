@@ -5,7 +5,7 @@ import axios from "axios";
 import { Helmet } from 'react-helmet-async';
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 // import blog_banner_img from "./images/blog/blog_banner_img.png";
-import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
+import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.webp";
 import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import { useNavigate } from "react-router-dom";
 import up_arrow from './images/up-arrow.svg'

@@ -7,10 +7,10 @@ import { useParams } from "react-router-dom";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 // import complete_project_banner_img from "./images/project/complete_project_banner_img.png";
-import complete_project_bannerimgDesktop  from "./images/project/complete_project_banner_img.png";
-import complete_project_bannerimgMobile from "./images/project/complete_project_bannermgMobile.png";
+import complete_project_bannerimgDesktop  from "./images/project/complete_project_banner_img.webp";
+import complete_project_bannerimgMobile from "./images/project/complete_project_bannermgMobile.webp";
 // import complete_project_img from "./images/project/complete_project_img.png";
-import complete_projectimgDesktop  from "./images/project/complete_project_img.png";
+import complete_projectimgDesktop  from "./images/project/complete_project_img.webp";
 import complete_projectimgMobile from "./images/project/complete_projectimgMobile.png";
 import world_map from "./images/project/world_map.png";
 import sds2Logo from "./images/project/sds2Logo.png";
@@ -316,6 +316,7 @@ const ProjectDetails = () => {
             doubleTapMaxDelay: 500,
           }}
           captions={{ showToggle: true }}
+          className="custom-lightbox"
         />
 
 

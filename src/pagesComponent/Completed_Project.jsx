@@ -6,10 +6,10 @@ import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import ProjectDetails from "./ProjectDetails";
 // import complete_project_banner_img from "./images/project/complete_project_banner_img.png";
-import complete_project_bannerimgDesktop  from "./images/project/complete_project_banner_img.png";
-import complete_project_bannerimgMobile from "./images/project/complete_project_bannermgMobile.png";
+import complete_project_bannerimgDesktop  from "./images/project/complete_project_banner_img.webp";
+import complete_project_bannerimgMobile from "./images/project/complete_project_bannermgMobile.webp";
 // import complete_project_img from "./images/project/complete_project_img.png";
-import complete_projectimgDesktop  from "./images/project/complete_project_img.png";
+import complete_projectimgDesktop  from "./images/project/complete_project_img.webp";
 import complete_projectimgMobile from "./images/project/complete_projectimgMobile.png";
 import map from "./images/project/map.webp";
 import sds2Logo from "./images/project/sds2Logo.png";
@@ -249,7 +249,8 @@ const Completed_Project = () => {
               ))
             ) : (
               <div className="container text-center py-2">
-                <h2 className="text-danger fw-bold">No projects available for the selected category.</h2>
+                  {/* text-danger  */}
+                <h2 className="fw-bold">No projects available for the selected category.</h2>
               </div>
             )}
           </div>

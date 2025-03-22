@@ -4,13 +4,15 @@ import axios from "axios";
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 // import blog_banner_img from "./images/blog/blog_banner_img.png";
-import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.png";
+import blog_bannerimgDesktop  from "./images/blog/blog_banner_img.webp";
 import blog_bannerimgMobile from "./images/blog/blog_bannerimgMobile.png";
 import './Blog.css'
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Blogdetails = () => {
+
+   const baseURL = axios.defaults.baseURL; // Dynamically set the baseURL
 
   useEffect(() => {
     AOS.init({
@@ -85,10 +87,11 @@ const Blogdetails = () => {
         </div>
       </div>
 
-      <div className="container mt-5" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+      <div className="container mt-3" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
         <div className="text-center">
           <img
-            src={blogDetails.img}
+            // src={blogDetails.img2}
+            src={`${baseURL}${blogDetails.img2}`}
             alt={blogDetails.title}
             className="img-fluid"
           />

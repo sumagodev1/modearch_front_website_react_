@@ -7,9 +7,9 @@ import Faq from './Faq';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './ContactUs.css'
 // import contact_banner_img from './images/contact/contact-banner-img.jpg'
-import contact_bannerimgDesktop  from "./images/contact/contact-banner-img.jpg";
-import contact_bannerimgMobile from "./images/contact/contact-bannerimgMobile.png";
-import reachus from './images/contact/reachus.png'
+import contact_bannerimgDesktop  from "./images/contact/contact-banner-img.webp";
+import contact_bannerimgMobile from "./images/contact/contact-bannerimgMobile.webp";
+import reachus from './images/contact/reachus.webp'
 import call from './images/contact/call.png'
 import contact_location from './images/contact/location.png'
 import mail from './images/contact/mail.png'

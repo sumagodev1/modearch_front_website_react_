@@ -5,8 +5,8 @@ import Footer from '../layoutComponent/Footer';
 import ReCAPTCHA from 'react-google-recaptcha';
 import axios from 'axios';
 // import careers_banner_img from './images/careers/careers_banner_img.png'
-import careers_bannerimgDesktop  from "./images/careers/careers_banner_img.png";
-import careers_bannerimgMobile from "./images/careers/careers_bannerimgMobile.png";
+import careers_bannerimgDesktop  from "./images/careers/careers_banner_img.webp";
+import careers_bannerimgMobile from "./images/careers/careers_bannerimgMobile.webp";
 import precision from './images/careers/precision.png'
 import globle from './images/careers/globle.png'
 import work from './images/careers/work.png'

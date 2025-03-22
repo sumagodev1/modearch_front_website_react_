@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from "../layoutComponent/Navbar";
 import Footer from "../layoutComponent/Footer";
 import ClientFeedback from "./ClientFeedback";
-import homebannerimage from "./images/home/home_banner_image.png";
+import homebannerimage from "./images/home/home_banner_image.webp";
 import craneHookImage from "./images/home/crane_hook.png";
 import craneHookImageSmall from "./images/home/crane_hook_mobile_img.png";
 import steelStructureImage from "./images/home/steelStructureImage.png";
@@ -49,7 +49,7 @@ const Home = () => {
   // Ensure the image URL is absolute
   const absoluteHomeBannerImage = homebannerimage_dynamic
     ? `${baseURL.replace(/\/$/, '')}/${homebannerimage_dynamic.replace(/^\//, '')}`
-    : "https://staging-api-v2.modearchsteel.com/uploads/homeslider/1741250790964-home_banner_image.png";
+    : "https://staging-api-v2.modearchsteel.com/uploads/homeslider/1741250790964-home_banner_image.webp";
 
   console.log("Final Open Graph Imagee:", absoluteHomeBannerImage);
 
@@ -207,7 +207,7 @@ const Home = () => {
         <meta property="og:title" content="Precision Steel Detailing & BIM Solutions | ModeArch Steel" />
         <meta property="og:description" content="ModeArch Steel provides expert structural steel detailing, connection design, and BIM solutions worldwide. We deliver accurate, efficient, and high-quality services. Request a quote today!" />
         <meta property="og:image" content={absoluteHomeBannerImage} />
-        <meta property="og:url" content="https://staging-v2.modearchsteel.com/contactUs" />
+        <meta property="og:url" content="https://staging-v2.modearchsteel.com/" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Meta Tags */}
@@ -338,7 +338,7 @@ const Home = () => {
               <div className="detailing_crafts_check_out_btn mb-5">
                 <Link
                   to="/completed_project"
-                  className="text-decoration-none btn fw-bold get_in_touch_underline_animation"
+                  className="text-decoration-none btn check_our_project fw-bold get_in_touch_underline_animation"
                   onClick={() => setTimeout(() => window.location.hash = "#completed_project", 100)}
                   data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"
                 >

@@ -4,11 +4,11 @@ import Navbar from '../layoutComponent/Navbar';
 import Footer from '../layoutComponent/Footer'
 import { Helmet } from 'react-helmet-async';
 // import about_banner_img from './images/about/about-banner-img.png'
-import aboutbannerimgDesktop  from "./images/about/about-banner-img.png";
-import aboutbannerimgMobile from "./images/about/aboutbannerimgMobile.png";
-import about_us_img from './images/about/about-us-imgg.png'
+import aboutbannerimgDesktop  from "./images/about/about-banner-img.webp";
+import aboutbannerimgMobile from "./images/about/aboutbannerimgMobile.webp";
+import about_us_img from './images/about/about-us-imgg.webp'
 import mission_img from './images/about/mission.png'
-import visionmissionbottomimg from './images/about/vision-mission-bottom.png'
+import visionmissionbottomimg from './images/about/vision-mission-bottom.webp'
 import mission from './images/about/mission-in.png'
 import vision from './images/about/vision.png'
 import './About.css'

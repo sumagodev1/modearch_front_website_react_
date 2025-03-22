@@ -170,7 +170,7 @@
   }
 
   .detailing_crafts_section{
-    background: url('./images/home/detailingCarft.png') no-repeat center center/cover;
+    background: url('./images/home/detailingCarft.webp') no-repeat center center/cover;
   }
 
   .detailing_crafts_check_out_btn{
@@ -672,6 +672,15 @@
       transition: transform 0.3s ease-in-out;
     }
     
+
+    /*  */
+
+    .check_our_project:focus {
+      box-shadow: none !important;
+    }
+    .check_our_project:active {
+      border-color: transparent !important;
+    }
     
 
      /* .customer-feedback-card-effect {
