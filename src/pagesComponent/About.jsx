@@ -16,7 +16,7 @@ import Growth from './Growth';
 import MeetExpert from './MeetExpert';
 import ClientFeedback from './ClientFeedback';
 // import aboutprecisionsteelimg from './images/about/about-precision-steel-img.png'
-import aboutprecisionsteelimgDesktop  from "./images/about/about-precision-steel-img.png";
+import aboutprecisionsteelimgDesktop  from "./images/about/about-precision-steel-img.webp";
 import aboutprecisionsteelimgMobile from "./images/about/about-precision-steel-imgMobile.png";
 import up_arrow from './images/up-arrow.svg'
 import AOS from "aos";

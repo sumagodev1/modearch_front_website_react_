@@ -22,7 +22,7 @@
   }
   
   .contact-bg{
-    background: url('./images/contact/img.png') no-repeat center center/cover;
+    background: url('./images/contact/img.webp') no-repeat center center/cover;
     border-radius: 1.4rem;
   }
   @media (max-width: 765px) {

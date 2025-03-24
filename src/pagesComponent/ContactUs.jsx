@@ -209,64 +209,107 @@ const ContactUs = () => {
           recaptcha: '' // Reset ReCAPTCHA error when user solves it
         }));
       };
-    
+
+      const [loading, setLoading] = useState(false);
+
       const handleSubmit = async (e) => {
         e.preventDefault();
         
         if (validateForm()) {
-          try {
-            const response = await axios.post("/carousal-form/addcarousalform", {
-              name: formData.name,
-              mobile: formData.phone,
-              email: formData.email,
-              message: formData.message
-            });
-    
-            console.log('Form submitted', response.data);
-            // alert('Form submitted successfully!');
-              // SweetAlert2 success message
-              Swal.fire({
-                title: 'Success!',
-                text: 'Thank you! We will contact you soon.',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
+            setLoading(true); // Start loader
             
-            // Reset form after submission
-            setFormData({ name: '', phone: '', email: '', message: '' });
-            setErrors({});
-          } catch (error) {
-            // let newErrors = {};
-            
-            // Handle API error for existing phone number or email
-            // if (
-            //   error.response?.data?.message === "Validation error: Phone number already exists."
-            // ) {
-            //   newErrors.phone = "Mobile number already exists.";
-            //   alert("Mobile number already exists. Please enter a new one.");
-            // } else if (
-            //   error.response?.data?.message === "Validation error: Email already exists."
-            // ) {
-            //   newErrors.email = "Email already exists.";
-            //   alert("Email already exists. Please enter a new one.");
-            // } else {
-            //   newErrors.general = "Failed to submit data. Please try again later.";
-            //   alert("Failed to submit data. Please try again later.");
-            // }
+            try {
+                const response = await axios.post("/carousal-form/addcarousalform", {
+                    name: formData.name,
+                    mobile: formData.phone,
+                    email: formData.email,
+                    message: formData.message
+                });
     
-            console.error('Failed to submit form:', error);
-            // alert("Failed to submit data. Please try again later.");
-
-              // SweetAlert2 error message
-              Swal.fire({
-                title: 'Error!',
-                text: 'Failed to submit data. Please try again later.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-          }
+                console.log('Form submitted', response.data);
+    
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Thank you! We will contact you soon.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+    
+                // Reset form after submission
+                setFormData({ name: '', phone: '', email: '', message: '' });
+                setErrors({});
+            } catch (error) {
+                console.error('Failed to submit form:', error);
+    
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to submit data. Please try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } finally {
+                setLoading(false); // Stop loader
+            }
         }
-    };    
+    };
+
+    //   const handleSubmit = async (e) => {
+    //     e.preventDefault();
+        
+    //     if (validateForm()) {
+    //       try {
+    //         const response = await axios.post("/carousal-form/addcarousalform", {
+    //           name: formData.name,
+    //           mobile: formData.phone,
+    //           email: formData.email,
+    //           message: formData.message
+    //         });
+    
+    //         console.log('Form submitted', response.data);
+    //         // alert('Form submitted successfully!');
+    //           // SweetAlert2 success message
+    //           Swal.fire({
+    //             title: 'Success!',
+    //             text: 'Thank you! We will contact you soon.',
+    //             icon: 'success',
+    //             confirmButtonText: 'OK'
+    //         });
+            
+    //         // Reset form after submission
+    //         setFormData({ name: '', phone: '', email: '', message: '' });
+    //         setErrors({});
+    //       } catch (error) {
+    //         // let newErrors = {};
+            
+    //         // Handle API error for existing phone number or email
+    //         // if (
+    //         //   error.response?.data?.message === "Validation error: Phone number already exists."
+    //         // ) {
+    //         //   newErrors.phone = "Mobile number already exists.";
+    //         //   alert("Mobile number already exists. Please enter a new one.");
+    //         // } else if (
+    //         //   error.response?.data?.message === "Validation error: Email already exists."
+    //         // ) {
+    //         //   newErrors.email = "Email already exists.";
+    //         //   alert("Email already exists. Please enter a new one.");
+    //         // } else {
+    //         //   newErrors.general = "Failed to submit data. Please try again later.";
+    //         //   alert("Failed to submit data. Please try again later.");
+    //         // }
+    
+    //         console.error('Failed to submit form:', error);
+    //         // alert("Failed to submit data. Please try again later.");
+
+    //           // SweetAlert2 error message
+    //           Swal.fire({
+    //             title: 'Error!',
+    //             text: 'Failed to submit data. Please try again later.',
+    //             icon: 'error',
+    //             confirmButtonText: 'OK'
+    //         });
+    //       }
+    //     }
+    // };    
 
     const [socialLinks, setSocialLinks] = useState({});
 
@@ -525,8 +568,17 @@ const ContactUs = () => {
                           </div>
 
                           {/* <button type="submit" className="btn btn-dark">Submit →</button> */}
-                          <button type="submit" className="submit-button submit_btn_underline_animation">
-                              Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
+                          <button type="submit" className="submit-button submit_btn_underline_animation" disabled={loading}>
+                              {loading ? (
+                                  <span>
+                                      <div className="spinner-border spinner-border-sm me-2" role="status"></div>
+                                      Submitting...
+                                  </span>
+                              ) : (
+                                  <>
+                                      Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
+                                  </>
+                              )}
                           </button>
                       </div>
                       </form>

@@ -161,10 +161,13 @@ const Careers = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validateForm()) {
+      setLoading(true); // Start loader
       try {
         const formDataToSend = new FormData();
         formDataToSend.append('name', formData.name);
@@ -226,7 +229,9 @@ const Careers = () => {
               icon: 'error',
               confirmButtonText: 'OK'
           });
-      }
+          } finally {
+                setLoading(false); // Stop loader
+          }
     }
   };
 
@@ -440,9 +445,20 @@ const Careers = () => {
                     </div>
 
                     <div className="text-center">
-                      <button type="submit" className="submit-button submit_btn_underline_animation">
+                      {/* <button type="submit" className="submit-button submit_btn_underline_animation">
                           Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
-                          {/* <span className="arrow">↗</span> */}
+                      </button> */}
+                      <button type="submit" className="submit-button submit_btn_underline_animation" disabled={loading}>
+                          {loading ? (
+                              <span>
+                                  <div className="spinner-border spinner-border-sm me-2" role="status"></div>
+                                  Submitting...
+                              </span>
+                          ) : (
+                              <>
+                                  Submit <img src={up_arrow} alt="up_arrow" className='img-fluid' />
+                              </>
+                          )}
                       </button>
                     </div>
                   </div>

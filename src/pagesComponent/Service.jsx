@@ -9,7 +9,7 @@ import service_bannerimgDesktop  from "./images/service/service_banner_img.webp"
 import service_bannerimgMobile from "./images/service/homeprecisionsteelimgMobile.webp";
 // import servicenexttobanner from "./images/service/service-next-to-banner.png";
 import servicenexttobannerimgDesktop  from "./images/service/service-next-to-banner.webp";
-import servicenexttobannerimgMobile from "./images/service/servicenexttobannerimgMobile.png";
+import servicenexttobannerimgMobile from "./images/service/servicenexttobannerimgMobile.webp";
 import Navbar from "../layoutComponent/Navbar";
 import Service_Faq from "./Service_Faq";
 import Footer from "../layoutComponent/Footer";
