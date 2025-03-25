@@ -194,7 +194,10 @@ const Careers = () => {
             title: 'Success!',
             text: 'Thank you! We will contact you soon.',
             icon: 'success',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            customClass: {
+              confirmButton: 'custom-confirm-button' // Apply a custom class for styling
+          }
         });
 
         setFormData({ name: '', email: '', mobile: '', subject: '', cv: null, message: '' });
@@ -227,7 +230,10 @@ const Careers = () => {
               title: 'Error!',
               text: 'Failed to submit data. Please try again later.',
               icon: 'error',
-              confirmButtonText: 'OK'
+              confirmButtonText: 'OK',
+              customClass: {
+                confirmButton: 'custom-confirm-button' // Apply a custom class for styling
+            }
           });
           } finally {
                 setLoading(false); // Stop loader

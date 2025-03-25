@@ -232,7 +232,10 @@ const ContactUs = () => {
                     title: 'Success!',
                     text: 'Thank you! We will contact you soon.',
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    customClass: {
+                      confirmButton: 'custom-confirm-button' // Apply a custom class for styling
+                  }
                 });
     
                 // Reset form after submission
@@ -240,12 +243,20 @@ const ContactUs = () => {
                 setErrors({});
             } catch (error) {
                 console.error('Failed to submit form:', error);
+
+                let errorMessage = 'Failed to submit data. Please try again later.';
+                if (error.response && error.response.data && error.response.data.message) {
+                    errorMessage = error.response.data.message; // Show specific error if available
+                }
     
                 Swal.fire({
                     title: 'Error!',
                     text: 'Failed to submit data. Please try again later.',
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    customClass: {
+                      confirmButton: 'custom-confirm-button' // Apply a custom class for styling
+                  }
                 });
             } finally {
                 setLoading(false); // Stop loader

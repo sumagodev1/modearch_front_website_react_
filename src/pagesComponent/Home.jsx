@@ -491,7 +491,7 @@ const Home = () => {
                     <img src={project} alt="Logo" className="img-fluid" />
                     {/* <h1 className="fw-bold">5+</h1> */}
                     <h1 className="fw-bold">
-                      <CountUp start={0} end={150} duration={20} delay={0.5} />
+                      <CountUp start={0} end={1500} duration={20} delay={0.5} />
                       +
                     </h1>
                   </div>
@@ -502,7 +502,7 @@ const Home = () => {
                     <img src={client} alt="Logo" className="img-fluid" />
                     {/* <h1 className="fw-bold">23+</h1> */}
                     <h1 className="fw-bold">
-                      <CountUp start={0} end={150} duration={20} delay={0.5} />
+                      <CountUp start={0} end={20} duration={20} delay={0.5} />
                       +
                     </h1>
                   </div>

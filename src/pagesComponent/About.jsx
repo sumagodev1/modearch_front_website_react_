@@ -121,7 +121,7 @@ const About = () => {
                           As our expertise and demand grew, we expanded globally, setting up our second office in Delaware, USA, in 2023 to cater to the North American market. The same year, we further strengthened our presence by opening our third office in Nashik, followed by our fourth office in Nashik in 2024, reinforcing our commitment to innovation and excellence.
                           </p>
                           <p className='mb-2' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
-                          With a decade of experience, 100+ successful projects, and a 100+ team of skilled steel detailers, we have positioned ourselves as a trusted partner for fabricators, contractors, and engineering firms worldwide. Our foundation is defined by accuracy, quality, and global collaboration, and we remain committed to shaping the future of steel detailing with cutting-edge technology and industry expertise.
+                          With a decade of experience, 1500+ successful projects, and a 50+ team of skilled steel detailers, we have positioned ourselves as a trusted partner for fabricators, contractors, and engineering firms worldwide. Our foundation is defined by accuracy, quality, and global collaboration, and we remain committed to shaping the future of steel detailing with cutting-edge technology and industry expertise.
                           </p>
                       </div>
                   </div>

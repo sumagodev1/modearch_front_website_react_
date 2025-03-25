@@ -365,7 +365,7 @@ const Service = () => {
                       className="fw-bold mobile-total-year"
                       style={{ color: "#fff" }}
                     >
-                      1000+
+                      1500+
                     </h2>
                     <h5 className="mobile-subheading">Successful Projects</h5>
                   </div>
