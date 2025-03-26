@@ -323,7 +323,7 @@ const Service = () => {
                     </p>
                   </div>
                   <div className="col-md-4">
-                    <h2 className="fw-bold counter" data-count="1000" style={{ color: "#fff" }}>
+                    <h2 className="fw-bold counter" data-count="1500" style={{ color: "#fff" }}>
                       0+
                     </h2>
                     <h5>Successful Projects</h5>
