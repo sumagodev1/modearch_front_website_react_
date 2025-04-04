@@ -19,8 +19,10 @@ import './index.css';
 function App() {
   // axios.defaults.baseURL = `http://localhost:8000/`;
 
+  axios.defaults.baseURL = `https://modearchsteel.sumagodemo.com/`;
+
   // axios.defaults.baseURL = `https://staging-api-v2.modearchsteel.com/`;
-  axios.defaults.baseURL = `https://api.modearchsteel.com/`;
+  // axios.defaults.baseURL = `https://api.modearchsteel.com/`;
 
   return (
     <HelmetProvider>
